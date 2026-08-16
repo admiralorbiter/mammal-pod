@@ -1,0 +1,39 @@
+protocol_id: e01_semantic_self
+version: 0.1.0
+status: exploratory
+domain: semantic
+mode: observation
+prompt_modality: visual
+answer:
+  modality: speech
+  speak_actual_answer: true
+  think_aloud: false
+  lock_required: true
+confidence:
+  enabled: true
+  modality: numeric
+  minimum: 0
+  maximum: 100
+  shown_after_answer_lock: true
+  default_value: null
+feedback:
+  trial_level: false
+  block_level: false
+  show_model_predictions: false
+item_bank:
+  bank_id: semantic_bank
+  version: TO_FREEZE
+  partition: exploratory
+observer_contracts: []
+analysis:
+  primary_estimands:
+    - accuracy
+    - brier
+    - auroc2
+    - calibration
+  secondary_estimands:
+    - response_latency
+    - confidence_bias
+    - audio_quality
+  analysis_plan: TO_FREEZE
+  precision_plan: SIMULATION_AFTER_PILOT

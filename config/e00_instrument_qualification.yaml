@@ -1,0 +1,36 @@
+protocol_id: e00_instrument_qualification
+version: 0.1.0
+status: engineering
+domain: semantic
+mode: engineering
+prompt_modality: visual
+answer:
+  modality: mixed
+  think_aloud: false
+  lock_required: true
+confidence:
+  enabled: true
+  modality: numeric
+  minimum: 0
+  maximum: 100
+  shown_after_answer_lock: true
+  default_value: null
+feedback:
+  trial_level: false
+  block_level: false
+  show_model_predictions: false
+item_bank:
+  bank_id: synthetic_e00
+  version: 0.1.0
+  partition: engineering
+observer_contracts:
+  - INPUT_ONLY_TEST_V1
+  - VISIBLE_ANSWER_TEST_V1
+analysis:
+  primary_estimands:
+    - event_completeness
+    - artifact_integrity
+    - replay_equivalence
+    - state_transition_compliance
+  analysis_plan: docs/04_EXPERIMENT_PROGRAM_AND_GATES.md#e00
+  precision_plan: qualification_gate

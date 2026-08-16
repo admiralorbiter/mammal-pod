@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-mammal.local/schemas/observer-contract.schema.json",
+  "title": "Observer Visibility Contract",
+  "type": "object",
+  "required": ["observer_id", "version", "prediction_target", "current_trial", "history", "forbidden_fields"],
+  "properties": {
+    "observer_id": {"type": "string"},
+    "version": {"type": "string"},
+    "prediction_target": {"type": "string"},
+    "current_trial": {"type": "object", "additionalProperties": {"type": "boolean"}},
+    "history": {
+      "type": "object",
+      "required": ["allowed"],
+      "properties": {
+        "allowed": {"type": "boolean"},
+        "maximum_timestamp_rule": {"type": ["string", "null"]},
+        "fields": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "forbidden_fields": {
+      "type": "array",
+      "items": {"type": "string"},
+      "allOf": [{"contains": {"const": "current_outcome"}}]
+    },
+    "output_schema": {"type": "string"},
+    "compliance_gate": {"type": "number", "minimum": 0, "maximum": 1}
+  },
+  "additionalProperties": true
+}

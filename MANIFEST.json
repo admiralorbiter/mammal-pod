@@ -1,0 +1,192 @@
+[
+  {
+    "path": "AGENTS.md",
+    "bytes": 5605,
+    "sha256": "b340b54550c6c2fb16129ee6fe0ee9f8254f39d57e07466fa7863a2b2c5a456c"
+  },
+  {
+    "path": "PROJECT_MAMMAL_FOUNDING_PACKET.md",
+    "bytes": 123196,
+    "sha256": "45fc96badf89271c4cb1347200a414c0e75ef7d968eafe76cce7343847f3de14"
+  },
+  {
+    "path": "README.md",
+    "bytes": 6626,
+    "sha256": "d47fe9bef66afc2b1103220221cdb17e8d15a9be25a20eb98ca86c39e295a8a1"
+  },
+  {
+    "path": "config/e00_instrument_qualification.yaml",
+    "bytes": 805,
+    "sha256": "9dd84ae27626e9d46cd91908b698aec960214d0c1299d28132d0591b9f6df03a"
+  },
+  {
+    "path": "config/e01_semantic_self.yaml",
+    "bytes": 787,
+    "sha256": "5da30f2bbf55535f341f1e725c5f10f7c6cc42659b1c26d744ddc8ea8ce1bf85"
+  },
+  {
+    "path": "config/observer_visible_answer_text_v1.yaml",
+    "bytes": 534,
+    "sha256": "cb2bfe5b3f6322e6bdc7b142827b5317a28808798952433956ce474fefbe5d10"
+  },
+  {
+    "path": "config/p00_rdk_qualification.yaml",
+    "bytes": 1075,
+    "sha256": "d3225534a48a6a28c5196932ebefa5697c35b8a9c520e7e7a55222619022fd6a"
+  },
+  {
+    "path": "docs/00_PROJECT_CHARTER.md",
+    "bytes": 5259,
+    "sha256": "b4177937e3c5ec6a720bf96d1286d585cd948d84d475ecac8d40598e27a2038f"
+  },
+  {
+    "path": "docs/01_METAL_GEAR_COGNITIVE_MODEL.md",
+    "bytes": 7734,
+    "sha256": "799614a6fbbca53261d58bb93c671d2b25c1dddfc64bdb7c91bc79aec05d5887"
+  },
+  {
+    "path": "docs/02_RESEARCH_QUESTIONS_AND_NOVELTY.md",
+    "bytes": 5244,
+    "sha256": "a046b1e54baa5597da289ddae462705fb1b63e62e488e76379a833d864f8bb94"
+  },
+  {
+    "path": "docs/03_RESEARCH_LANDSCAPE.md",
+    "bytes": 6227,
+    "sha256": "bbb6f42735de7de29f854f45b83dc1608a892bc4db8ff87221cb15bb913493df"
+  },
+  {
+    "path": "docs/04_EXPERIMENT_PROGRAM_AND_GATES.md",
+    "bytes": 7455,
+    "sha256": "4335963434dc858b8087fe06d7ebfd1278713cdd801264b0faf861a7fd53a513"
+  },
+  {
+    "path": "docs/05_DOMAIN_PROTOCOLS.md",
+    "bytes": 5137,
+    "sha256": "848216f9f176af35ff2c2c4bb768191c2bc091404a36a904ce683ad8caaebf89"
+  },
+  {
+    "path": "docs/06_PERCEPTUAL_PSYCHOPHYSICS_PROTOCOL.md",
+    "bytes": 6224,
+    "sha256": "f50deba42666eec38df4883ac5aab494a28485919bd7799b1033a0a98f68719a"
+  },
+  {
+    "path": "docs/07_INPUT_MODALITY_AND_ACQUISITION_CONTRACT.md",
+    "bytes": 4426,
+    "sha256": "14599c83cecf50e10c5ed6665522880dab3f36b924921e1b62907ddd901ffed0"
+  },
+  {
+    "path": "docs/08_DATA_AND_EPISTEMIC_MODEL.md",
+    "bytes": 5862,
+    "sha256": "a3425145805a808bd8d5a409b37898f394ea5b956c4fe5b5c38f79c95d5903c2"
+  },
+  {
+    "path": "docs/09_OBSERVER_AND_PERSONALIZATION_ARCHITECTURE.md",
+    "bytes": 5223,
+    "sha256": "0b7a6acf2ef7df90c1321da62a3b99cada9a786f91c357c015a52158d36376b3"
+  },
+  {
+    "path": "docs/10_STATISTICAL_ANALYSIS_PLAN.md",
+    "bytes": 5496,
+    "sha256": "98101e0c80528a8644212739f6dee286d43e44685e04c42c55e3aad817223cf1"
+  },
+  {
+    "path": "docs/11_TECHNICAL_ARCHITECTURE.md",
+    "bytes": 9339,
+    "sha256": "e50a08cea80f245d24912872c8698c32739a7b57a79ef4c706cc14ea90b65ee0"
+  },
+  {
+    "path": "docs/12_DEVELOPMENT_SEQUENCE_AND_DEPENDENCIES.md",
+    "bytes": 7476,
+    "sha256": "887116fae8a66abc1f62c0e59d8bf468d87b5767706ba0fcf2e866afe39e04de"
+  },
+  {
+    "path": "docs/13_RISKS_ETHICS_AND_GOVERNANCE.md",
+    "bytes": 5760,
+    "sha256": "656fd6349c5fd0e5c36fe5121e4eed4559f51194ccb62f9552e5b68220290d80"
+  },
+  {
+    "path": "docs/14_PUBLICATION_AND_REPRODUCIBILITY_PLAN.md",
+    "bytes": 5111,
+    "sha256": "a9ea41a972bd3c599be748e11d934d355923374cf00fc1f9dffd68c3a7fa56c6"
+  },
+  {
+    "path": "docs/15_PRODUCT_EXPERIENCE_AND_BRANDING.md",
+    "bytes": 3989,
+    "sha256": "525bdddf983779d94c1ddcc42ba33310477a9b438d48dc3274b353a0008d9d13"
+  },
+  {
+    "path": "docs/16_DECISIONS_AND_OPEN_QUESTIONS.md",
+    "bytes": 4037,
+    "sha256": "df4b563f83503a2bfa5e22ea5a069c44e94ae65f7b6484e8e44b0cfe648e8121"
+  },
+  {
+    "path": "docs/17_RESEARCH_BIBLIOGRAPHY.md",
+    "bytes": 7202,
+    "sha256": "f22f07ea6a721c8425d812d30658dc3c51cda0824e2a056f3972675b12139e16"
+  },
+  {
+    "path": "docs/18_SOURCE_LINEAGE.md",
+    "bytes": 2527,
+    "sha256": "2de87dde187d843925f5380b842d0174716997a2545e5bba62a2bd2662f9ed78"
+  },
+  {
+    "path": "schemas/item.schema.json",
+    "bytes": 1169,
+    "sha256": "7b8793b5a2ed592efa4bd19d203e8b5ab9f675224fc67db9730d86e4b79f445b"
+  },
+  {
+    "path": "schemas/observer-contract.schema.json",
+    "bytes": 1153,
+    "sha256": "8c22831778d0ebf074f08c1b4e7a56200597f50c083780b40a8e66eb9ec0d7a9"
+  },
+  {
+    "path": "schemas/protocol.schema.json",
+    "bytes": 2952,
+    "sha256": "1c9fdbfdfd0df43287e77f1c0c29cf9dec0f3dc0ff8abc2a32e444ed2baba17d"
+  },
+  {
+    "path": "schemas/trial-event.schema.json",
+    "bytes": 876,
+    "sha256": "b38ec5e8c23d0fef1160cd09e8f3f21d9182f940ec64d0c88b104b1a1f5bf3b5"
+  },
+  {
+    "path": "templates/claim-record.md",
+    "bytes": 634,
+    "sha256": "0c03e590dfb8af90ddbfbf79eef2f1907c9f772441405b69220c1697be46a6cb"
+  },
+  {
+    "path": "templates/decision-record.md",
+    "bytes": 365,
+    "sha256": "5f7fcde84d5e11fa93685ff58255d9920c320eda2f1e81f656733b42c3239dbb"
+  },
+  {
+    "path": "templates/deviation-record.md",
+    "bytes": 438,
+    "sha256": "3beb1b338bae46f124d6bb0e541cc16ee5ac0d6d76183323a2f07417cfdc2e14"
+  },
+  {
+    "path": "templates/experiment-protocol.md",
+    "bytes": 1721,
+    "sha256": "fd8db9974410903c5af1c8a8ebb1499d13a030f863ec28bcb47afa61375b7565"
+  },
+  {
+    "path": "templates/item-bank-card.md",
+    "bytes": 924,
+    "sha256": "3893fb66990b230254b1a932fdaae1c1d8f507fdec60f33e360ce84aca5a10ca"
+  },
+  {
+    "path": "templates/observer-card.md",
+    "bytes": 960,
+    "sha256": "ccda0a997a1aef8c901a4c4a0a42beeff21a07469b31faaf34d86ea703c0da29"
+  },
+  {
+    "path": "templates/self-consent-record.md",
+    "bytes": 582,
+    "sha256": "1ec3a62c1192c0f3c32be3a1f9dd3efac7d44b4789d6f86de846471c18f34bc2"
+  },
+  {
+    "path": "templates/session-record.md",
+    "bytes": 907,
+    "sha256": "3a7f688a6c595ea71e82d8cad6c58f62ea7afcbe8abc6ed7aee1f3d191b8f517"
+  }
+]

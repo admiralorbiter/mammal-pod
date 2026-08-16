@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-mammal.local/schemas/protocol.schema.json",
+  "title": "Project MAMMAL Protocol",
+  "type": "object",
+  "required": [
+    "protocol_id", "version", "status", "domain", "mode",
+    "answer", "confidence", "feedback", "item_bank", "analysis"
+  ],
+  "properties": {
+    "protocol_id": {"type": "string", "minLength": 1},
+    "version": {"type": "string", "minLength": 1},
+    "status": {"enum": ["engineering", "exploratory", "confirmatory", "frozen", "retired"]},
+    "domain": {"enum": ["semantic", "formal_math_logic", "formal_code", "perception_rdk", "future_memory", "other"]},
+    "mode": {"enum": ["observation", "intervention", "debrief", "engineering"]},
+    "prompt_modality": {"enum": ["visual", "auditory", "mixed"]},
+    "answer": {
+      "type": "object",
+      "required": ["modality", "lock_required"],
+      "properties": {
+        "modality": {"enum": ["speech", "keyboard", "button", "mixed"]},
+        "think_aloud": {"type": "boolean", "default": false},
+        "lock_required": {"const": true}
+      },
+      "additionalProperties": true
+    },
+    "confidence": {
+      "type": "object",
+      "required": ["enabled", "shown_after_answer_lock"],
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "modality": {"enum": ["numeric", "speech", "categorical", "none"]},
+        "minimum": {"type": "number"},
+        "maximum": {"type": "number"},
+        "shown_after_answer_lock": {"const": true},
+        "default_value": {"type": ["number", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "feedback": {
+      "type": "object",
+      "required": ["trial_level"],
+      "properties": {
+        "trial_level": {"type": "boolean"},
+        "block_level": {"type": "boolean"},
+        "show_model_predictions": {"type": "boolean", "default": false}
+      },
+      "additionalProperties": true
+    },
+    "item_bank": {
+      "type": "object",
+      "required": ["bank_id", "version", "partition"],
+      "properties": {
+        "bank_id": {"type": "string"},
+        "version": {"type": "string"},
+        "partition": {"enum": ["engineering", "calibration", "exploratory", "confirmatory", "reserve"]}
+      },
+      "additionalProperties": true
+    },
+    "observer_contracts": {"type": "array", "items": {"type": "string"}},
+    "analysis": {
+      "type": "object",
+      "required": ["primary_estimands"],
+      "properties": {
+        "primary_estimands": {"type": "array", "items": {"type": "string"}},
+        "analysis_plan": {"type": "string"},
+        "precision_plan": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "ethics": {
+      "type": "object",
+      "properties": {
+        "determination_id": {"type": ["string", "null"]},
+        "consent_record": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

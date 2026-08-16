@@ -1,0 +1,46 @@
+protocol_id: p00_rdk_qualification
+version: 0.1.0
+status: engineering
+domain: perception_rdk
+mode: engineering
+prompt_modality: visual
+vision_condition: uncorrected
+setup:
+  browser: PIN_BEFORE_RUN
+  fullscreen_required: true
+  fixed_monitor: true
+  fixed_viewing_distance: true
+answer:
+  modality: keyboard
+  choices: [left, right]
+  think_aloud: false
+  lock_required: true
+confidence:
+  enabled: true
+  modality: numeric
+  minimum: 0
+  maximum: 100
+  shown_after_answer_lock: true
+  default_value: null
+feedback:
+  trial_level: false
+  block_level: false
+  show_model_predictions: false
+stimulus:
+  plugin: '@jspsych-contrib/plugin-rdk'
+  plugin_version: PIN_AND_VENDOR
+  parameters_status: provisional_until_p00
+  log_frame_info: true
+item_bank:
+  bank_id: generated_rdk_p00
+  version: 0.1.0
+  partition: calibration
+analysis:
+  primary_estimands:
+    - frame_delivery
+    - accuracy_by_coherence
+    - response_bias
+    - threshold_stability
+    - participant_discomfort
+  analysis_plan: docs/06_PERCEPTUAL_PSYCHOPHYSICS_PROTOCOL.md
+  precision_plan: qualification_gate

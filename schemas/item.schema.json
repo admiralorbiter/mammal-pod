@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-mammal.local/schemas/item.schema.json",
+  "title": "Project MAMMAL Item",
+  "type": "object",
+  "required": ["item_id", "version", "domain", "family", "prompt", "ground_truth", "partition", "source"],
+  "properties": {
+    "item_id": {"type": "string"},
+    "version": {"type": "string"},
+    "domain": {"type": "string"},
+    "family": {"type": "string"},
+    "prompt": {"type": ["string", "object"]},
+    "options": {"type": "array"},
+    "ground_truth": {},
+    "partition": {"enum": ["engineering", "calibration", "exploratory", "confirmatory", "reserve", "retired"]},
+    "source": {
+      "type": "object",
+      "required": ["provenance"],
+      "properties": {
+        "provenance": {"type": "string"},
+        "license": {"type": ["string", "null"]},
+        "url": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "difficulty": {"type": "object"},
+    "verification": {"type": "object"},
+    "leakage_checks": {"type": "array", "items": {"type": "string"}},
+    "content_hash": {"type": "string"}
+  },
+  "additionalProperties": true
+}

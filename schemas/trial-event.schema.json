@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-mammal.local/schemas/trial-event.schema.json",
+  "title": "Append-Only Trial Event",
+  "type": "object",
+  "required": ["event_id", "event_type", "occurred_at", "recorded_at", "actor", "schema_version", "payload"],
+  "properties": {
+    "event_id": {"type": "string"},
+    "trial_id": {"type": ["string", "null"]},
+    "event_type": {"type": "string"},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "actor": {"enum": ["participant", "browser", "server", "processor", "observer", "researcher"]},
+    "schema_version": {"type": "string"},
+    "payload": {"type": "object"},
+    "previous_event_hash": {"type": ["string", "null"]},
+    "event_hash": {"type": "string"}
+  },
+  "additionalProperties": false
+}

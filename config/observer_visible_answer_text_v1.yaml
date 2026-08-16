@@ -1,0 +1,23 @@
+observer_id: VISIBLE_ANSWER_TEXT_V1
+version: 1.0.0
+prediction_target: P(participant_current_answer_correct)
+current_trial:
+  prompt: true
+  options: true
+  canonical_answer: true
+  transcript: true
+  raw_audio: false
+  response_latency: false
+  explicit_confidence: false
+  current_outcome: false
+history:
+  allowed: false
+  maximum_timestamp_rule: null
+  fields: []
+forbidden_fields:
+  - current_outcome
+  - explicit_confidence
+  - future_trials
+  - future_outcomes
+output_schema: probability_target_correct_v1
+compliance_gate: 0.95
