@@ -265,6 +265,64 @@ def cli_analyze(episode_id: str, output_format: str) -> None:
             console.print(f"[bold red]Analysis failed: {exc}[/bold red]")
 
 
+@main.command(name="plan-precision")
+@click.option("--metric", default="brier", type=click.Choice(["brier", "accuracy", "auroc2"]), help="Target estimand metric.")
+@click.option("--ci-half-width", default=0.05, type=float, help="Target 95% confidence interval half-width.")
+@click.option("--base-rate", default=0.75, type=float, help="Assumed accuracy base rate.")
+def cli_plan_precision(metric: str, ci_half_width: float, base_rate: float) -> None:
+    """Run Monte Carlo simulation power analysis to compute required trial sample sizes."""
+    from mammal.analysis.precision_planner import plan_session_precision
+
+    result = plan_session_precision(
+        target_metric=metric,
+        target_ci_half_width=ci_half_width,
+        assumed_base_rate=base_rate,
+    )
+
+    console.print(Panel(f"[bold cyan]MAMMAL Precision Planner // Target Metric: {metric.upper()}[/bold cyan]\nGoal: 95% CI Half-Width &le; {ci_half_width:.3f} (Total Width &le; {ci_half_width*2:.3f})"))
+
+    table = Table(title="Monte Carlo Sample Size Simulations", show_header=True, header_style="bold blue")
+    table.add_column("Sample Size (N)", style="cyan")
+    table.add_column("Mean 95% CI Width", style="yellow")
+    table.add_column("Standard Error", style="dim")
+    table.add_column("Status", style="bold")
+
+    for rec in result.recommendations:
+        status_txt = "[green]MEETS TARGET[/green]" if rec.meets_criterion else "[dim]Insufficient[/dim]"
+        table.add_row(
+            str(rec.sample_size),
+            f"{rec.mean_ci_width:.4f}",
+            f"{rec.standard_error:.4f}",
+            status_txt,
+        )
+
+    console.print(table)
+    console.print(f"[bold green]✓ Recommended minimum sample size: N = {result.recommended_sample_size} trials[/bold green]")
+
+
+@main.command(name="freeze-manifest")
+@click.argument("episode_id")
+def cli_freeze_manifest(episode_id: str) -> None:
+    """Freeze a completed human session into an immutable target dataset for observers."""
+    from mammal.analysis.manifest import create_frozen_target_manifest
+    from mammal.config import Settings
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        try:
+            res = create_frozen_target_manifest(session, episode_id, app_settings=app_settings)
+            m = res["manifest"]
+            art = res["artifact"]
+
+            console.print(Panel(f"[bold green]✓ Target Manifest Frozen Successfully[/bold green]"))
+            console.print(f"[cyan]Episode ID:[/cyan] {m.episode_id}")
+            console.print(f"[cyan]Total Trials:[/cyan] {m.total_trials}")
+            console.print(f"[cyan]Manifest SHA-256 Digest:[/cyan] {m.manifest_hash}")
+            console.print(f"[cyan]Artifact Path:[/cyan] {art.rel_path}")
+        except Exception as exc:
+            console.print(f"[bold red]Failed to freeze manifest: {exc}[/bold red]")
+
+
 @main.command()
 @click.option("--host", default="127.0.0.1", help="Host interface to bind.")
 @click.option("--port", default=5000, type=int, help="Port to listen on.")
@@ -280,5 +338,6 @@ def serve(host: str, port: int, debug: bool) -> None:
 
 if __name__ == "__main__":
     main()
+
 
 

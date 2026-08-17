@@ -10,14 +10,14 @@ from scipy import stats
 
 def compute_accuracy(outcomes: Sequence[bool]) -> float:
     """Compute first-order proportion correct."""
-    if not outcomes:
+    if len(outcomes) == 0:
         return 0.0
     return float(np.mean([1.0 if x else 0.0 for x in outcomes]))
 
 
 def compute_brier_score(confidences: Sequence[float], outcomes: Sequence[bool]) -> float:
     """Compute quadratic Brier loss between probability confidence in [0, 1] and binary outcome {0, 1}."""
-    if len(confidences) != len(outcomes) or not confidences:
+    if len(confidences) != len(outcomes) or len(confidences) == 0:
         raise ValueError("Confidences and outcomes must be non-empty and of equal length.")
 
     # Normalize confidences to [0, 1]
@@ -33,7 +33,7 @@ def compute_expected_calibration_error(
     n_bins: int = 10,
 ) -> tuple[float, list[dict[str, Any]]]:
     """Compute Expected Calibration Error (ECE) and reliability diagram bins."""
-    if len(confidences) != len(outcomes) or not confidences:
+    if len(confidences) != len(outcomes) or len(confidences) == 0:
         raise ValueError("Confidences and outcomes must be non-empty and of equal length.")
 
     probs = np.array([c / 100.0 if c > 1.0 else c for c in confidences], dtype=float)
@@ -79,7 +79,7 @@ def compute_expected_calibration_error(
 
 def compute_auroc2(confidences: Sequence[float], outcomes: Sequence[bool]) -> float:
     """Compute Type-2 AUROC (area under Type-2 ROC curve) measuring metacognitive sensitivity."""
-    if len(confidences) != len(outcomes) or not confidences:
+    if len(confidences) != len(outcomes) or len(confidences) == 0:
         raise ValueError("Confidences and outcomes must be non-empty and of equal length.")
 
     conf = np.array(confidences, dtype=float)
