@@ -612,6 +612,39 @@ def cli_personalization_gain(episode_id: str, baseline: str) -> None:
             console.print(f"[bold red]Personalization gain evaluation failed: {exc}[/bold red]")
 
 
+@main.command(name="memory-analyze")
+@click.argument("episode_id")
+def cli_memory_analyze(episode_id: str) -> None:
+    """Analyze prospective memory Judgments of Learning (JOLs) against future cued recall."""
+    from mammal.config import Settings
+    from mammal.memory.engine import analyze_memory_episode
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        try:
+            res = analyze_memory_episode(session, episode_id, app_settings=app_settings)
+            an = res["analysis"]
+            art = res["artifact"]
+
+            console.print(Panel(f"[bold cyan]MAMMAL Future-Memory & JOL Metacognition // Episode {episode_id}[/bold cyan]"))
+            table = Table(title="Prospective Memory Resolution Estimands", show_header=True, header_style="bold blue")
+            table.add_column("Estimand", style="cyan")
+            table.add_column("Value", style="bold green")
+            table.add_column("Interpretation", style="yellow")
+
+            table.add_row("Total Paired Associates", str(an.total_pairs), "Number of encoding-recall pairs")
+            table.add_row("Cued Recall Accuracy", f"{an.recall_accuracy * 100:.1f}%", "Empirical future recall rate")
+            table.add_row("Mean JOL Forecast", f"{an.mean_jol:.1f}%", "Average prospective confidence forecast")
+            table.add_row("Goodman-Kruskal Gamma (\u03b3)", f"{an.gamma_correlation:+.4f}", "Rank correlation between JOL and recall")
+            table.add_row("Prospective Type-2 AUROC", f"{an.prospective_auroc:.4f}", "Discrimination of future recall from JOL")
+            table.add_row("Prospective Brier Score", f"{an.prospective_brier_score:.4f}", "Quadratic error of memory forecasts")
+
+            console.print(table)
+            console.print(f"[green]✓ Saved memory analysis artifact: {art.rel_path}[/green]")
+        except Exception as exc:
+            console.print(f"[bold red]Memory analysis failed: {exc}[/bold red]")
+
+
 @main.command()
 @click.option("--host", default="127.0.0.1", help="Host interface to bind.")
 @click.option("--port", default=5000, type=int, help="Port to listen on.")

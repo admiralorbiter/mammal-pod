@@ -1,0 +1,35 @@
+protocol_id: p02_cued_recall_jol
+version: "1.0.0"
+status: engineering
+domain: future_memory
+mode: observation
+prompt_modality: visual
+answer:
+  modality: keyboard
+  think_aloud: false
+  lock_required: true
+confidence:
+  enabled: true
+  modality: numeric
+  minimum: 0
+  maximum: 100
+  shown_after_answer_lock: true
+  default_value: null
+feedback:
+  trial_level: false
+  block_level: true
+  show_model_predictions: false
+item_bank:
+  bank_id: cued_recall_associates_bank
+  version: "1.0.0"
+  partition: engineering
+memory:
+  encoding_duration_ms: 4000
+  elicitation_type: immediate_jol
+  retention_interval_sec: 300
+  test_type: cued_recall
+analysis:
+  primary_estimands:
+    - gamma_correlation
+    - prospective_auroc
+    - prospective_brier_score
