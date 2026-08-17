@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+  <div class="meta-bar">
+    <span>SYSTEM STATUS: ONLINE</span>
+    <span>STABLE INSTRUMENT // V0.1.0</span>
+  </div>
+
+  <h1 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent-codec);">
+    Metacognitive Assessment & Machine Modeling
+  </h1>
+  <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6;">
+    Measurement precedes intervention. Choose an experimental protocol to begin a 10–15 minute bounded research session.
+  </p>
+
+  <form method="POST" action="{{ url_for('routes.start_session') }}" style="display: flex; flex-direction: column; gap: 1.5rem;">
+    <div>
+      <label class="section-label" for="protocol_id">Select Protocol</label>
+      <select name="protocol_id" id="protocol_id" style="width: 100%; padding: 0.75rem; background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; font-size: 1rem;">
+        {% for proto in protocols %}
+          <option value="{{ proto.protocol_id }}" {% if loop.first %}selected{% endif %}>
+            {{ proto.protocol_id }} (v{{ proto.version }}) &mdash; {{ proto.domain }} / {{ proto.mode }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div>
+      <label class="section-label" for="pseudonym">Participant Pseudonym</label>
+      <input type="text" name="pseudonym" id="pseudonym" value="Jonathan Lane" style="width: 100%; padding: 0.75rem; background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; font-size: 1rem;" required>
+    </div>
+
+    <button type="submit" class="btn-primary" style="margin-top: 1rem; width: 100%; text-align: center;">
+      INITIALIZE SESSION &rarr;
+    </button>
+  </form>
+</div>
+{% endblock %}

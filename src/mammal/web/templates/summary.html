@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+  <div class="meta-bar">
+    <span>EPISODE COMPLETE</span>
+    <span>SESSION: {{ episode.id }}</span>
+  </div>
+
+  <h1 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent-green);">
+    &#10003; Session Recorded Successfully
+  </h1>
+  
+  <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6;">
+    All trial responses, explicit confidence estimates, and event timestamps have been securely logged to the immutable append-only provenance store.
+  </p>
+
+  <div style="background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1.25rem; margin-bottom: 2rem; font-family: var(--font-mono); font-size: 0.9rem;">
+    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+      <span class="text-muted">Protocol:</span>
+      <span>{{ episode.protocol_id }} (v{{ episode.protocol_version }})</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+      <span class="text-muted">Participant:</span>
+      <span>{{ episode.participant.pseudonym }}</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+      <span class="text-muted">Completed Trials:</span>
+      <span>{{ total_trials }} / {{ total_trials }}</span>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+      <span class="text-muted">Observation Status:</span>
+      <span style="color: var(--accent-codec);">DATA PRESERVED / SILENCE ACTIVE</span>
+    </div>
+  </div>
+
+  <a href="{{ url_for('routes.index') }}" class="btn-primary" style="display: inline-block; text-align: center; width: 100%;">
+    RETURN TO DASHBOARD
+  </a>
+</div>
+{% endblock %}

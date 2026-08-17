@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card" id="trial-card" data-trial-id="{{ trial.id }}" data-episode-id="{{ episode.id }}">
+  <div class="meta-bar">
+    <span>TRIAL {{ trial.trial_index }} OF {{ total_trials }}</span>
+    <span>ITEM: {{ item.item_id }} ({{ item.family }})</span>
+  </div>
+
+  <div class="progress-track">
+    <div class="progress-fill" style="width: {{ (trial.trial_index / total_trials * 100) | round }}%;"></div>
+  </div>
+
+  <!-- Prompt Section -->
+  <div class="prompt-text">
+    {% if item.prompt_json is mapping %}
+      {{ item.prompt_json.question or item.prompt_json.text or item.prompt_json }}
+    {% else %}
+      {{ item.prompt_json }}
+    {% endif %}
+  </div>
+
+  <!-- Step 1: Forced Choice Options -->
+  <form id="answer-form">
+    <div class="section-label">1. Select Answer</div>
+    <div class="options-grid">
+      {% if item.options_json %}
+        {% for opt in item.options_json %}
+          <button type="button" class="option-btn" data-index="{{ loop.index0 }}" data-value="{{ opt }}" {% if trial.answer %}disabled{% endif %}>
+            <span class="option-index">{{ loop.index }}.</span>
+            <span class="option-label">{{ opt }}</span>
+          </button>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    {% if not trial.answer %}
+      <button type="button" id="lock-answer-btn" class="btn-primary" style="margin-bottom: 1.5rem;" disabled>
+        LOCK ANSWER
+      </button>
+    {% endif %}
+  </form>
+
+  <!-- Step 2: Explicit Confidence Rating (Shown only after answer is locked) -->
+  <div id="confidence-section" class="confidence-section" style="{% if not trial.answer %}display: none;{% endif %}">
+    <div class="section-label">2. Rate Your Confidence (0% = complete guess, 100% = certain)</div>
+    <p class="text-muted" style="font-size: 0.9rem; margin-top: 0.25rem;">
+      Locked Answer: <strong id="locked-answer-display" style="color: var(--accent-codec);">{{ trial.answer.locked_value_json if trial.answer else '' }}</strong>
+    </p>
+
+    <div class="confidence-slider-container">
+      <input type="range" id="confidence-slider" min="0" max="100" value="50" step="1" class="slider-scale">
+      <div class="confidence-value-display"><span id="conf-val">50</span>%</div>
+    </div>
+
+    <button type="button" id="lock-confidence-btn" class="btn-primary">
+      CONFIRM CONFIDENCE &amp; NEXT &rarr;
+    </button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const trialId = "{{ trial.id }}";
+    const episodeId = "{{ episode.id }}";
+    const trialStartMs = performance.now();
+    let selectedOption = null;
+    let answerLocked = {{ 'true' if trial.answer else 'false' }};
+    let answerLockTimeMs = null;
+
+    const optionBtns = document.querySelectorAll('.option-btn');
+    const lockAnswerBtn = document.getElementById('lock-answer-btn');
+    const confSection = document.getElementById('confidence-section');
+    const lockedAnswerDisplay = document.getElementById('locked-answer-display');
+    const confSlider = document.getElementById('confidence-slider');
+    const confValDisplay = document.getElementById('conf-val');
+    const lockConfBtn = document.getElementById('lock-confidence-btn');
+
+    // Update slider live display
+    confSlider.addEventListener('input', function() {
+      confValDisplay.textContent = this.value;
+    });
+
+    // Option selection
+    optionBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (answerLocked) return;
+        optionBtns.forEach(b => b.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedOption = this.getAttribute('data-value');
+        if (lockAnswerBtn) {
+          lockAnswerBtn.disabled = false;
+        }
+      });
+    });
+
+    // Keyboard shortcuts (1, 2, 3, 4)
+    window.addEventListener('keydown', function(e) {
+      if (answerLocked) return;
+      const num = parseInt(e.key);
+      if (num >= 1 && num <= optionBtns.length) {
+        const targetBtn = optionBtns[num - 1];
+        if (targetBtn) {
+          targetBtn.click();
+        }
+      }
+    });
+
+    // Lock Answer Handler
+    if (lockAnswerBtn) {
+      lockAnswerBtn.addEventListener('click', async function() {
+        if (!selectedOption) return;
+        lockAnswerBtn.disabled = true;
+        const latencyMs = Math.round(performance.now() - trialStartMs);
+
+        try {
+          const resp = await fetch(`/api/trials/${trialId}/answer`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              value: selectedOption,
+              modality: 'button',
+              latency_ms: latencyMs
+            })
+          });
+
+          if (!resp.ok) {
+            const err = await resp.json();
+            alert(`Error locking answer: ${err.error || resp.statusText}`);
+            lockAnswerBtn.disabled = false;
+            return;
+          }
+
+          answerLocked = true;
+          answerLockTimeMs = performance.now();
+          optionBtns.forEach(b => b.disabled = true);
+          lockAnswerBtn.style.display = 'none';
+
+          lockedAnswerDisplay.textContent = selectedOption;
+          confSection.style.display = 'block';
+        } catch (err) {
+          alert(`Network error: ${err.message}`);
+          lockAnswerBtn.disabled = false;
+        }
+      });
+    }
+
+    // Lock Confidence Handler
+    lockConfBtn.addEventListener('click', async function() {
+      lockConfBtn.disabled = true;
+      const confLatencyMs = answerLockTimeMs ? Math.round(performance.now() - answerLockTimeMs) : 0;
+      const confValue = parseFloat(confSlider.value);
+
+      try {
+        const resp = await fetch(`/api/trials/${trialId}/confidence`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            value: confValue,
+            modality: 'numeric',
+            latency_ms: confLatencyMs
+          })
+        });
+
+        if (!resp.ok) {
+          const err = await resp.json();
+          alert(`Error saving confidence: ${err.error || resp.statusText}`);
+          lockConfBtn.disabled = false;
+          return;
+        }
+
+        // Navigate to next trial or completion
+        window.location.href = `/sessions/${episodeId}`;
+      } catch (err) {
+        alert(`Network error: ${err.message}`);
+        lockConfBtn.disabled = false;
+      }
+    });
+  })();
+</script>
+{% endblock %}
