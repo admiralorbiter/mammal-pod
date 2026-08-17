@@ -323,6 +323,82 @@ def cli_freeze_manifest(episode_id: str) -> None:
             console.print(f"[bold red]Failed to freeze manifest: {exc}[/bold red]")
 
 
+@main.command(name="observe")
+@click.argument("episode_id")
+@click.option("--observer", "-o", default="item_base_rate", help="Observer identifier (uniform_chance, item_base_rate, deterministic_solver, text_confidence_heuristic).")
+def cli_observe(episode_id: str, observer: str) -> None:
+    """Run an external/statistical observer across a frozen session manifest."""
+    from mammal.config import Settings
+    from mammal.observers.runner import get_observer, run_observer_on_episode
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        try:
+            obs = get_observer(observer)
+            res = run_observer_on_episode(session, episode_id, obs, app_settings=app_settings)
+            preds = res["predictions"]
+            art = res["artifact"]
+
+            console.print(Panel(f"[bold cyan]MAMMAL Observer Evaluation // {obs.observer_id} (v{obs.version})[/bold cyan]\nVisibility Contract: [yellow]{obs.visibility_level.value}[/yellow]"))
+            console.print(f"[green]✓ Completed {len(preds)} trial predictions[/green]")
+            console.print(f"[green]✓ Saved observer run artifact: {art.rel_path}[/green]")
+        except Exception as exc:
+            console.print(f"[bold red]Observer execution failed: {exc}[/bold red]")
+
+
+@main.command(name="compare")
+@click.argument("episode_id")
+@click.option("--observer", "-o", default="item_base_rate", help="Observer identifier to compare against Self.")
+def cli_compare(episode_id: str, observer: str) -> None:
+    """Perform paired statistical comparison (Self vs. Observer) and compute PAI."""
+    from mammal.config import Settings
+    from mammal.observers.runner import get_observer, run_observer_on_episode
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        try:
+            obs = get_observer(observer)
+            res = run_observer_on_episode(session, episode_id, obs, app_settings=app_settings)
+            p = res["paired_result"]
+            if not p:
+                console.print("[bold yellow]No paired confidence ratings available for comparison.[/bold yellow]")
+                return
+
+            console.print(Panel(f"[bold cyan]MAMMAL Paired Comparison // Self vs. {obs.observer_id}[/bold cyan]"))
+            table = Table(title="Paired Performance & Metacognitive Estimands (with 95% Bootstrap CI)", show_header=True, header_style="bold blue")
+            table.add_column("Estimand", style="cyan")
+            table.add_column("Self", style="bold green")
+            table.add_column("Observer", style="bold yellow")
+            table.add_column("Paired Difference (\u0394)", style="magenta")
+            table.add_column("95% Empirical CI", style="dim")
+
+            table.add_row(
+                "Brier Score (lower is better)",
+                f"{p.self_brier:.4f}",
+                f"{p.observer_brier:.4f}",
+                f"\u0394 = {p.delta_brier:+.4f}",
+                f"[{p.delta_brier_ci[0]:+.4f}, {p.delta_brier_ci[1]:+.4f}]",
+            )
+            table.add_row(
+                "Type-2 AUROC (higher is better)",
+                f"{p.self_auroc2:.4f}",
+                f"{p.observer_auroc2:.4f}",
+                f"\u0394 = {p.delta_auroc2:+.4f}",
+                f"[{p.delta_auroc2_ci[0]:+.4f}, {p.delta_auroc2_ci[1]:+.4f}]",
+            )
+            table.add_row(
+                "Participant Advantage Index (PAI)",
+                "—",
+                "—",
+                f"PAI = {p.participant_advantage_index:+.4f}",
+                f"[{p.pai_ci[0]:+.4f}, {p.pai_ci[1]:+.4f}]",
+            )
+
+            console.print(table)
+        except Exception as exc:
+            console.print(f"[bold red]Comparison failed: {exc}[/bold red]")
+
+
 @main.command()
 @click.option("--host", default="127.0.0.1", help="Host interface to bind.")
 @click.option("--port", default=5000, type=int, help="Port to listen on.")
@@ -338,6 +414,7 @@ def serve(host: str, port: int, debug: bool) -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
