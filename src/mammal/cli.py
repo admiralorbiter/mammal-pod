@@ -223,6 +223,48 @@ def cli_seed() -> None:
         console.print(f"[bold green]✓ Successfully seeded {len(items)} items into item bank.[/bold green]")
 
 
+@main.command(name="analyze")
+@click.argument("episode_id")
+@click.option("--format", "output_format", type=click.Choice(["text", "markdown", "json"]), default="text", help="Output format.")
+def cli_analyze(episode_id: str, output_format: str) -> None:
+    """Run statistical analysis and compute accuracy, Brier, ECE, and Type-2 SDT metrics."""
+    from mammal.analysis.engine import generate_analysis_report
+    from mammal.config import Settings
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        try:
+            report_data = generate_analysis_report(session, episode_id, app_settings=app_settings)
+            res = report_data["result"]
+
+            if output_format == "json":
+                import json
+                from dataclasses import asdict
+                console.print(json.dumps(asdict(res), indent=2))
+            elif output_format == "markdown":
+                console.print(report_data["markdown_text"])
+            else:
+                console.print(Panel(f"[bold cyan]MAMMAL Statistical Analysis &mdash; Episode {episode_id}[/bold cyan]"))
+                table = Table(title="Empirical Estimands (with 95% Block Bootstrap CI)", show_header=True, header_style="bold blue")
+                table.add_column("Estimand", style="cyan")
+                table.add_column("Point Estimate", style="bold green")
+                table.add_column("95% Empirical CI", style="yellow")
+
+                table.add_row("Accuracy", f"{res.accuracy.estimate * 100:.1f}%", f"[{res.accuracy.ci_lower * 100:.1f}%, {res.accuracy.ci_upper * 100:.1f}%]")
+                table.add_row("Brier Score", f"{res.brier_score.estimate:.4f}", f"[{res.brier_score.ci_lower:.4f}, {res.brier_score.ci_upper:.4f}]")
+                table.add_row("Expected Calibration Error (ECE)", f"{res.ece.estimate:.4f}", f"[{res.ece.ci_lower:.4f}, {res.ece.ci_upper:.4f}]")
+                table.add_row("Type-2 AUROC (AUROC2)", f"{res.auroc2.estimate:.4f}", f"[{res.auroc2.ci_lower:.4f}, {res.auroc2.ci_upper:.4f}]")
+                table.add_row("First-order Sensitivity (d')", f"{res.d_prime:.3f}", "—")
+                table.add_row("Metacognitive Sensitivity (meta-d')", f"{res.meta_d_prime:.3f}", "—")
+                table.add_row("Metacognitive Efficiency (M_ratio)", f"{res.m_ratio:.3f}", "—")
+
+                console.print(table)
+                console.print(f"[green]✓ Derived JSON report saved to {report_data['json_artifact'].rel_path}[/green]")
+                console.print(f"[green]✓ Derived Markdown report saved to {report_data['markdown_artifact'].rel_path}[/green]")
+        except Exception as exc:
+            console.print(f"[bold red]Analysis failed: {exc}[/bold red]")
+
+
 @main.command()
 @click.option("--host", default="127.0.0.1", help="Host interface to bind.")
 @click.option("--port", default=5000, type=int, help="Port to listen on.")

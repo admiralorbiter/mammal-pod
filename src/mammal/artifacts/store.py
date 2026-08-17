@@ -33,9 +33,9 @@ class ArtifactStore:
         self,
         session: Session,
         content: bytes,
-        mime_type: str,
         category: str,
         filename: str,
+        mime_type: str,
         artifact_id: str | None = None,
     ) -> Artifact:
         """Save an immutable raw artifact to disk and register in database."""
@@ -45,6 +45,13 @@ class ArtifactStore:
         full_path.parent.mkdir(parents=True, exist_ok=True)
 
         full_path.write_bytes(content)
+
+        existing = session.query(Artifact).filter(Artifact.rel_path == rel_path).first()
+        if existing:
+            existing.sha256 = sha256
+            existing.byte_count = len(content)
+            existing.mime_type = mime_type
+            return existing
 
         artifact = Artifact(
             artifact_id=artifact_id or f"art_raw_{sha256[:16]}",
@@ -77,6 +84,15 @@ class ArtifactStore:
         full_path.parent.mkdir(parents=True, exist_ok=True)
 
         full_path.write_bytes(content)
+
+        existing = session.query(Artifact).filter(Artifact.rel_path == rel_path).first()
+        if existing:
+            existing.sha256 = sha256
+            existing.byte_count = len(content)
+            existing.mime_type = mime_type
+            existing.source_artifact_ids_json = list(source_artifact_ids)
+            existing.processor_version = processor_version
+            return existing
 
         artifact = Artifact(
             artifact_id=artifact_id or f"art_drv_{sha256[:16]}",
