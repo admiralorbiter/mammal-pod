@@ -517,6 +517,101 @@ def cli_audio_gain(episode_id: str) -> None:
             console.print(f"[bold red]Audio gain analysis failed: {exc}[/bold red]")
 
 
+@main.command(name="personalize")
+@click.argument("episode_id")
+def cli_personalize(episode_id: str) -> None:
+    """Execute personalized prequential observer on an episode incorporating causal history."""
+    from mammal.config import Settings
+    from mammal.observers.runner import get_observer, run_observer_on_episode
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        try:
+            obs = get_observer("personalized_prequential")
+            res = run_observer_on_episode(session, episode_id, obs, app_settings=app_settings)
+            preds = res["predictions"]
+            art = res["artifact"]
+
+            console.print(Panel(f"[bold cyan]MAMMAL Personalized Prequential Observer // Episode {episode_id}[/bold cyan]"))
+            console.print(f"[green]✓ Completed {len(preds)} personalized trial predictions[/green]")
+            console.print(f"[green]✓ Saved run artifact: {art.rel_path}[/green]")
+        except Exception as exc:
+            console.print(f"[bold red]Personalized observer failed: {exc}[/bold red]")
+
+
+@main.command(name="personalization-gain")
+@click.argument("episode_id")
+@click.option("--baseline", "-b", default="item_base_rate", help="Generic baseline observer to compare against.")
+def cli_personalization_gain(episode_id: str, baseline: str) -> None:
+    """Evaluate Personalization Gain (comparing Generic vs. Personalized observers across matched trials)."""
+    from mammal.analysis.personalization_gain import compute_personalization_gain
+    from mammal.config import Settings
+    from mammal.models.entities import Episode, Trial
+    from mammal.observers.runner import get_observer, run_observer_on_episode
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        try:
+            episode = session.get(Episode, episode_id)
+            participant_id = episode.participant_id if episode else "unknown"
+
+            # 1. Run Generic Baseline Observer
+            obs_gen = get_observer(baseline)
+            res_gen = run_observer_on_episode(session, episode_id, obs_gen, app_settings=app_settings)
+
+            # 2. Run Personalized Prequential Observer
+            obs_pers = get_observer("personalized_prequential")
+            res_pers = run_observer_on_episode(session, episode_id, obs_pers, app_settings=app_settings)
+
+            gen_confs = [p.confidence for p in res_gen["predictions"]]
+            pers_confs = [p.confidence for p in res_pers["predictions"]]
+
+            # Query real outcomes from trials
+            trials = session.query(Trial).filter(Trial.episode_id == episode_id).order_by(Trial.trial_index.asc()).all()
+            real_outcomes = [t.outcome.is_correct for t in trials if t.outcome is not None]
+
+            if not real_outcomes:
+                console.print("[bold yellow]No completed trials with outcomes found.[/bold yellow]")
+                return
+
+            gain_report = compute_personalization_gain(
+                episode_id=episode_id,
+                participant_id=participant_id,
+                generic_observer_id=baseline,
+                generic_confidences=gen_confs[:len(real_outcomes)],
+                personalized_confidences=pers_confs[:len(real_outcomes)],
+                outcomes=real_outcomes,
+            )
+
+            console.print(Panel(f"[bold cyan]MAMMAL Personalization Gain (Gate E05) // Episode {episode_id}[/bold cyan]"))
+            table = Table(title="Generic vs. Personalized Observer Comparison (with 95% Bootstrap CI)", show_header=True, header_style="bold blue")
+            table.add_column("Model", style="cyan")
+            table.add_column("Brier Score", style="bold yellow")
+            table.add_column("Type-2 AUROC", style="bold green")
+            table.add_column("Personalization Gain (\u0394)", style="magenta")
+            table.add_column("95% Empirical CI", style="dim")
+
+            table.add_row(
+                f"Generic Baseline ({baseline})",
+                f"{gain_report.generic_brier:.4f}",
+                f"{gain_report.generic_auroc2:.4f}",
+                "—",
+                "—",
+            )
+            table.add_row(
+                "Personalized Prequential",
+                f"{gain_report.personalized_brier:.4f}",
+                f"{gain_report.personalized_auroc2:.4f}",
+                f"\u0394 Brier = {gain_report.delta_brier_gain:+.4f}",
+                f"[{gain_report.delta_brier_gain_ci[0]:+.4f}, {gain_report.delta_brier_gain_ci[1]:+.4f}]",
+            )
+
+            console.print(table)
+            console.print(f"[bold green]Statement (AGENTS.md Rule 5):[/bold green]\n{gain_report.epistemic_statement}")
+        except Exception as exc:
+            console.print(f"[bold red]Personalization gain evaluation failed: {exc}[/bold red]")
+
+
 @main.command()
 @click.option("--host", default="127.0.0.1", help="Host interface to bind.")
 @click.option("--port", default=5000, type=int, help="Port to listen on.")
@@ -532,6 +627,7 @@ def serve(host: str, port: int, debug: bool) -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 

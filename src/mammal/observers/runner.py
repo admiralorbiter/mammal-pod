@@ -34,8 +34,12 @@ AVAILABLE_OBSERVERS: dict[str, type[ObserverAdapter]] = {
 
 def get_observer(name: str) -> ObserverAdapter:
     """Instantiate an observer adapter by registered identifier."""
+    if name == "personalized_prequential":
+        from mammal.personalization.models import PersonalizedPrequentialObserver
+        return PersonalizedPrequentialObserver()
+
     if name not in AVAILABLE_OBSERVERS:
-        valid = ", ".join(AVAILABLE_OBSERVERS.keys())
+        valid = ", ".join(list(AVAILABLE_OBSERVERS.keys()) + ["personalized_prequential"])
         raise ValueError(f"Unknown observer '{name}'. Available: {valid}")
     return AVAILABLE_OBSERVERS[name]()
 
@@ -61,6 +65,14 @@ def run_observer_on_episode(
     # 2. Iterate through trials with strict visibility contract compilation
     for record in manifest.trials:
         compiled_input = compile_observer_input(record, observer.visibility_level)
+
+        # Inject prequential history for personalized observers without future leakage
+        if observer.observer_id == "personalized_prequential":
+            from mammal.personalization.history import compile_prequential_history
+            history = compile_prequential_history(session, manifest.participant_id, record.trial_id)
+            compiled_input["prequential_history"] = history
+            compiled_input["human_response_latency_ms"] = record.human_response_latency_ms
+
         pred = observer.predict(compiled_input)
         predictions.append(pred)
 
