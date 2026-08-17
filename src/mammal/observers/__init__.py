@@ -1,5 +1,6 @@
 """Project MAMMAL Generic and Personalized Observer Subsystem."""
 
+from mammal.observers.acoustic_observer import AcousticProsodyObserver
 from mammal.observers.base import ObserverAdapter, ObserverPrediction
 from mammal.observers.baselines import (
     DeterministicSolverObserver,
@@ -19,6 +20,7 @@ __all__ = [
     "ItemBaseRateObserver",
     "DeterministicSolverObserver",
     "TextConfidenceHeuristicObserver",
+    "AcousticProsodyObserver",
     "AVAILABLE_OBSERVERS",
     "get_observer",
     "run_observer_on_episode",

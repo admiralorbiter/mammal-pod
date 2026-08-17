@@ -1,5 +1,10 @@
 """Processors and analysis pipeline exports."""
 
+from mammal.processors.acoustics import (
+    AcousticFeatures,
+    AudioQualityReport,
+    extract_acoustic_features,
+)
 from mammal.processors.asr import (
     ASRAdapter,
     ASRResult,
@@ -14,4 +19,7 @@ __all__ = [
     "MockASRAdapter",
     "FasterWhisperAdapter",
     "get_asr_adapter",
+    "AcousticFeatures",
+    "AudioQualityReport",
+    "extract_acoustic_features",
 ]

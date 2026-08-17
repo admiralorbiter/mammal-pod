@@ -13,6 +13,7 @@ from mammal.analysis.paired import PairedComparisonResult, compute_paired_compar
 from mammal.artifacts.store import ArtifactStore
 from mammal.config import Settings
 from mammal.events.engine import EventEngine
+from mammal.observers.acoustic_observer import AcousticProsodyObserver
 from mammal.observers.base import ObserverAdapter, ObserverPrediction
 from mammal.observers.baselines import (
     DeterministicSolverObserver,
@@ -27,6 +28,7 @@ AVAILABLE_OBSERVERS: dict[str, type[ObserverAdapter]] = {
     "item_base_rate": ItemBaseRateObserver,
     "deterministic_solver": DeterministicSolverObserver,
     "text_confidence_heuristic": TextConfidenceHeuristicObserver,
+    "acoustic_prosody": AcousticProsodyObserver,
 }
 
 

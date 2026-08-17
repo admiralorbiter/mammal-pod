@@ -399,6 +399,124 @@ def cli_compare(episode_id: str, observer: str) -> None:
             console.print(f"[bold red]Comparison failed: {exc}[/bold red]")
 
 
+@main.command(name="extract-acoustics")
+@click.argument("episode_id")
+def cli_extract_acoustics(episode_id: str) -> None:
+    """Extract prosodic pitch, jitter, shimmer, and SNR features from recorded trial audio."""
+    import json
+    from dataclasses import asdict
+    from mammal.artifacts.store import ArtifactStore
+    from mammal.config import Settings
+    from mammal.events.engine import EventEngine
+    from mammal.models.entities import Artifact, Trial
+    from mammal.processors.acoustics import extract_acoustic_features
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        try:
+            trials = session.query(Trial).filter(Trial.episode_id == episode_id).all()
+            store = ArtifactStore(app_settings)
+            event_engine = EventEngine(session)
+            extracted_count = 0
+
+            console.print(Panel(f"[bold cyan]MAMMAL Acoustic Feature Extraction // Episode {episode_id}[/bold cyan]"))
+
+            for trial in trials:
+                # Check for raw audio artifact
+                audio_art = (
+                    session.query(Artifact)
+                    .filter(Artifact.rel_path.like(f"raw/audio/{trial.id}_%"))
+                    .first()
+                )
+                if not audio_art:
+                    continue
+
+                audio_bytes = store.read_artifact_bytes(session, audio_art.artifact_id)
+                features = extract_acoustic_features(audio_bytes, trial_id=trial.id)
+
+                # Save derived acoustic features artifact
+                feat_dict = asdict(features)
+                art = store.save_derived_artifact(
+                    session=session,
+                    content=json.dumps(feat_dict, indent=2).encode("utf-8"),
+                    mime_type="application/json",
+                    category="derived/acoustics",
+                    filename=f"{trial.id}_features.json",
+                    source_artifact_ids=[audio_art.artifact_id],
+                    processor_version="acoustics-dsp-v1.0",
+                )
+
+                # Log acoustic.extracted event
+                event_engine.record_event(
+                    trial_id=trial.id,
+                    episode_id=episode_id,
+                    event_type="acoustic.extracted",
+                    actor="processor:acoustics",
+                    payload={
+                        "artifact_id": art.artifact_id,
+                        "mean_f0_hz": features.mean_f0_hz,
+                        "pitch_jitter_pct": features.pitch_jitter_pct,
+                        "snr_db": features.quality_report.snr_db,
+                        "is_passed": features.quality_report.is_passed,
+                    },
+                )
+                extracted_count += 1
+
+            session.commit()
+            console.print(f"[bold green]✓ Successfully extracted acoustic features for {extracted_count} spoken trials[/bold green]")
+        except Exception as exc:
+            console.print(f"[bold red]Acoustic extraction failed: {exc}[/bold red]")
+
+
+@main.command(name="audio-gain")
+@click.argument("episode_id")
+def cli_audio_gain(episode_id: str) -> None:
+    """Analyze Audio Leakage Gain (comparing Text-only vs. Acoustic Prosody observers)."""
+    from mammal.analysis.audio_gain import compute_audio_leakage_gain
+    from mammal.config import Settings
+    from mammal.observers.runner import get_observer, run_observer_on_episode
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        try:
+            # 1. Run Text Heuristic Observer
+            obs_text = get_observer("text_confidence_heuristic")
+            res_text = run_observer_on_episode(session, episode_id, obs_text, app_settings=app_settings)
+            p_text = res_text["paired_result"]
+
+            # 2. Run Acoustic Prosody Observer
+            obs_audio = get_observer("acoustic_prosody")
+            res_audio = run_observer_on_episode(session, episode_id, obs_audio, app_settings=app_settings)
+            p_audio = res_audio["paired_result"]
+
+            if not p_text or not p_audio:
+                console.print("[bold yellow]Insufficient confidence ratings to compute audio gain.[/bold yellow]")
+                return
+
+            gain = compute_audio_leakage_gain(
+                episode_id=episode_id,
+                text_brier=p_text.observer_brier,
+                acoustic_brier=p_audio.observer_brier,
+                text_auroc2=p_text.observer_auroc2,
+                acoustic_auroc2=p_audio.observer_auroc2,
+            )
+
+            console.print(Panel(f"[bold cyan]MAMMAL Public Signal & Audio Leakage Gain // Episode {episode_id}[/bold cyan]"))
+            table = Table(title="Acoustic vs. Text Metacognitive Signal Gain", show_header=True, header_style="bold blue")
+            table.add_column("Channel", style="cyan")
+            table.add_column("Brier Score", style="bold yellow")
+            table.add_column("Type-2 AUROC", style="bold green")
+
+            table.add_row("Text-Only Channel", f"{gain.text_observer_brier:.4f}", f"{gain.text_auroc2:.4f}")
+            table.add_row("Acoustic Prosody Channel", f"{gain.acoustic_observer_brier:.4f}", f"{gain.acoustic_auroc2:.4f}")
+            table.add_row("Audio Leakage Gain (%)", f"{gain.audio_leakage_gain_pct:+.2f}%", f"\u0394 AUROC2 = {gain.delta_auroc2_gain:+.4f}")
+
+            console.print(table)
+            console.print(f"[bold green]Interpretation:[/bold green] {gain.public_signal_verdict}")
+        except Exception as exc:
+            console.print(f"[bold red]Audio gain analysis failed: {exc}[/bold red]")
+
+
 @main.command()
 @click.option("--host", default="127.0.0.1", help="Host interface to bind.")
 @click.option("--port", default=5000, type=int, help="Port to listen on.")
@@ -414,6 +532,7 @@ def serve(host: str, port: int, debug: bool) -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
