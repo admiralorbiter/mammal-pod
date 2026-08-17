@@ -69,27 +69,43 @@ class SessionController:
     def start_session(
         self,
         protocol_id: str,
-        protocol_version: str = "0.1.0",
-        participant_id: str | None = None,
-        experiment_id: str = "e00_inst_qualification",
+        participant_id: str,
+        protocol_version: str | None = None,
+        experiment_id: str | None = None,
         mode: str = "observation",
-        item_ids: Sequence[str] | None = None,
+        item_ids: list[str] | None = None,
+        item_limit: int | None = None,
     ) -> Episode:
-        """Initialize a new experiment episode with scheduled trials."""
-        if participant_id is None:
+        """Initialize an experiment episode and schedule its trial sequence."""
+        if not experiment_id:
+            experiment_id = protocol_id
+
+        if not participant_id:
             participant = self.get_or_create_participant()
             participant_id = participant.id
 
         self.get_or_create_experiment(experiment_id=experiment_id)
 
-        # Query protocol
-        stmt = select(Protocol).where(Protocol.protocol_id == protocol_id, Protocol.version == protocol_version)
+        # Query protocol by ID and version (or most recent version if unspecified)
+        if protocol_version:
+            stmt = select(Protocol).where(Protocol.protocol_id == protocol_id, Protocol.version == protocol_version)
+        else:
+            stmt = select(Protocol).where(Protocol.protocol_id == protocol_id).order_by(Protocol.created_at.desc())
         proto = self.session.scalars(stmt).first()
+
         if not proto:
-            # Create placeholder protocol if not already loaded
+            from mammal.protocols.loader import load_and_register_all_protocols
+            load_and_register_all_protocols(self.session)
+            if protocol_version:
+                stmt = select(Protocol).where(Protocol.protocol_id == protocol_id, Protocol.version == protocol_version)
+            else:
+                stmt = select(Protocol).where(Protocol.protocol_id == protocol_id).order_by(Protocol.created_at.desc())
+            proto = self.session.scalars(stmt).first()
+
+        if not proto:
             proto = Protocol(
                 protocol_id=protocol_id,
-                version=protocol_version,
+                version=protocol_version or "0.1.0",
                 domain="semantic",
                 mode=mode,
                 status="engineering",
@@ -98,12 +114,14 @@ class SessionController:
             self.session.add(proto)
             self.session.flush()
 
+        effective_version = proto.version
+
         episode = Episode(
             id=f"ses_{generate_uuid()[:12]}",
             participant_id=participant_id,
             experiment_id=experiment_id,
             protocol_id=protocol_id,
-            protocol_version=protocol_version,
+            protocol_version=effective_version,
             mode=mode,
             started_at=utc_now(),
             status="active",
@@ -116,7 +134,10 @@ class SessionController:
             items = list(self.session.scalars(select(Item).where(Item.item_id.in_(item_ids))).all())
         else:
             partition = proto.schema_json.get("item_bank", {}).get("partition", "engineering")
-            items = list(get_items_for_protocol(self.session, partition=partition, limit=10))
+            items = list(get_items_for_protocol(self.session, partition=partition, limit=item_limit or 10))
+
+        if item_limit and len(items) > item_limit:
+            items = items[:item_limit]
 
         # Schedule trials
         for idx, item in enumerate(items, start=1):
@@ -217,9 +238,116 @@ class SessionController:
             response_latency_ms=latency_ms,
         )
         self.session.add(answer)
-        trial.status = "answer_locked"
-        self.session.commit()
-        return answer
+
+        # Check protocol confidence configuration
+        episode = self.session.get(Episode, trial.episode_id)
+        protocol = (
+            self.session.query(Protocol)
+            .filter(
+                Protocol.protocol_id == episode.protocol_id,
+                Protocol.version == episode.protocol_version,
+            )
+            .first()
+            if episode
+            else None
+        )
+        conf_cfg = (protocol.schema_json.get("confidence") or {}) if protocol and protocol.schema_json else {}
+        conf_enabled = conf_cfg.get("enabled", True)
+
+        if not conf_enabled:
+            # Answer-only control protocol: score outcome and complete trial immediately
+            self._score_and_complete_trial(trial, answer_value=value)
+            self.session.commit()
+            return answer
+        else:
+            # Confidence is enabled: emit confidence.prompt_shown and set trial status
+            self.events.record_event(
+                event_type="confidence.prompt_shown",
+                actor="system",
+                payload={"scale_min": conf_cfg.get("minimum", 0), "scale_max": conf_cfg.get("maximum", 100)},
+                trial_id=trial_id,
+                episode_id=trial.episode_id,
+            )
+            trial.status = "answer_locked"
+            self.session.commit()
+            return answer
+
+    def _score_and_complete_trial(self, trial: Trial, answer_value: Any) -> Outcome:
+        """Deterministically score trial outcome, complete trial, and check feedback policies."""
+        item = self.get_trial_item(trial)
+        gt = item.ground_truth_json if item else {}
+        score_res = score_trial_answer(answer_value, gt)
+
+        self.events.record_event(
+            event_type="outcome.scored",
+            actor="processor",
+            payload={
+                "score": score_res.score,
+                "is_correct": score_res.is_correct,
+                "scoring_rule": score_res.scoring_rule,
+                "scorer": score_res.scorer,
+            },
+            trial_id=trial.id,
+            episode_id=trial.episode_id,
+        )
+
+        outcome = Outcome(
+            trial_id=trial.id,
+            score=score_res.score,
+            is_correct=score_res.is_correct,
+            scoring_rule=score_res.scoring_rule,
+            scorer_provenance=score_res.scorer,
+            scored_at=utc_now(),
+        )
+        self.session.add(outcome)
+
+        # Check feedback policy
+        episode = self.session.get(Episode, trial.episode_id)
+        protocol = (
+            self.session.query(Protocol)
+            .filter(
+                Protocol.protocol_id == episode.protocol_id,
+                Protocol.version == episode.protocol_version,
+            )
+            .first()
+            if episode
+            else None
+        )
+        feedback_cfg = (protocol.schema_json.get("feedback") or {}) if protocol and protocol.schema_json else {}
+        if feedback_cfg.get("trial_level", False):
+            self.events.record_event(
+                event_type="feedback.shown",
+                actor="system",
+                payload={"is_correct": score_res.is_correct, "score": score_res.score},
+                trial_id=trial.id,
+                episode_id=trial.episode_id,
+            )
+
+        # Complete trial
+        self.events.record_event(
+            event_type="trial.completed",
+            actor="server",
+            payload={"status": "completed"},
+            trial_id=trial.id,
+            episode_id=trial.episode_id,
+        )
+
+        trial.status = "completed"
+        trial.completed_at = utc_now()
+        self.session.flush()
+
+        # Check if entire episode is finished
+        remaining = (
+            self.session.query(Trial)
+            .filter(Trial.episode_id == trial.episode_id, Trial.status != "completed")
+            .count()
+        )
+        if remaining == 0:
+            if episode:
+                episode.status = "completed"
+                episode.ended_at = utc_now()
+
+        return outcome
 
     def lock_confidence(
         self,
@@ -266,58 +394,6 @@ class SessionController:
         )
         self.session.add(confidence)
 
-        # 2. Score outcome deterministically
-        item = self.get_trial_item(trial)
-        gt = item.ground_truth_json if item else {}
-        score_res = score_trial_answer(trial.answer.locked_value_json, gt)
-
-        self.events.record_event(
-            event_type="outcome.scored",
-            actor="processor",
-            payload={
-                "score": score_res.score,
-                "is_correct": score_res.is_correct,
-                "scoring_rule": score_res.scoring_rule,
-                "scorer": score_res.scorer,
-            },
-            trial_id=trial_id,
-            episode_id=trial.episode_id,
-        )
-
-        outcome = Outcome(
-            trial_id=trial_id,
-            score=score_res.score,
-            is_correct=score_res.is_correct,
-            scoring_rule=score_res.scoring_rule,
-            scorer_provenance=score_res.scorer,
-            scored_at=utc_now(),
-        )
-        self.session.add(outcome)
-
-        # 3. Complete trial
-        self.events.record_event(
-            event_type="trial.completed",
-            actor="server",
-            payload={"status": "completed"},
-            trial_id=trial_id,
-            episode_id=trial.episode_id,
-        )
-
-        trial.status = "completed"
-        trial.completed_at = utc_now()
-        self.session.flush()
-
-        # 4. Check if entire episode is finished
-        remaining = (
-            self.session.query(Trial)
-            .filter(Trial.episode_id == trial.episode_id, Trial.status != "completed")
-            .count()
-        )
-        if remaining == 0:
-            episode = self.session.get(Episode, trial.episode_id)
-            if episode:
-                episode.status = "completed"
-                episode.ended_at = utc_now()
-
+        outcome = self._score_and_complete_trial(trial, answer_value=trial.answer.locked_value_json)
         self.session.commit()
         return confidence, outcome

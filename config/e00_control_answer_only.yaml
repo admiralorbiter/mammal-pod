@@ -1,0 +1,32 @@
+protocol_id: e00_control_answer_only
+version: 0.1.0
+status: engineering
+domain: semantic
+mode: engineering
+prompt_modality: visual
+answer:
+  modality: mixed
+  think_aloud: false
+  lock_required: true
+confidence:
+  enabled: false
+  modality: none
+  minimum: 0
+  maximum: 100
+  shown_after_answer_lock: true
+  default_value: null
+feedback:
+  trial_level: false
+  block_level: false
+  show_model_predictions: false
+item_bank:
+  bank_id: synthetic_e00
+  version: 0.1.0
+  partition: engineering
+observer_contracts: []
+analysis:
+  primary_estimands:
+    - answer_only_accuracy
+    - response_latency
+  analysis_plan: docs/04_EXPERIMENT_PROGRAM_AND_GATES.md#e04
+  precision_plan: control_baseline

@@ -146,4 +146,7 @@ def get_items_for_protocol(session: Session, partition: str = "engineering", lim
         # Seed qualification items if empty
         seed_qualification_items(session)
         items = list(session.scalars(stmt).all())
+        if not items:
+            # Fallback to any available seeded items in database
+            items = list(session.scalars(select(Item).limit(limit)).all())
     return items

@@ -76,32 +76,46 @@
     {% endif %}
   </form>
 
-  <!-- Step 2: Explicit Confidence Rating (Shown only after answer is locked) -->
+  <!-- Step 2: Explicit Confidence Rating (Only if confidence is enabled in protocol) -->
+  {% if confidence_enabled %}
   <div id="confidence-section" class="confidence-section" style="{% if not trial.answer %}display: none;{% endif %}">
-    <div class="section-label">2. Rate Your Confidence (0% = complete guess, 100% = certain)</div>
+    <div class="section-label">2. Rate Your Confidence (0% = complete guess, 100% = completely certain)</div>
     <p class="text-muted" style="font-size: 0.9rem; margin-top: 0.25rem;">
       Locked Answer: <strong id="locked-answer-display" style="color: var(--accent-codec);">{{ trial.answer.locked_value_json if trial.answer else '' }}</strong>
     </p>
 
-    <div class="confidence-slider-container">
-      <input type="range" id="confidence-slider" min="0" max="100" value="50" step="1" class="slider-scale">
-      <div class="confidence-value-display"><span id="conf-val">50</span>%</div>
+    <!-- Discrete Bins / Quick Rating Buttons -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin: 1rem 0;">
+      <button type="button" class="btn-conf-bin option-btn" data-val="25" style="text-align: center; padding: 0.5rem;">25% (Guess)</button>
+      <button type="button" class="btn-conf-bin option-btn" data-val="50" style="text-align: center; padding: 0.5rem;">50% (Unsure)</button>
+      <button type="button" class="btn-conf-bin option-btn" data-val="75" style="text-align: center; padding: 0.5rem;">75% (Likely)</button>
+      <button type="button" class="btn-conf-bin option-btn" data-val="100" style="text-align: center; padding: 0.5rem;">100% (Certain)</button>
     </div>
 
-    <button type="button" id="lock-confidence-btn" class="btn-primary">
+    <!-- Continuous Slider (Un-defaulted state) -->
+    <div class="confidence-slider-container">
+      <input type="range" id="confidence-slider" min="0" max="100" value="50" step="1" class="slider-scale" style="opacity: 0.7;">
+      <div class="confidence-value-display"><span id="conf-val" style="color: var(--text-muted);">Select</span></div>
+    </div>
+
+    <button type="button" id="lock-confidence-btn" class="btn-primary" disabled>
       CONFIRM CONFIDENCE &amp; NEXT &rarr;
     </button>
   </div>
+  {% endif %}
 </div>
 
 <script>
   (function() {
     const trialId = "{{ trial.id }}";
     const episodeId = "{{ episode.id }}";
+    const confidenceEnabled = {{ 'true' if confidence_enabled else 'false' }};
     const trialStartMs = performance.now();
     let selectedOption = null;
     let answerLocked = {{ 'true' if trial.answer else 'false' }};
     let answerLockTimeMs = null;
+    let confidenceSelected = false;
+    let selectedConfidenceValue = null;
     let rawAudioArtifactId = null;
 
     const optionBtns = document.querySelectorAll('.option-btn');
@@ -111,6 +125,7 @@
     const confSlider = document.getElementById('confidence-slider');
     const confValDisplay = document.getElementById('conf-val');
     const lockConfBtn = document.getElementById('lock-confidence-btn');
+    const confBinBtns = document.querySelectorAll('.btn-conf-bin');
 
     // Voice Elements
     const voiceSection = document.getElementById('voice-capture-section');
@@ -130,16 +145,52 @@
     let vuAnimId = null;
     let recStartTimeMs = null;
 
-    // Slider live update
-    confSlider.addEventListener('input', function() {
-      confValDisplay.textContent = this.value;
+    // Confidence selection handler
+    function setConfidence(val) {
+      confidenceSelected = true;
+      selectedConfidenceValue = parseFloat(val);
+      if (confSlider) {
+        confSlider.value = selectedConfidenceValue;
+        confSlider.style.opacity = '1.0';
+      }
+      if (confValDisplay) {
+        confValDisplay.innerHTML = `<strong>${selectedConfidenceValue}%</strong>`;
+      }
+      if (lockConfBtn) {
+        lockConfBtn.disabled = false;
+      }
+      confBinBtns.forEach(b => {
+        if (parseFloat(b.getAttribute('data-val')) === selectedConfidenceValue) {
+          b.classList.add('selected');
+        } else {
+          b.classList.remove('selected');
+        }
+      });
+    }
+
+    if (confSlider) {
+      confSlider.addEventListener('input', function() {
+        setConfidence(this.value);
+      });
+      confSlider.addEventListener('change', function() {
+        setConfidence(this.value);
+      });
+    }
+
+    confBinBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        setConfidence(this.getAttribute('data-val'));
+      });
     });
 
     // Option selection
     optionBtns.forEach(btn => {
+      if (btn.classList.contains('btn-conf-bin')) return;
       btn.addEventListener('click', function() {
         if (answerLocked) return;
-        optionBtns.forEach(b => b.classList.remove('selected'));
+        optionBtns.forEach(b => {
+          if (!b.classList.contains('btn-conf-bin')) b.classList.remove('selected');
+        });
         this.classList.add('selected');
         selectedOption = this.getAttribute('data-value');
         if (lockAnswerBtn) {
@@ -152,13 +203,32 @@
     window.addEventListener('keydown', function(e) {
       if (answerLocked) return;
       const num = parseInt(e.key);
-      if (num >= 1 && num <= optionBtns.length) {
-        const targetBtn = optionBtns[num - 1];
-        if (targetBtn) {
-          targetBtn.click();
-        }
+      const manualBtns = Array.from(optionBtns).filter(b => !b.classList.contains('btn-conf-bin'));
+      if (num >= 1 && num <= manualBtns.length) {
+        const targetBtn = manualBtns[num - 1];
+        if (targetBtn) targetBtn.click();
       }
     });
+
+    // --- Answer Locking Logic ---
+    function handlePostAnswerLock(respData, answerVal) {
+      answerLocked = true;
+      answerLockTimeMs = performance.now();
+
+      if (voiceSection) voiceSection.style.display = 'none';
+      optionBtns.forEach(b => {
+        if (!b.classList.contains('btn-conf-bin')) b.disabled = true;
+      });
+      if (lockAnswerBtn) lockAnswerBtn.style.display = 'none';
+
+      if (!confidenceEnabled || respData.trial_status === 'completed') {
+        // Answer-only protocol or completed: advance immediately
+        window.location.href = `/sessions/${episodeId}`;
+      } else {
+        if (lockedAnswerDisplay) lockedAnswerDisplay.textContent = answerVal;
+        if (confSection) confSection.style.display = 'block';
+      }
+    }
 
     // --- Voice Recording Flow ---
     if (startRecBtn) {
@@ -275,14 +345,8 @@
             return;
           }
 
-          answerLocked = true;
-          answerLockTimeMs = performance.now();
-          if (voiceSection) voiceSection.style.display = 'none';
-          optionBtns.forEach(b => b.disabled = true);
-          if (lockAnswerBtn) lockAnswerBtn.style.display = 'none';
-
-          lockedAnswerDisplay.textContent = finalAnswer;
-          confSection.style.display = 'block';
+          const respData = await resp.json();
+          handlePostAnswerLock(respData, finalAnswer);
         } catch (err) {
           alert(`Network error: ${err.message}`);
           confirmVoiceBtn.disabled = false;
@@ -315,14 +379,8 @@
             return;
           }
 
-          answerLocked = true;
-          answerLockTimeMs = performance.now();
-          if (voiceSection) voiceSection.style.display = 'none';
-          optionBtns.forEach(b => b.disabled = true);
-          lockAnswerBtn.style.display = 'none';
-
-          lockedAnswerDisplay.textContent = selectedOption;
-          confSection.style.display = 'block';
+          const respData = await resp.json();
+          handlePostAnswerLock(respData, selectedOption);
         } catch (err) {
           alert(`Network error: ${err.message}`);
           lockAnswerBtn.disabled = false;
@@ -331,35 +389,40 @@
     }
 
     // --- Confidence Lock Handler ---
-    lockConfBtn.addEventListener('click', async function() {
-      lockConfBtn.disabled = true;
-      const confLatencyMs = answerLockTimeMs ? Math.round(performance.now() - answerLockTimeMs) : 0;
-      const confValue = parseFloat(confSlider.value);
-
-      try {
-        const resp = await fetch(`/api/trials/${trialId}/confidence`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            value: confValue,
-            modality: 'numeric',
-            latency_ms: confLatencyMs
-          })
-        });
-
-        if (!resp.ok) {
-          const err = await resp.json();
-          alert(`Error saving confidence: ${err.error || resp.statusText}`);
-          lockConfBtn.disabled = false;
+    if (lockConfBtn) {
+      lockConfBtn.addEventListener('click', async function() {
+        if (!confidenceSelected || selectedConfidenceValue === null) {
+          alert("Please select a confidence rating before proceeding.");
           return;
         }
+        lockConfBtn.disabled = true;
+        const confLatencyMs = answerLockTimeMs ? Math.round(performance.now() - answerLockTimeMs) : 0;
 
-        window.location.href = `/sessions/${episodeId}`;
-      } catch (err) {
-        alert(`Network error: ${err.message}`);
-        lockConfBtn.disabled = false;
-      }
-    });
+        try {
+          const resp = await fetch(`/api/trials/${trialId}/confidence`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              value: selectedConfidenceValue,
+              modality: 'numeric',
+              latency_ms: confLatencyMs
+            })
+          });
+
+          if (!resp.ok) {
+            const err = await resp.json();
+            alert(`Error saving confidence: ${err.error || resp.statusText}`);
+            lockConfBtn.disabled = false;
+            return;
+          }
+
+          window.location.href = `/sessions/${episodeId}`;
+        } catch (err) {
+          alert(`Network error: ${err.message}`);
+          lockConfBtn.disabled = false;
+        }
+      });
+    }
   })();
 </script>
 {% endblock %}

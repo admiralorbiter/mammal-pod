@@ -83,6 +83,19 @@ def trial_view(episode_id: str, trial_id: str):
             return redirect(url_for("routes.index"))
 
         episode = session.get(Episode, episode_id)
+        protocol = (
+            session.query(Protocol)
+            .filter(
+                Protocol.protocol_id == episode.protocol_id,
+                Protocol.version == episode.protocol_version,
+            )
+            .first()
+            if episode
+            else None
+        )
+        conf_cfg = (protocol.schema_json.get("confidence") or {}) if protocol and protocol.schema_json else {}
+        conf_enabled = conf_cfg.get("enabled", True)
+
         item = controller.get_trial_item(trial)
         total_trials = session.query(func.count(Trial.id)).filter(Trial.episode_id == episode_id).scalar() or 0
 
@@ -95,6 +108,8 @@ def trial_view(episode_id: str, trial_id: str):
             episode=episode,
             item=item,
             total_trials=total_trials,
+            confidence_enabled=conf_enabled,
+            confidence_config=conf_cfg,
         )
 
 
@@ -121,11 +136,13 @@ def api_lock_answer(trial_id: str):
                 latency_ms=float(latency_ms) if latency_ms is not None else None,
                 raw_artifact_id=raw_artifact_id,
             )
+            trial = session.get(Trial, trial_id)
             return jsonify({
                 "status": "locked",
                 "trial_id": trial_id,
                 "answer_id": answer.id,
                 "value": answer.locked_value_json,
+                "trial_status": trial.status if trial else "answer_locked",
             })
     except InvariantViolationError as exc:
         return jsonify({"error": str(exc)}), 400
