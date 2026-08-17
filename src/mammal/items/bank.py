@@ -130,9 +130,11 @@ QUALIFICATION_FIXTURE_ITEMS: list[dict[str, Any]] = [
 
 
 def seed_qualification_items(session: Session) -> list[Item]:
-    """Ensure baseline qualification items are present in item bank."""
+    """Ensure baseline qualification items (100 items) are present in item bank."""
+    from mammal.items.qualification import generate_e00_qualification_items
+    all_fixtures = QUALIFICATION_FIXTURE_ITEMS + generate_e00_qualification_items()
     registered = []
-    for item_dict in QUALIFICATION_FIXTURE_ITEMS:
+    for item_dict in all_fixtures:
         item = register_item(session, item_dict)
         registered.append(item)
     return registered

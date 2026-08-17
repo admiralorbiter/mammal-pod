@@ -122,6 +122,107 @@ def artifacts_verify() -> None:
     console.print(table)
 
 
+@main.command(name="replay")
+@click.argument("episode_id", required=False)
+@click.option("--all", "replay_all", is_flag=True, default=False, help="Replay all recorded episodes.")
+def cli_replay(episode_id: str | None, replay_all: bool) -> None:
+    """Reconstruct trial states and verify SHA-256 event chains for an episode."""
+    from mammal.config import Settings
+    from mammal.models.entities import Episode
+    from mammal.trials.replay import replay_session_from_events
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        if replay_all:
+            episodes = session.query(Episode).all()
+            target_ids = [ep.id for ep in episodes]
+        elif episode_id:
+            target_ids = [episode_id]
+        else:
+            console.print("[red]Error: Please specify an episode_id or pass --all[/red]")
+            return
+
+        if not target_ids:
+            console.print("[yellow]No episodes found to replay.[/yellow]")
+            return
+
+        for ep_id in target_ids:
+            try:
+                summary = replay_session_from_events(session, ep_id, app_settings=app_settings)
+                status_str = "[bold green]PASS[/bold green]" if summary.is_valid else "[bold red]FAIL[/bold red]"
+                console.print(Panel(f"Session Replay Audit: [cyan]{ep_id}[/cyan] &mdash; Result: {status_str}"))
+
+                table = Table(show_header=True, header_style="bold blue")
+                table.add_column("Property", style="cyan")
+                table.add_column("Value", style="green" if summary.is_valid else "red")
+                table.add_row("Total Trials", str(summary.total_trials))
+                table.add_row("Replayed Trials", str(summary.replayed_trials))
+                table.add_row("Total Events Verified", str(summary.total_events))
+                table.add_row("Artifacts Verified", str(summary.total_artifacts_verified))
+                table.add_row("Chain Integrity", "VALID (100% SHA-256 MATCH)" if summary.is_valid else "CORRUPTED")
+
+                console.print(table)
+                if summary.discrepancies:
+                    console.print("[bold red]Discrepancies found:[/bold red]")
+                    for disc in summary.discrepancies:
+                        console.print(f"  [red]&bull; {disc}[/red]")
+            except Exception as exc:
+                console.print(f"[bold red]Replay error for {ep_id}: {exc}[/bold red]")
+
+
+@main.command(name="export")
+@click.argument("episode_id")
+@click.argument("output_path", type=click.Path(dir_okay=False))
+def cli_export(episode_id: str, output_path: str) -> None:
+    """Export complete episode data and artifacts to a portable .tar.gz archive."""
+    from mammal.backup.archive import export_session_archive
+    from mammal.config import Settings
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        try:
+            out_file = export_session_archive(session, episode_id, output_path, app_settings=app_settings)
+            console.print(f"[bold green]✓ Episode {episode_id} exported successfully to {out_file}[/bold green]")
+        except Exception as exc:
+            console.print(f"[bold red]Export failed: {exc}[/bold red]")
+
+
+@main.command(name="restore")
+@click.argument("archive_path", type=click.Path(exists=True, dir_okay=False))
+def cli_restore(archive_path: str) -> None:
+    """Restore a session archive and verify its cryptographic integrity."""
+    from mammal.backup.archive import restore_session_archive
+    from mammal.config import Settings
+    from mammal.trials.replay import replay_session_from_events
+
+    app_settings = Settings.load()
+    try:
+        ep_id = restore_session_archive(archive_path, app_settings)
+        console.print(f"[bold green]✓ Session archive restored successfully (Episode: {ep_id})[/bold green]")
+
+        with get_session(app_settings) as session:
+            summary = replay_session_from_events(session, ep_id, app_settings=app_settings)
+            if summary.is_valid:
+                console.print(f"[bold green]✓ Replay verification passed on restored session {ep_id}[/bold green]")
+            else:
+                console.print(f"[bold red]⚠ Replay verification reported discrepancies on {ep_id}[/bold red]")
+    except Exception as exc:
+        console.print(f"[bold red]Restore failed: {exc}[/bold red]")
+
+
+@main.command(name="seed")
+def cli_seed() -> None:
+    """Seed qualification and baseline items into the item bank."""
+    from mammal.config import Settings
+    from mammal.items.bank import seed_qualification_items
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        items = seed_qualification_items(session)
+        session.commit()
+        console.print(f"[bold green]✓ Successfully seeded {len(items)} items into item bank.[/bold green]")
+
+
 @main.command()
 @click.option("--host", default="127.0.0.1", help="Host interface to bind.")
 @click.option("--port", default=5000, type=int, help="Port to listen on.")
@@ -137,4 +238,5 @@ def serve(host: str, port: int, debug: bool) -> None:
 
 if __name__ == "__main__":
     main()
+
 

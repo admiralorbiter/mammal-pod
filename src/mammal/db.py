@@ -29,28 +29,29 @@ def create_db_engine(db_url: str | None = None) -> Engine:
     return engine
 
 
-_engine: Engine | None = None
-_SessionFactory: sessionmaker[Session] | None = None
+_engines: dict[str, Engine] = {}
+_session_factories: dict[str, sessionmaker[Session]] = {}
 
 
 def get_engine(app_settings: Settings | None = None) -> Engine:
-    """Get or initialize the global database engine."""
-    global _engine, _SessionFactory
-    if _engine is None:
-        target_settings = app_settings or settings
+    """Get or initialize the database engine for the active settings."""
+    target_settings = app_settings or Settings.load()
+    url = target_settings.db_url
+    if url not in _engines:
         target_settings.ensure_directories()
-        _engine = create_db_engine(target_settings.db_url)
-        _SessionFactory = sessionmaker(bind=_engine, autocommit=False, autoflush=False, future=True)
-    return _engine
+        eng = create_db_engine(url)
+        _engines[url] = eng
+        _session_factories[url] = sessionmaker(bind=eng, autocommit=False, autoflush=False, future=True)
+    return _engines[url]
 
 
 def get_session_factory(app_settings: Settings | None = None) -> sessionmaker[Session]:
-    """Get the sessionmaker factory."""
-    global _SessionFactory
-    if _SessionFactory is None:
-        get_engine(app_settings)
-    assert _SessionFactory is not None
-    return _SessionFactory
+    """Get the sessionmaker factory for the active settings."""
+    target_settings = app_settings or Settings.load()
+    url = target_settings.db_url
+    if url not in _session_factories:
+        get_engine(target_settings)
+    return _session_factories[url]
 
 
 @contextmanager
