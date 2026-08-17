@@ -4,36 +4,40 @@
 Each stage depends on previous scientific and technical contracts.
 
 ```text
-M0 Founding freeze
+M0 Founding freeze                       [COMPLETED & VERIFIED]
  ↓
-M1 Core provenance kernel
+M1 Core provenance kernel                [COMPLETED & VERIFIED]
  ↓
-M2 Manual trial vertical slice
+M2 Manual trial vertical slice           [COMPLETED & VERIFIED]
  ↓
-M3 Voice acquisition vertical slice
+M3 Voice acquisition vertical slice      [COMPLETED & VERIFIED]
  ↓
-M4 Confidence and no-feedback protocol
+M4 Confidence and no-feedback protocol   [COMPLETED & VERIFIED]
  ↓
-M5 E00 qualification and replay
+M5 E00 qualification and replay          [COMPLETED & VERIFIED]
  ├───────────────┐
  ↓               ↓
-M6 Item banks    M7 Psychophysics engine / P00
+M6 Item banks    M7 Psychophysics engine [COMPLETED & VERIFIED]
  └───────┬───────┘
          ↓
-M8 Human Self baseline engine
+M8 Human Self baseline engine            [COMPLETED & VERIFIED]
          ↓
-M9 Generic observer ladder
+M9 Generic observer ladder               [COMPLETED & VERIFIED]
          ↓
-M10 Acoustic/public-signal pipeline
+M10 Acoustic/public-signal pipeline      [COMPLETED & VERIFIED]
          ↓
-M11 Personalized prequential models
+M11 Personalized prequential models      [COMPLETED & VERIFIED]
          ↓
-M12 Future-memory subsystem
+M12 Future-memory subsystem              [COMPLETED & VERIFIED]
          ↓
-M13 Intervention/feedback mode
+M13 Intervention/feedback mode           [COMPLETED & VERIFIED]
          ↓
-M14 Publication/release pipeline
+M14 Publication/release pipeline         [PENDING DEPLOYMENT]
 ```
+
+### Current Status:
+- **Milestones M0 through M13** are fully implemented, tested across 100/100 automated tests, and live-verified with real human participant data across manual choice, spoken voice prosody, visual psychophysics RDK, and two-phase prospective memory (JOL).
+- **Upcoming Work:** Expansion of the calibrated item bank (500+ items across Nelson-Narens/Tauber norms and science corpora) and longitudinal baseline data collection prior to milestone M14.
 
 ## M0 — Founding freeze
 

@@ -55,7 +55,7 @@ def analyze_memory_episode(
     # 2. Map recall outcomes
     recalls: dict[str, dict[str, Any]] = {}
     for e in events:
-        if e.event_type == "memory.recall_scored":
+        if e.event_type in ("memory.recall_scored", "trial.scored"):
             item_id = e.payload_json.get("item_id") or e.payload_json.get("encoding_trial_id") or e.trial_id
             recalls[item_id] = {
                 "recall_trial_id": e.trial_id,
@@ -63,6 +63,21 @@ def analyze_memory_episode(
                 "is_correct": bool(e.payload_json.get("is_correct", False)),
                 "score": float(e.payload_json.get("score", 0.0)),
             }
+
+    # Fallback to trial entities if scored via standard controller
+    from mammal.models.entities import Episode, Trial
+    episode = session.get(Episode, episode_id)
+    if episode:
+        for t in episode.trials:
+            if t.outcome:
+                for lookup_key in (t.item_id, t.id):
+                    if lookup_key and lookup_key not in recalls:
+                        recalls[lookup_key] = {
+                            "recall_trial_id": t.id,
+                            "target": "",
+                            "is_correct": bool(t.outcome.is_correct),
+                            "score": float(t.outcome.score),
+                        }
 
     # 3. Align pairs
     matched_jols: list[float] = []

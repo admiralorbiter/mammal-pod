@@ -134,7 +134,8 @@ class SessionController:
             items = list(self.session.scalars(select(Item).where(Item.item_id.in_(item_ids))).all())
         else:
             partition = proto.schema_json.get("item_bank", {}).get("partition", "engineering")
-            items = list(get_items_for_protocol(self.session, partition=partition, limit=item_limit or 10))
+            domain = proto.domain if proto else None
+            items = list(get_items_for_protocol(self.session, domain=domain, partition=partition, limit=item_limit or 10))
 
         if item_limit and len(items) > item_limit:
             items = items[:item_limit]
@@ -254,8 +255,8 @@ class SessionController:
         conf_cfg = (protocol.schema_json.get("confidence") or {}) if protocol and protocol.schema_json else {}
         conf_enabled = conf_cfg.get("enabled", True)
 
-        if not conf_enabled:
-            # Answer-only control protocol: score outcome and complete trial immediately
+        # If confidence is already recorded (e.g. prospective JOL) or protocol doesn't require retrospective confidence
+        if not conf_enabled or trial.confidence is not None or (protocol and protocol.domain == "future_memory"):
             self._score_and_complete_trial(trial, answer_value=value)
             self.session.commit()
             return answer

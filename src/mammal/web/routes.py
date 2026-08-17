@@ -102,7 +102,12 @@ def trial_view(episode_id: str, trial_id: str):
         # Mark prompt shown event
         controller.mark_prompt_shown(trial_id)
 
-        template_name = "rdk_stimulus.html" if protocol and protocol.domain in ("perception_rdk", "perceptual_psychophysics") else "trial.html"
+        if protocol and protocol.domain in ("perception_rdk", "perceptual_psychophysics"):
+            template_name = "rdk_stimulus.html"
+        elif protocol and (protocol.domain == "future_memory" or protocol.protocol_id == "p02_cued_recall_jol"):
+            template_name = "memory_jol.html"
+        else:
+            template_name = "trial.html"
 
         return render_template(
             template_name,
@@ -259,6 +264,61 @@ def api_lock_confidence(trial_id: str):
             })
     except InvariantViolationError as exc:
         return jsonify({"error": str(exc)}), 400
+    except Exception as exc:
+        return jsonify({"error": f"Internal server error: {exc}"}), 500
+
+
+@routes.route("/api/trials/<trial_id>/memory/jol", methods=["POST"])
+def api_record_memory_jol(trial_id: str):
+    """API endpoint to record study presentation and immutably freeze Judgment of Learning (JOL)."""
+    from mammal.memory.encoding import record_encoding_jol
+
+    data = request.get_json(silent=True) or {}
+    cue = data.get("cue", "")
+    target = data.get("target", "")
+    study_duration = float(data.get("study_duration_ms", 0.0))
+    jol_rating = float(data.get("jol_rating", 50.0))
+    item_id = data.get("item_id", "")
+
+    try:
+        app_set = _current_settings()
+        with get_session(app_set) as session:
+            trial = session.get(Trial, trial_id)
+            if not trial:
+                return jsonify({"error": "Trial not found"}), 404
+
+            rec = record_encoding_jol(
+                session=session,
+                trial_id=trial_id,
+                episode_id=trial.episode_id,
+                item_id=item_id or trial.item_id,
+                cue=cue,
+                target=target,
+                study_duration_ms=study_duration,
+                jol_rating=jol_rating,
+                jol_latency_ms=study_duration,
+            )
+
+            from mammal.models.base import utc_now
+            from mammal.models.entities import Confidence
+
+            existing_conf = session.get(Confidence, trial_id)
+            if not existing_conf:
+                conf = Confidence(
+                    trial_id=trial_id,
+                    value=jol_rating,
+                    modality="numeric",
+                    locked_at=utc_now(),
+                    latency_ms=study_duration,
+                )
+                session.add(conf)
+                session.commit()
+
+            return jsonify({
+                "status": "success",
+                "trial_id": trial_id,
+                "jol_rating": rec.jol_rating,
+            })
     except Exception as exc:
         return jsonify({"error": f"Internal server error: {exc}"}), 500
 

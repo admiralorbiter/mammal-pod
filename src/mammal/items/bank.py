@@ -54,6 +54,13 @@ def register_item(session: Session, item_data: dict[str, Any]) -> Item:
     existing = session.scalars(stmt).first()
 
     if existing:
+        existing.prompt_json = item_data["prompt"]
+        existing.options_json = item_data.get("options")
+        existing.ground_truth_json = item_data["ground_truth"]
+        existing.domain = item_data["domain"]
+        existing.family = item_data["family"]
+        existing.content_hash = content_hash
+        session.flush()
         return existing
 
     item = Item(
@@ -129,10 +136,65 @@ QUALIFICATION_FIXTURE_ITEMS: list[dict[str, Any]] = [
 ]
 
 
+def generate_rdk_items() -> list[dict[str, Any]]:
+    """Generate deterministic Random Dot Kinematogram motion items."""
+    items = []
+    directions = ["left", "right", "right", "left", "left", "right", "left", "right", "left", "right", "left", "right", "left", "right", "left", "right", "left", "right", "left", "right"]
+    coherences = [0.50, 0.40, 0.35, 0.45, 0.30, 0.55, 0.40, 0.50, 0.35, 0.45, 0.50, 0.40, 0.35, 0.45, 0.30, 0.55, 0.40, 0.50, 0.35, 0.45]
+    for i, (d, c) in enumerate(zip(directions, coherences), start=1):
+        items.append({
+            "item_id": f"rdk_motion_{i:03d}",
+            "version": "1.0.0",
+            "domain": "perception_rdk",
+            "family": "motion_discrimination",
+            "prompt": {"question": "Discriminate perceived direction of coherent motion", "coherence": c, "direction": d},
+            "options": ["left", "right"],
+            "ground_truth": {"canonical": d, "option_index": 0 if d == "left" else 1},
+            "partition": "engineering",
+            "source": {"provenance": "synthetic_rdk_fixtures", "license": "CC0"},
+        })
+    return items
+
+
+def generate_memory_items() -> list[dict[str, Any]]:
+    """Generate paired associate memory items for prospective JOL protocols."""
+    pairs_data = [
+        ("adui", "enemy", ["Enemy", "Friend", "Warrior", "Shadow"]),
+        ("chakula", "food", ["Food", "Water", "Feast", "Harvest"]),
+        ("mwezi", "moon", ["Moon", "Sun", "Sky", "Night"]),
+        ("safari", "journey", ["Journey", "Camp", "Trail", "Hunter"]),
+        ("samaki", "fish", ["Fish", "River", "Boat", "Net"]),
+        ("nyota", "star", ["Star", "Cloud", "Comet", "Spark"]),
+        ("ndege", "bird", ["Bird", "Wing", "Wind", "Nest"]),
+        ("kitabu", "book", ["Book", "Letter", "Scroll", "Story"]),
+        ("barabara", "road", ["Road", "Bridge", "Path", "Mountain"]),
+        ("maji", "water", ["Water", "Ocean", "Rain", "River"]),
+    ]
+    items = []
+    for i, (cue, target, options) in enumerate(pairs_data, start=1):
+        items.append({
+            "item_id": f"mem_pair_{i:03d}",
+            "version": "1.0.0",
+            "domain": "future_memory",
+            "family": "cued_recall_jol",
+            "prompt": {
+                "cue": cue.upper(),
+                "target": target.upper(),
+                "study_text": f"{cue.upper()} \u2192 {target.upper()}",
+                "test_question": f"What is the English translation for '{cue.upper()}'?",
+            },
+            "options": options,
+            "ground_truth": {"canonical": target, "option_index": 0},
+            "partition": "engineering",
+            "source": {"provenance": "swahili_english_associates_v1", "license": "CC0"},
+        })
+    return items
+
+
 def seed_qualification_items(session: Session) -> list[Item]:
     """Ensure baseline qualification items (100 items) are present in item bank."""
     from mammal.items.qualification import generate_e00_qualification_items
-    all_fixtures = QUALIFICATION_FIXTURE_ITEMS + generate_e00_qualification_items()
+    all_fixtures = QUALIFICATION_FIXTURE_ITEMS + generate_e00_qualification_items() + generate_rdk_items() + generate_memory_items()
     registered = []
     for item_dict in all_fixtures:
         item = register_item(session, item_dict)
@@ -140,15 +202,35 @@ def seed_qualification_items(session: Session) -> list[Item]:
     return registered
 
 
-def get_items_for_protocol(session: Session, partition: str = "engineering", limit: int = 10) -> Sequence[Item]:
-    """Query available items for an experiment partition."""
-    stmt = select(Item).where(Item.partition == partition).limit(limit)
-    items = list(session.scalars(stmt).all())
-    if not items:
-        # Seed qualification items if empty
-        seed_qualification_items(session)
-        items = list(session.scalars(stmt).all())
+def get_items_for_protocol(
+    session: Session,
+    domain: str | None = None,
+    partition: str = "engineering",
+    limit: int = 10,
+) -> Sequence[Item]:
+    """Query available items for an experiment partition and domain."""
+    if domain in ("perception_rdk", "perceptual_psychophysics"):
+        query = select(Item).where(Item.domain == "perception_rdk").limit(limit)
+        items = list(session.scalars(query).all())
         if not items:
-            # Fallback to any available seeded items in database
-            items = list(session.scalars(select(Item).limit(limit)).all())
+            seed_qualification_items(session)
+            items = list(session.scalars(query).all())
+        return items
+
+    if domain == "future_memory":
+        query = select(Item).where(Item.domain == "future_memory").limit(limit)
+        items = list(session.scalars(query).all())
+        if not items:
+            seed_qualification_items(session)
+            items = list(session.scalars(query).all())
+        return items
+
+    # Standard protocols: query by partition, fallback to any non-rdk items
+    query = select(Item).where(Item.partition == partition).limit(limit)
+    items = list(session.scalars(query).all())
+    if not items:
+        seed_qualification_items(session)
+        items = list(session.scalars(query).all())
+    if not items:
+        items = list(session.scalars(select(Item).where(Item.domain != "perception_rdk").limit(limit)).all())
     return items

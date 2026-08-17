@@ -65,6 +65,18 @@ Mammal Pod conclusions are hidden until a declared review/intervention phase.
 
 Ethics determination, preregistration, frozen analysis, and reproducible export precede confirmatory inference.
 
+### D-MAMMAL-015 — Two-phase prospective memory (JOL) architecture
+
+Memory protocols (e.g. `p02_cued_recall_jol`) enforce an epistemic two-phase interface: Phase 1 presents vocabulary study pairs (`CUE → TARGET`) with immediate Judgment of Learning (JOL) forecasting (0–100%); Phase 2 presents only the cue (`CUE → ???`) with multiple-choice or direct recall. JOL forecasts are immutably locked before recall testing.
+
+### D-MAMMAL-016 — Dedicated perceptual psychophysics (RDK) item banks
+
+Visual motion discrimination protocols use dedicated `perception_rdk` items with explicit motion ground truth (`left`/`right`) and calibrated motion coherences, capturing median frame intervals and display refresh jitter.
+
+### D-MAMMAL-017 — Universal speech & text response normalization
+
+Scoring engines normalize text and ASR speech transcripts by stripping punctuation, extra whitespace, and case differences to ensure robust comparison against canonical ground truth.
+
 ## Open questions
 
 ### O-MAMMAL-001 — Repository name/URL
@@ -73,9 +85,12 @@ Likely `mammal`, `project-mammal`, or `mammal-pod`.
 
 No scientific dependency.
 
-### O-MAMMAL-002 — Exact semantic item source
+### O-MAMMAL-002 — Exact semantic and memory item sources
 
-Need a licensed, verified, difficulty-diverse bank.
+Resolved candidate banks for expansion:
+- General Knowledge Norms (Tauber et al., 2013; Nelson & Narens, 1980);
+- Swahili-English associative memory norms (Nelson & Dunlosky, 1991);
+- Standardized science/logic subsets (MMLU / ARC / OpenBookQA / OpenTDB).
 
 ### O-MAMMAL-003 — Exact formal item families
 

@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+
+{% block title %}Project MAMMAL // Future-Memory JOL{% endblock %}
+
+{% block content %}
+<div class="card" id="memory-card" style="max-width: 680px; margin: 0 auto;">
+  <div class="meta-bar">
+    <span>TRIAL {{ trial.trial_index }} OF {{ total_trials }}</span>
+    <span>FUTURE-MEMORY // PROSPECTIVE JOL &amp; CUED RECALL</span>
+  </div>
+
+  <div class="progress-track">
+    <div class="progress-fill" style="width: {{ (trial.trial_index / total_trials * 100) | round }}%;"></div>
+  </div>
+
+  <!-- PHASE 1: STUDY & JUDGMENT OF LEARNING (JOL) -->
+  <div id="phase1-section" style="display: block;">
+    <div style="background-color: rgba(229, 169, 60, 0.1); border: 1px solid var(--accent-codec); border-radius: 8px; padding: 1.5rem; text-align: center; margin-bottom: 1.5rem;">
+      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-codec); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">
+        PHASE 1 // STUDY VOCABULARY PAIR
+      </div>
+      <div style="font-size: 2rem; font-weight: bold; color: var(--text-primary); letter-spacing: 0.05em;">
+        {{ item.prompt_json.cue }} &rarr; {{ item.prompt_json.target }}
+      </div>
+      <div class="text-muted" style="font-size: 0.85rem; margin-top: 0.5rem;">
+        Study this translation carefully.
+      </div>
+    </div>
+
+    <!-- JOL Rating Prompt -->
+    <div class="confidence-section" style="margin-top: 1rem;">
+      <div class="section-label" style="text-align: center;">
+        Judgment of Learning (JOL): How confident are you that you will remember the English translation for <strong style="color: var(--accent-codec);">{{ item.prompt_json.cue }}</strong> when tested next?
+      </div>
+
+      <!-- Quick Bin Buttons -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin: 1rem 0;">
+        <button type="button" class="btn-jol-bin option-btn" data-val="25" style="text-align: center; padding: 0.5rem; justify-content: center;">25% (Forget)</button>
+        <button type="button" class="btn-jol-bin option-btn" data-val="50" style="text-align: center; padding: 0.5rem; justify-content: center;">50% (Unsure)</button>
+        <button type="button" class="btn-jol-bin option-btn" data-val="75" style="text-align: center; padding: 0.5rem; justify-content: center;">75% (Likely)</button>
+        <button type="button" class="btn-jol-bin option-btn" data-val="100" style="text-align: center; padding: 0.5rem; justify-content: center;">100% (Certain)</button>
+      </div>
+
+      <!-- Continuous Slider -->
+      <div class="confidence-slider-container">
+        <input type="range" id="jol-slider" min="0" max="100" value="50" step="1" class="slider-scale" style="opacity: 0.7;">
+        <div class="confidence-value-display"><span id="jol-val" style="color: var(--text-muted);">Select JOL</span></div>
+      </div>
+
+      <button type="button" id="btn-lock-jol" class="btn-primary" style="margin-top: 1.25rem; width: 100%; font-size: 1rem; padding: 0.9rem;" disabled>
+        LOCK JOL FORECAST &amp; BEGIN RECALL TEST &rarr;
+      </button>
+    </div>
+  </div>
+
+  <!-- PHASE 2: CUED RECALL TEST (Hidden during study) -->
+  <div id="phase2-section" style="display: none;">
+    <div style="background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; text-align: center; margin-bottom: 1.5rem;">
+      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">
+        PHASE 2 // CUED RECALL TEST
+      </div>
+      <div style="font-size: 2rem; font-weight: bold; color: var(--text-primary); letter-spacing: 0.05em;">
+        {{ item.prompt_json.cue }} &rarr; <span style="color: var(--accent-codec);">???</span>
+      </div>
+      <div class="text-muted" style="font-size: 0.9rem; margin-top: 0.5rem;">
+        What is the English translation for <strong>{{ item.prompt_json.cue }}</strong>?
+      </div>
+    </div>
+
+    <!-- Options -->
+    <div class="options-container" id="recall-options" style="margin-bottom: 1.5rem;">
+      {% if item.options_json %}
+        {% for opt in item.options_json %}
+        <button type="button" class="option-btn recall-opt" data-index="{{ loop.index0 }}" data-value="{{ opt }}">
+          <span class="option-num">{{ loop.index }}.</span>
+          <span class="option-label">{{ opt }}</span>
+        </button>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <button type="button" id="btn-lock-recall" class="btn-primary" style="width: 100%; font-size: 1rem; padding: 0.9rem;" disabled>
+      LOCK RECALL ANSWER &rarr;
+    </button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const trialId = "{{ trial.id }}";
+    const episodeId = "{{ episode.id }}";
+    const cue = "{{ item.prompt_json.cue }}";
+    const target = "{{ item.prompt_json.target }}";
+    const itemId = "{{ item.item_id }}";
+
+    const phase1 = document.getElementById('phase1-section');
+    const phase2 = document.getElementById('phase2-section');
+    const jolSlider = document.getElementById('jol-slider');
+    const jolVal = document.getElementById('jol-val');
+    const btnLockJol = document.getElementById('btn-lock-jol');
+    const jolBinBtns = document.querySelectorAll('.btn-jol-bin');
+
+    const recallOptBtns = document.querySelectorAll('.recall-opt');
+    const btnLockRecall = document.getElementById('btn-lock-recall');
+
+    let studyStartTime = performance.now();
+    let selectedJolValue = null;
+    let selectedRecallIndex = null;
+    let selectedRecallValue = null;
+    let testStartTime = null;
+
+    // --- Phase 1: JOL Rating Logic ---
+    function setJol(val) {
+      selectedJolValue = parseFloat(val);
+      if (jolSlider) {
+        jolSlider.value = selectedJolValue;
+        jolSlider.style.opacity = '1.0';
+      }
+      if (jolVal) {
+        jolVal.innerHTML = `<strong>${selectedJolValue}%</strong>`;
+      }
+      if (btnLockJol) {
+        btnLockJol.disabled = false;
+      }
+      jolBinBtns.forEach(b => {
+        if (parseFloat(b.getAttribute('data-val')) === selectedJolValue) {
+          b.classList.add('selected');
+        } else {
+          b.classList.remove('selected');
+        }
+      });
+    }
+
+    if (jolSlider) {
+      jolSlider.addEventListener('input', function() { setJol(this.value); });
+      jolSlider.addEventListener('change', function() { setJol(this.value); });
+    }
+
+    jolBinBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        setJol(this.getAttribute('data-val'));
+      });
+    });
+
+    if (btnLockJol) {
+      btnLockJol.addEventListener('click', async function() {
+        if (selectedJolValue === null) {
+          alert("Please select a Judgment of Learning rating.");
+          return;
+        }
+
+        btnLockJol.disabled = true;
+        const studyDurationMs = Math.round(performance.now() - studyStartTime);
+
+        // 1. Post JOL forecast to backend
+        try {
+          const resp = await fetch(`/api/trials/${trialId}/memory/jol`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              cue: cue,
+              target: target,
+              study_duration_ms: studyDurationMs,
+              jol_rating: selectedJolValue,
+              item_id: itemId
+            })
+          });
+
+          if (!resp.ok) {
+            let errorMsg = resp.statusText;
+            try {
+              const err = await resp.json();
+              errorMsg = err.error || errorMsg;
+            } catch (_) {}
+            alert(`Error recording JOL: ${errorMsg}`);
+            btnLockJol.disabled = false;
+            return;
+          }
+
+          // 2. Transition smoothly to Phase 2: Cued Recall Test
+          phase1.style.display = 'none';
+          phase2.style.display = 'block';
+          testStartTime = performance.now();
+        } catch (err) {
+          alert(`Network error: ${err.message}`);
+          btnLockJol.disabled = false;
+        }
+      });
+    }
+
+    // --- Phase 2: Cued Recall Selection Logic ---
+    recallOptBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        recallOptBtns.forEach(b => b.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedRecallIndex = parseInt(this.getAttribute('data-index'), 10);
+        selectedRecallValue = this.getAttribute('data-value');
+        btnLockRecall.disabled = false;
+      });
+    });
+
+    if (btnLockRecall) {
+      btnLockRecall.addEventListener('click', async function() {
+        if (selectedRecallIndex === null) {
+          alert("Please select an answer.");
+          return;
+        }
+
+        btnLockRecall.disabled = true;
+        const recallLatencyMs = testStartTime ? Math.round(performance.now() - testStartTime) : 0;
+
+        try {
+          const resp = await fetch(`/api/trials/${trialId}/answer`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              option_index: selectedRecallIndex,
+              value: selectedRecallValue,
+              modality: 'button',
+              latency_ms: recallLatencyMs
+            })
+          });
+
+          if (!resp.ok) {
+            let errorMsg = resp.statusText;
+            try {
+              const err = await resp.json();
+              errorMsg = err.error || errorMsg;
+            } catch (_) {}
+            alert(`Error locking answer: ${errorMsg}`);
+            btnLockRecall.disabled = false;
+            return;
+          }
+
+          // Advance to next trial or summary
+          window.location.href = `/sessions/${episodeId}`;
+        } catch (err) {
+          alert(`Network error: ${err.message}`);
+          btnLockRecall.disabled = false;
+        }
+      });
+    }
+  })();
+</script>
+{% endblock %}
