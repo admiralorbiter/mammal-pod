@@ -1,4 +1,4 @@
-"""Item bank management, schema validation, and fixture seeding."""
+"""Item bank management, schema validation, disk ingestion, and fixture seeding."""
 
 from __future__ import annotations
 
@@ -59,6 +59,11 @@ def register_item(session: Session, item_data: dict[str, Any]) -> Item:
         existing.ground_truth_json = item_data["ground_truth"]
         existing.domain = item_data["domain"]
         existing.family = item_data["family"]
+        existing.partition = item_data["partition"]
+        existing.source_json = item_data["source"]
+        existing.difficulty_json = item_data.get("difficulty")
+        existing.verification_json = item_data.get("verification")
+        existing.leakage_checks_json = item_data.get("leakage_checks")
         existing.content_hash = content_hash
         session.flush()
         return existing
@@ -81,6 +86,35 @@ def register_item(session: Session, item_data: dict[str, Any]) -> Item:
     session.add(item)
     session.flush()
     return item
+
+
+def import_item_bank_from_disk(
+    session: Session,
+    dir_or_file: str | Path | None = None,
+) -> tuple[list[Item], list[str]]:
+    """Import and register all JSON/YAML items from disk into the SQLite item bank."""
+    from mammal.items.loaders import get_default_item_banks_dir, load_item_banks_from_directory
+    from mammal.items.validator import ItemValidator
+
+    target_path = Path(dir_or_file) if dir_or_file else get_default_item_banks_dir()
+    if not target_path.exists():
+        return [], [f"Item bank directory not found: {target_path}"]
+
+    raw_items = load_item_banks_from_directory(target_path)
+    validator = ItemValidator()
+    report = validator.validate_items(raw_items)
+
+    if not report.is_valid:
+        err_msgs = [f"[{err.item_id}] {err.message}" for err in report.errors]
+        return [], err_msgs
+
+    registered: list[Item] = []
+    for item_data in raw_items:
+        item = register_item(session, item_data)
+        registered.append(item)
+
+    session.commit()
+    return registered, []
 
 
 QUALIFICATION_FIXTURE_ITEMS: list[dict[str, Any]] = [
@@ -210,27 +244,57 @@ def get_items_for_protocol(
 ) -> Sequence[Item]:
     """Query available items for an experiment partition and domain."""
     if domain in ("perception_rdk", "perceptual_psychophysics"):
-        query = select(Item).where(Item.domain == "perception_rdk").limit(limit)
-        items = list(session.scalars(query).all())
+        query = select(Item).where(Item.domain == "perception_rdk")
+        if partition:
+            query = query.where(Item.partition == partition)
+        items = list(session.scalars(query.limit(limit)).all())
         if not items:
             seed_qualification_items(session)
-            items = list(session.scalars(query).all())
+            items = list(session.scalars(query.limit(limit)).all())
+        if not items:
+            items = list(session.scalars(select(Item).where(Item.domain == "perception_rdk").limit(limit)).all())
         return items
 
     if domain == "future_memory":
-        query = select(Item).where(Item.domain == "future_memory").limit(limit)
-        items = list(session.scalars(query).all())
+        query = select(Item).where(Item.domain == "future_memory")
+        if partition:
+            query = query.where(Item.partition == partition)
+        items = list(session.scalars(query.limit(limit)).all())
         if not items:
+            seed_qualification_items(session)
+            items = list(session.scalars(query.limit(limit)).all())
+        if not items:
+            items = list(session.scalars(select(Item).where(Item.domain == "future_memory").limit(limit)).all())
+        return items
+
+    # For engineering qualification (E00): use all non-perception engineering items
+    if partition == "engineering":
+        query = select(Item).where(Item.partition == "engineering", Item.domain != "perception_rdk").limit(limit)
+        items = list(session.scalars(query).all())
+        if len(items) < limit:
             seed_qualification_items(session)
             items = list(session.scalars(query).all())
         return items
 
-    # Standard protocols: query by partition, fallback to any non-rdk items
-    query = select(Item).where(Item.partition == partition).limit(limit)
-    items = list(session.scalars(query).all())
+    # For standard domain protocols
+    query = select(Item).where(Item.partition == partition)
+    if domain:
+        if domain == "formal":
+            query = query.where(Item.domain.in_(["formal_math_logic", "formal_code_reasoning"]))
+        else:
+            query = query.where(Item.domain == domain)
+
+    items = list(session.scalars(query.limit(limit)).all())
+    if not items:
+        # Check if items exist on disk to import
+        from mammal.items.loaders import get_default_item_banks_dir
+        banks_dir = get_default_item_banks_dir()
+        if banks_dir.exists():
+            import_item_bank_from_disk(session, banks_dir)
+            items = list(session.scalars(query.limit(limit)).all())
+
     if not items:
         seed_qualification_items(session)
-        items = list(session.scalars(query).all())
-    if not items:
         items = list(session.scalars(select(Item).where(Item.domain != "perception_rdk").limit(limit)).all())
+
     return items

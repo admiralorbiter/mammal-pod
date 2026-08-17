@@ -1,0 +1,2222 @@
+[
+  {
+    "item_id": "log_syl_001",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All humans are mortal. Socrates is human.', what validly follows?"
+    },
+    "options": [
+      "Socrates is immortal",
+      "Socrates is mortal",
+      "All mortals are Socrates",
+      "Humans are Socrates"
+    ],
+    "ground_truth": {
+      "canonical": "Socrates is mortal",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_002",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_ponens",
+    "prompt": {
+      "question": "Given the premises: 'If it rains, the grass gets wet. It is raining.', what validly follows?"
+    },
+    "options": [
+      "The grass gets wet",
+      "The grass is dry",
+      "It is sunny",
+      "Rain is grass"
+    ],
+    "ground_truth": {
+      "canonical": "The grass gets wet",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_003",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If a figure is a square, it has four equal sides. Figure X does not have four equal sides.', what validly follows?"
+    },
+    "options": [
+      "Figure X is a square",
+      "Figure X is not a square",
+      "Figure X is a circle",
+      "Figure X has four sides"
+    ],
+    "ground_truth": {
+      "canonical": "Figure X is not a square",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_004",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "disjunctive_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'Either the switch is ON or the switch is OFF. The switch is NOT ON.', what validly follows?"
+    },
+    "options": [
+      "The switch is ON",
+      "The switch is OFF",
+      "The switch is broken",
+      "The circuit is open"
+    ],
+    "ground_truth": {
+      "canonical": "The switch is OFF",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_005",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "hypothetical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'If P then Q. If Q then R. P is true.', what validly follows?"
+    },
+    "options": [
+      "R is false",
+      "R is true",
+      "Q is false",
+      "P is false"
+    ],
+    "ground_truth": {
+      "canonical": "R is true",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_006",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All primes greater than 2 are odd. 29 is a prime greater than 2.', what validly follows?"
+    },
+    "options": [
+      "29 is even",
+      "29 is odd",
+      "29 is composite",
+      "29 is divisible by 3"
+    ],
+    "ground_truth": {
+      "canonical": "29 is odd",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_007",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'No mammals lay eggs in this universe. All dogs are mammals.', what validly follows?"
+    },
+    "options": [
+      "All dogs lay eggs",
+      "No dogs lay eggs",
+      "Some dogs lay eggs",
+      "Dogs are reptiles"
+    ],
+    "ground_truth": {
+      "canonical": "No dogs lay eggs",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_008",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "transitive_relations",
+    "prompt": {
+      "question": "Given the premises: 'If X > Y and Y > Z, what is the strict relation between X and Z?', what validly follows?"
+    },
+    "options": [
+      "X < Z",
+      "X = Z",
+      "X > Z",
+      "Cannot be determined"
+    ],
+    "ground_truth": {
+      "canonical": "X > Z",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_009",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If a function is differentiable at x0, it is continuous at x0. Function f is NOT continuous at x0.', what validly follows?"
+    },
+    "options": [
+      "f is differentiable at x0",
+      "f is not differentiable at x0",
+      "f has a derivative of 0",
+      "f is constant"
+    ],
+    "ground_truth": {
+      "canonical": "f is not differentiable at x0",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_010",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "set_containment",
+    "prompt": {
+      "question": "Given the premises: 'All elements of set A are in set B. All elements of set B are in set C. Element x is in A.', what validly follows?"
+    },
+    "options": [
+      "x is not in C",
+      "x is in C",
+      "x is only in A",
+      "C is empty"
+    ],
+    "ground_truth": {
+      "canonical": "x is in C",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_011",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'Some mammals are aquatic animals. All dolphins are mammals that are aquatic.', what validly follows?"
+    },
+    "options": [
+      "No mammals are aquatic",
+      "Some mammals are dolphins",
+      "All mammals are dolphins",
+      "Dolphins are not mammals"
+    ],
+    "ground_truth": {
+      "canonical": "Some mammals are dolphins",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_012",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If it is snowing, the temperature is below freezing. The temperature is 10 degrees Celsius (above freezing).', what validly follows?"
+    },
+    "options": [
+      "It is snowing",
+      "It is not snowing",
+      "The temperature is dropping",
+      "Snow is melting"
+    ],
+    "ground_truth": {
+      "canonical": "It is not snowing",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_013",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "disjunctive_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'Either key A unlocks the door or key B unlocks the door. Key A fails to unlock the door.', what validly follows?"
+    },
+    "options": [
+      "Key A unlocks the door",
+      "Key B unlocks the door",
+      "Both keys work",
+      "Neither key works"
+    ],
+    "ground_truth": {
+      "canonical": "Key B unlocks the door",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_014",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "hypothetical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All squares are rectangles. All rectangles are quadrilaterals. Polygon P is a square.', what validly follows?"
+    },
+    "options": [
+      "Polygon P is a triangle",
+      "Polygon P is a quadrilateral",
+      "Polygon P is not a rectangle",
+      "Polygon P has 5 sides"
+    ],
+    "ground_truth": {
+      "canonical": "Polygon P is a quadrilateral",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_015",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_ponens",
+    "prompt": {
+      "question": "Given the premises: 'If statement A is true, statement B is false. Statement A is true.', what validly follows?"
+    },
+    "options": [
+      "Statement B is true",
+      "Statement B is false",
+      "Statement A is false",
+      "Both statements are true"
+    ],
+    "ground_truth": {
+      "canonical": "Statement B is false",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_016",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If X is an even integer, X mod 2 = 0. Number N satisfies N mod 2 != 0.', what validly follows?"
+    },
+    "options": [
+      "N is an even integer",
+      "N is not an even integer",
+      "N is zero",
+      "N is divisible by 4"
+    ],
+    "ground_truth": {
+      "canonical": "N is not an even integer",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_017",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'All multiples of 10 end in 0. Number K ends in 5.', what validly follows?"
+    },
+    "options": [
+      "K is a multiple of 10",
+      "K is not a multiple of 10",
+      "K is equal to 10",
+      "K is even"
+    ],
+    "ground_truth": {
+      "canonical": "K is not a multiple of 10",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_018",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "boolean_logic",
+    "prompt": {
+      "question": "Given the premises: 'Given: (NOT (P AND Q)) is logically equivalent by De Morgan's Laws to what?', what validly follows?"
+    },
+    "options": [
+      "(NOT P) AND (NOT Q)",
+      "(NOT P) OR (NOT Q)",
+      "P OR Q",
+      "NOT (P OR Q)"
+    ],
+    "ground_truth": {
+      "canonical": "(NOT P) OR (NOT Q)",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_019",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "boolean_logic",
+    "prompt": {
+      "question": "Given the premises: 'Given: (NOT (P OR Q)) is logically equivalent by De Morgan's Laws to what?', what validly follows?"
+    },
+    "options": [
+      "(NOT P) AND (NOT Q)",
+      "(NOT P) OR (NOT Q)",
+      "P AND Q",
+      "NOT (P AND Q)"
+    ],
+    "ground_truth": {
+      "canonical": "(NOT P) AND (NOT Q)",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_020",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "boolean_logic",
+    "prompt": {
+      "question": "Given the premises: 'If A implies B, what is the contrapositive of this conditional statement?', what validly follows?"
+    },
+    "options": [
+      "B implies A",
+      "NOT A implies NOT B",
+      "NOT B implies NOT A",
+      "A implies NOT B"
+    ],
+    "ground_truth": {
+      "canonical": "NOT B implies NOT A",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_021",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If the alarm sounds, an intruder is detected. No intruder is detected.', what validly follows?"
+    },
+    "options": [
+      "The alarm sounded",
+      "The alarm did not sound",
+      "The door is open",
+      "The camera is off"
+    ],
+    "ground_truth": {
+      "canonical": "The alarm did not sound",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_022",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All planets orbit a star. Jupiter is a planet.', what validly follows?"
+    },
+    "options": [
+      "Jupiter is a star",
+      "Jupiter orbits a star",
+      "All stars orbit Jupiter",
+      "Jupiter does not orbit"
+    ],
+    "ground_truth": {
+      "canonical": "Jupiter orbits a star",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_023",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "fallacy_detection",
+    "prompt": {
+      "question": "Given the premises: 'Either the car has fuel or it cannot run. The car cannot run.', what validly follows?"
+    },
+    "options": [
+      "The car has fuel",
+      "The car has no fuel",
+      "Cannot determine fuel status solely from conclusion",
+      "The engine is dead"
+    ],
+    "ground_truth": {
+      "canonical": "Cannot determine fuel status solely from conclusion",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_024",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "fallacy_detection",
+    "prompt": {
+      "question": "Given the premises: 'If you study diligently, you pass the exam. Student Alex passed the exam.', what validly follows?"
+    },
+    "options": [
+      "Alex studied diligently",
+      "Alex did not study",
+      "Cannot conclude Alex studied diligently (affirming consequent)",
+      "Alex failed"
+    ],
+    "ground_truth": {
+      "canonical": "Cannot conclude Alex studied diligently (affirming consequent)",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_025",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'No reptiles have fur. All snakes are reptiles.', what validly follows?"
+    },
+    "options": [
+      "All snakes have fur",
+      "No snakes have fur",
+      "Some snakes have fur",
+      "Reptiles are snakes"
+    ],
+    "ground_truth": {
+      "canonical": "No snakes have fur",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_026",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If triangle T is equilateral, all its angles are 60 degrees. Triangle T has an angle of 90 degrees.', what validly follows?"
+    },
+    "options": [
+      "Triangle T is equilateral",
+      "Triangle T is not equilateral",
+      "Triangle T is acute",
+      "Triangle T has 4 sides"
+    ],
+    "ground_truth": {
+      "canonical": "Triangle T is not equilateral",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_027",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "hypothetical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All integers are rational numbers. All rational numbers are real numbers. Number 7 is an integer.', what validly follows?"
+    },
+    "options": [
+      "7 is imaginary",
+      "7 is a real number",
+      "7 is not rational",
+      "7 is negative"
+    ],
+    "ground_truth": {
+      "canonical": "7 is a real number",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_028",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If compound C is an acid, its pH is less than 7. Compound C has a pH of 9.', what validly follows?"
+    },
+    "options": [
+      "Compound C is an acid",
+      "Compound C is not an acid",
+      "Compound C is neutral",
+      "Compound C is water"
+    ],
+    "ground_truth": {
+      "canonical": "Compound C is not an acid",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_029",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "disjunctive_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'Either path Left or path Right leads to the summit. Path Right is blocked by an avalanche.', what validly follows?"
+    },
+    "options": [
+      "Path Right leads to the summit",
+      "Path Left leads to the summit",
+      "Both paths lead to summit",
+      "Neither path leads to summit"
+    ],
+    "ground_truth": {
+      "canonical": "Path Left leads to the summit",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_030",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All birds lay eggs. Robins are birds.', what validly follows?"
+    },
+    "options": [
+      "Robins do not lay eggs",
+      "Robins lay eggs",
+      "All egg layers are robins",
+      "Robins are reptiles"
+    ],
+    "ground_truth": {
+      "canonical": "Robins lay eggs",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_031",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If an integer n is divisible by 6, it is divisible by 2 and 3. Integer M is not divisible by 2.', what validly follows?"
+    },
+    "options": [
+      "M is divisible by 6",
+      "M is not divisible by 6",
+      "M is divisible by 3",
+      "M is prime"
+    ],
+    "ground_truth": {
+      "canonical": "M is not divisible by 6",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_032",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All metals conduct electricity. Silver is a metal.', what validly follows?"
+    },
+    "options": [
+      "Silver is an insulator",
+      "Silver conducts electricity",
+      "All electrical conductors are silver",
+      "Silver is nonmetallic"
+    ],
+    "ground_truth": {
+      "canonical": "Silver conducts electricity",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_033",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If X is a mammal, X breathes air. Organism Y does not breathe air.', what validly follows?"
+    },
+    "options": [
+      "Organism Y is a mammal",
+      "Organism Y is not a mammal",
+      "Organism Y is a plant",
+      "Organism Y is a fish"
+    ],
+    "ground_truth": {
+      "canonical": "Organism Y is not a mammal",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_034",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "boolean_logic",
+    "prompt": {
+      "question": "Given the premises: 'Either signal Alpha is active or signal Beta is active. Signal Alpha is active.', what validly follows?"
+    },
+    "options": [
+      "Signal Beta is inactive",
+      "Signal Beta is active",
+      "Cannot conclude signal Beta is inactive without mutual exclusion",
+      "Both signals are failed"
+    ],
+    "ground_truth": {
+      "canonical": "Cannot conclude signal Beta is inactive without mutual exclusion",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_035",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If graph G is a tree with V vertices, it has exactly V - 1 edges. Graph G with 5 vertices has 6 edges.', what validly follows?"
+    },
+    "options": [
+      "Graph G is a tree",
+      "Graph G is not a tree",
+      "Graph G has 4 vertices",
+      "Graph G is disconnected"
+    ],
+    "ground_truth": {
+      "canonical": "Graph G is not a tree",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_036",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "hypothetical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All diamonds are minerals. All minerals are inorganic solids. Substance D is a diamond.', what validly follows?"
+    },
+    "options": [
+      "Substance D is organic",
+      "Substance D is an inorganic solid",
+      "Substance D is liquid",
+      "Substance D is a rock"
+    ],
+    "ground_truth": {
+      "canonical": "Substance D is an inorganic solid",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_037",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If algorithm A runs in O(1) time, its runtime is independent of input size. Algorithm A's runtime grows with input size.', what validly follows?"
+    },
+    "options": [
+      "Algorithm A runs in O(1) time",
+      "Algorithm A does not run in O(1) time",
+      "Algorithm A is O(n^2)",
+      "Algorithm A is incorrect"
+    ],
+    "ground_truth": {
+      "canonical": "Algorithm A does not run in O(1) time",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_038",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All mammals are vertebrates. All vertebrates are animals. Whales are mammals.', what validly follows?"
+    },
+    "options": [
+      "Whales are invertebrates",
+      "Whales are animals",
+      "Whales are fish",
+      "All animals are whales"
+    ],
+    "ground_truth": {
+      "canonical": "Whales are animals",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_039",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If light passes through a prism, it refracts into constituent wavelengths. Beam B does not refract into wavelengths.', what validly follows?"
+    },
+    "options": [
+      "Beam B is white light",
+      "Beam B is not white light passing through a prism",
+      "Prisms absorb light",
+      "Beam B is refracted"
+    ],
+    "ground_truth": {
+      "canonical": "Beam B is not white light passing through a prism",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_040",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "disjunctive_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'Either server 1 is responsive or backup server 2 takes over. Server 1 crashed and is unresponsive.', what validly follows?"
+    },
+    "options": [
+      "Server 1 is active",
+      "Backup server 2 takes over",
+      "Both servers crash",
+      "No server is available"
+    ],
+    "ground_truth": {
+      "canonical": "Backup server 2 takes over",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_041",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All isotopes of carbon have 6 protons. Atom C-14 is an isotope of carbon.', what validly follows?"
+    },
+    "options": [
+      "C-14 has 14 protons",
+      "Atom C-14 has 6 protons",
+      "C-14 has 8 protons",
+      "C-14 has no protons"
+    ],
+    "ground_truth": {
+      "canonical": "Atom C-14 has 6 protons",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_042",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If an animal is an insect, it has 6 legs. Spider S has 8 legs.', what validly follows?"
+    },
+    "options": [
+      "Spider S is an insect",
+      "Spider S is not an insect",
+      "Spider S is a beetle",
+      "Spiders have 6 legs"
+    ],
+    "ground_truth": {
+      "canonical": "Spider S is not an insect",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_043",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All noble gases have full valence electron shells. Neon is a noble gas.', what validly follows?"
+    },
+    "options": [
+      "Neon has an open valence shell",
+      "Neon has a full valence electron shell",
+      "Neon forms ionic bonds",
+      "All elements have full shells"
+    ],
+    "ground_truth": {
+      "canonical": "Neon has a full valence electron shell",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_044",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If code compiles cleanly without errors, the return code is 0. The return code is 1.', what validly follows?"
+    },
+    "options": [
+      "The code compiled cleanly",
+      "The code did not compile cleanly without errors",
+      "The compiler crashed",
+      "Return code 1 means success"
+    ],
+    "ground_truth": {
+      "canonical": "The code did not compile cleanly without errors",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_045",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "disjunctive_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'Either condition P is satisfied or condition Q is satisfied. Condition P is NOT satisfied.', what validly follows?"
+    },
+    "options": [
+      "Condition P is satisfied",
+      "Condition Q is satisfied",
+      "Neither is satisfied",
+      "Both are satisfied"
+    ],
+    "ground_truth": {
+      "canonical": "Condition Q is satisfied",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_046",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All conifers are gymnosperms. Pine trees are conifers.', what validly follows?"
+    },
+    "options": [
+      "Pine trees are angiosperms",
+      "Pine trees are gymnosperms",
+      "Gymnosperms are pine trees",
+      "Pine trees are deciduous"
+    ],
+    "ground_truth": {
+      "canonical": "Pine trees are gymnosperms",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_047",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If matrix M is orthogonal, its transpose equals its inverse. Matrix M's transpose does NOT equal its inverse.', what validly follows?"
+    },
+    "options": [
+      "Matrix M is orthogonal",
+      "Matrix M is not orthogonal",
+      "Matrix M is singular",
+      "Matrix M is identity"
+    ],
+    "ground_truth": {
+      "canonical": "Matrix M is not orthogonal",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_048",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All cells have a cell membrane. Bacterial cell B is a cell.', what validly follows?"
+    },
+    "options": [
+      "Cell B lacks a membrane",
+      "Bacterial cell B has a cell membrane",
+      "All membranes are cells",
+      "Cell B is a virus"
+    ],
+    "ground_truth": {
+      "canonical": "Bacterial cell B has a cell membrane",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_049",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If polygon Q is a regular pentagon, the sum of its interior angles is 540 degrees. Polygon Q has an interior angle sum of 720 degrees.', what validly follows?"
+    },
+    "options": [
+      "Polygon Q is a regular pentagon",
+      "Polygon Q is not a regular pentagon",
+      "Polygon Q has 5 sides",
+      "Polygon Q is a triangle"
+    ],
+    "ground_truth": {
+      "canonical": "Polygon Q is not a regular pentagon",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_050",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All acids donate protons in Bronsted-Lowry theory. Substance HCl is an acid.', what validly follows?"
+    },
+    "options": [
+      "HCl accepts protons",
+      "HCl donates protons",
+      "HCl is neutral",
+      "HCl forms hydroxide"
+    ],
+    "ground_truth": {
+      "canonical": "HCl donates protons",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_051",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If a function is strictly increasing on interval I, f(b) > f(a) whenever b > a. For x1 < x2, f(x1) >= f(x2).', what validly follows?"
+    },
+    "options": [
+      "f is strictly increasing",
+      "f is not strictly increasing on I",
+      "f is constant",
+      "f is linear"
+    ],
+    "ground_truth": {
+      "canonical": "f is not strictly increasing on I",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_052",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "disjunctive_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'Either process X is running in user space or kernel space. Process X is NOT running in user space.', what validly follows?"
+    },
+    "options": [
+      "Process X is in user space",
+      "Process X is running in kernel space",
+      "Process X is terminated",
+      "Process X is hardware"
+    ],
+    "ground_truth": {
+      "canonical": "Process X is running in kernel space",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_053",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'All sound waves require a physical medium to propagate. Wave W propagates in a total vacuum.', what validly follows?"
+    },
+    "options": [
+      "Wave W is a sound wave",
+      "Wave W is not a sound wave",
+      "Wave W is acoustic",
+      "Vacuum has air"
+    ],
+    "ground_truth": {
+      "canonical": "Wave W is not a sound wave",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_054",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If integer k is a prime number, it has exactly two positive divisors. Number 12 has six positive divisors.', what validly follows?"
+    },
+    "options": [
+      "12 is a prime number",
+      "Number 12 is not a prime number",
+      "12 is negative",
+      "12 is odd"
+    ],
+    "ground_truth": {
+      "canonical": "Number 12 is not a prime number",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_055",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All mammals nurse their young with milk. Platypuses are mammals.', what validly follows?"
+    },
+    "options": [
+      "Platypuses do not nurse",
+      "Platypuses nurse their young with milk",
+      "Platypuses are reptiles",
+      "Platypuses are fish"
+    ],
+    "ground_truth": {
+      "canonical": "Platypuses nurse their young with milk",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_056",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If light is polarized linearly, its electric field oscillates in a single plane. Wave L's electric field rotates circularly.', what validly follows?"
+    },
+    "options": [
+      "Wave L is linearly polarized",
+      "Wave L is not linearly polarized",
+      "Wave L is unpolarized",
+      "Wave L is longitudinal"
+    ],
+    "ground_truth": {
+      "canonical": "Wave L is not linearly polarized",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_057",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'All binary search trees maintain the property that left children are less than parent. In tree T, left child = 15, parent = 10.', what validly follows?"
+    },
+    "options": [
+      "Tree T is a valid BST",
+      "Tree T violates binary search tree property",
+      "Tree T is a heap",
+      "Tree T has no root"
+    ],
+    "ground_truth": {
+      "canonical": "Tree T violates binary search tree property",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_058",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "disjunctive_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'Either value V is positive or value V is non-positive. Value V is NOT positive.', what validly follows?"
+    },
+    "options": [
+      "Value V is positive",
+      "Value V is non-positive",
+      "Value V is zero",
+      "Value V is undefined"
+    ],
+    "ground_truth": {
+      "canonical": "Value V is non-positive",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_059",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "categorical_syllogism",
+    "prompt": {
+      "question": "Given the premises: 'All halogens have 7 valence electrons. Fluorine is a halogen.', what validly follows?"
+    },
+    "options": [
+      "Fluorine has 8 valence electrons",
+      "Fluorine has 7 valence electrons",
+      "Fluorine has 1 valence electron",
+      "Fluorine has 0 valence electrons"
+    ],
+    "ground_truth": {
+      "canonical": "Fluorine has 7 valence electrons",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "log_syl_060",
+    "version": "1.0.0",
+    "domain": "formal_math_logic",
+    "family": "modus_tollens",
+    "prompt": {
+      "question": "Given the premises: 'If a system is in thermodynamic equilibrium, net heat transfer is zero. System S has a net heat inflow of 50 Joules.', what validly follows?"
+    },
+    "options": [
+      "System S is in equilibrium",
+      "System S is not in thermodynamic equilibrium",
+      "System S is isolated",
+      "System S temperature is 0"
+    ],
+    "ground_truth": {
+      "canonical": "System S is not in thermodynamic equilibrium",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "formal_deductive_logic_corpus_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "complexity": "standard_syllogism",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "formal_truth_table_verification",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  }
+]

@@ -1,0 +1,3802 @@
+[
+  {
+    "item_id": "mem_swahili_001",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "ADUI",
+      "target": "ENEMY",
+      "study_text": "ADUI \u2192 ENEMY",
+      "test_question": "What is the English translation for 'ADUI'?"
+    },
+    "options": [
+      "Enemy",
+      "Friend",
+      "Warrior",
+      "Shadow"
+    ],
+    "ground_truth": {
+      "canonical": "enemy",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_002",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "CHAKULA",
+      "target": "FOOD",
+      "study_text": "CHAKULA \u2192 FOOD",
+      "test_question": "What is the English translation for 'CHAKULA'?"
+    },
+    "options": [
+      "Food",
+      "Water",
+      "Feast",
+      "Harvest"
+    ],
+    "ground_truth": {
+      "canonical": "food",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_003",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MWEZI",
+      "target": "MOON",
+      "study_text": "MWEZI \u2192 MOON",
+      "test_question": "What is the English translation for 'MWEZI'?"
+    },
+    "options": [
+      "Moon",
+      "Sun",
+      "Sky",
+      "Night"
+    ],
+    "ground_truth": {
+      "canonical": "moon",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_004",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "SAFARI",
+      "target": "JOURNEY",
+      "study_text": "SAFARI \u2192 JOURNEY",
+      "test_question": "What is the English translation for 'SAFARI'?"
+    },
+    "options": [
+      "Journey",
+      "Camp",
+      "Trail",
+      "Hunter"
+    ],
+    "ground_truth": {
+      "canonical": "journey",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_005",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "SAMAKI",
+      "target": "FISH",
+      "study_text": "SAMAKI \u2192 FISH",
+      "test_question": "What is the English translation for 'SAMAKI'?"
+    },
+    "options": [
+      "Fish",
+      "River",
+      "Boat",
+      "Net"
+    ],
+    "ground_truth": {
+      "canonical": "fish",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_006",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NYOTA",
+      "target": "STAR",
+      "study_text": "NYOTA \u2192 STAR",
+      "test_question": "What is the English translation for 'NYOTA'?"
+    },
+    "options": [
+      "Star",
+      "Cloud",
+      "Comet",
+      "Spark"
+    ],
+    "ground_truth": {
+      "canonical": "star",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_007",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NDEGE",
+      "target": "BIRD",
+      "study_text": "NDEGE \u2192 BIRD",
+      "test_question": "What is the English translation for 'NDEGE'?"
+    },
+    "options": [
+      "Bird",
+      "Wing",
+      "Wind",
+      "Nest"
+    ],
+    "ground_truth": {
+      "canonical": "bird",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_008",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KITABU",
+      "target": "BOOK",
+      "study_text": "KITABU \u2192 BOOK",
+      "test_question": "What is the English translation for 'KITABU'?"
+    },
+    "options": [
+      "Book",
+      "Letter",
+      "Scroll",
+      "Story"
+    ],
+    "ground_truth": {
+      "canonical": "book",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_009",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "BARABARA",
+      "target": "ROAD",
+      "study_text": "BARABARA \u2192 ROAD",
+      "test_question": "What is the English translation for 'BARABARA'?"
+    },
+    "options": [
+      "Road",
+      "Bridge",
+      "Path",
+      "Mountain"
+    ],
+    "ground_truth": {
+      "canonical": "road",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_010",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MAJI",
+      "target": "WATER",
+      "study_text": "MAJI \u2192 WATER",
+      "test_question": "What is the English translation for 'MAJI'?"
+    },
+    "options": [
+      "Water",
+      "Ocean",
+      "Rain",
+      "River"
+    ],
+    "ground_truth": {
+      "canonical": "water",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_011",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "RAFIKI",
+      "target": "FRIEND",
+      "study_text": "RAFIKI \u2192 FRIEND",
+      "test_question": "What is the English translation for 'RAFIKI'?"
+    },
+    "options": [
+      "Friend",
+      "Brother",
+      "Leader",
+      "Neighbor"
+    ],
+    "ground_truth": {
+      "canonical": "friend",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_012",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MTI",
+      "target": "TREE",
+      "study_text": "MTI \u2192 TREE",
+      "test_question": "What is the English translation for 'MTI'?"
+    },
+    "options": [
+      "Tree",
+      "Branch",
+      "Leaf",
+      "Forest"
+    ],
+    "ground_truth": {
+      "canonical": "tree",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_013",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NYUMBA",
+      "target": "HOUSE",
+      "study_text": "NYUMBA \u2192 HOUSE",
+      "test_question": "What is the English translation for 'NYUMBA'?"
+    },
+    "options": [
+      "House",
+      "Village",
+      "Door",
+      "Roof"
+    ],
+    "ground_truth": {
+      "canonical": "house",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_014",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MOTO",
+      "target": "FIRE",
+      "study_text": "MOTO \u2192 FIRE",
+      "test_question": "What is the English translation for 'MOTO'?"
+    },
+    "options": [
+      "Fire",
+      "Smoke",
+      "Ash",
+      "Torch"
+    ],
+    "ground_truth": {
+      "canonical": "fire",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_015",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "SIMBA",
+      "target": "LION",
+      "study_text": "SIMBA \u2192 LION",
+      "test_question": "What is the English translation for 'SIMBA'?"
+    },
+    "options": [
+      "Lion",
+      "Leopard",
+      "Tiger",
+      "Beast"
+    ],
+    "ground_truth": {
+      "canonical": "lion",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_016",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "TEMBO",
+      "target": "ELEPHANT",
+      "study_text": "TEMBO \u2192 ELEPHANT",
+      "test_question": "What is the English translation for 'TEMBO'?"
+    },
+    "options": [
+      "Elephant",
+      "Rhino",
+      "Hippo",
+      "Bull"
+    ],
+    "ground_truth": {
+      "canonical": "elephant",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_017",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KISU",
+      "target": "KNIFE",
+      "study_text": "KISU \u2192 KNIFE",
+      "test_question": "What is the English translation for 'KISU'?"
+    },
+    "options": [
+      "Knife",
+      "Sword",
+      "Blade",
+      "Spear"
+    ],
+    "ground_truth": {
+      "canonical": "knife",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_018",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "DAWA",
+      "target": "MEDICINE",
+      "study_text": "DAWA \u2192 MEDICINE",
+      "test_question": "What is the English translation for 'DAWA'?"
+    },
+    "options": [
+      "Medicine",
+      "Poison",
+      "Herb",
+      "Healer"
+    ],
+    "ground_truth": {
+      "canonical": "medicine",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_019",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "CHUMVI",
+      "target": "SALT",
+      "study_text": "CHUMVI \u2192 SALT",
+      "test_question": "What is the English translation for 'CHUMVI'?"
+    },
+    "options": [
+      "Salt",
+      "Sugar",
+      "Spice",
+      "Grain"
+    ],
+    "ground_truth": {
+      "canonical": "salt",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_020",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "PESA",
+      "target": "MONEY",
+      "study_text": "PESA \u2192 MONEY",
+      "test_question": "What is the English translation for 'PESA'?"
+    },
+    "options": [
+      "Money",
+      "Gold",
+      "Coin",
+      "Trade"
+    ],
+    "ground_truth": {
+      "canonical": "money",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_021",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NGUO",
+      "target": "CLOTHES",
+      "study_text": "NGUO \u2192 CLOTHES",
+      "test_question": "What is the English translation for 'NGUO'?"
+    },
+    "options": [
+      "Clothes",
+      "Fabric",
+      "Robe",
+      "Shirt"
+    ],
+    "ground_truth": {
+      "canonical": "clothes",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_022",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "GARI",
+      "target": "CAR",
+      "study_text": "GARI \u2192 CAR",
+      "test_question": "What is the English translation for 'GARI'?"
+    },
+    "options": [
+      "Car",
+      "Cart",
+      "Wheel",
+      "Train"
+    ],
+    "ground_truth": {
+      "canonical": "car",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_023",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "USINGIZI",
+      "target": "SLEEP",
+      "study_text": "USINGIZI \u2192 SLEEP",
+      "test_question": "What is the English translation for 'USINGIZI'?"
+    },
+    "options": [
+      "Sleep",
+      "Dream",
+      "Rest",
+      "Tired"
+    ],
+    "ground_truth": {
+      "canonical": "sleep",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_024",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "ARDHI",
+      "target": "EARTH",
+      "study_text": "ARDHI \u2192 EARTH",
+      "test_question": "What is the English translation for 'ARDHI'?"
+    },
+    "options": [
+      "Earth",
+      "Soil",
+      "Rock",
+      "Sand"
+    ],
+    "ground_truth": {
+      "canonical": "earth",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_025",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KAZI",
+      "target": "WORK",
+      "study_text": "KAZI \u2192 WORK",
+      "test_question": "What is the English translation for 'KAZI'?"
+    },
+    "options": [
+      "Work",
+      "Duty",
+      "Craft",
+      "Task"
+    ],
+    "ground_truth": {
+      "canonical": "work",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_026",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "TAA",
+      "target": "LAMP",
+      "study_text": "TAA \u2192 LAMP",
+      "test_question": "What is the English translation for 'TAA'?"
+    },
+    "options": [
+      "Lamp",
+      "Light",
+      "Flame",
+      "Lantern"
+    ],
+    "ground_truth": {
+      "canonical": "lamp",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_027",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "BAHARI",
+      "target": "SEA",
+      "study_text": "BAHARI \u2192 SEA",
+      "test_question": "What is the English translation for 'BAHARI'?"
+    },
+    "options": [
+      "Sea",
+      "Ocean",
+      "Wave",
+      "Shore"
+    ],
+    "ground_truth": {
+      "canonical": "sea",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_028",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "UWANJA",
+      "target": "FIELD",
+      "study_text": "UWANJA \u2192 FIELD",
+      "test_question": "What is the English translation for 'UWANJA'?"
+    },
+    "options": [
+      "Field",
+      "Ground",
+      "Court",
+      "Arena"
+    ],
+    "ground_truth": {
+      "canonical": "field",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_029",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "UKUTA",
+      "target": "WALL",
+      "study_text": "UKUTA \u2192 WALL",
+      "test_question": "What is the English translation for 'UKUTA'?"
+    },
+    "options": [
+      "Wall",
+      "Fence",
+      "Gate",
+      "Tower"
+    ],
+    "ground_truth": {
+      "canonical": "wall",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_030",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "JUA",
+      "target": "SUN",
+      "study_text": "JUA \u2192 SUN",
+      "test_question": "What is the English translation for 'JUA'?"
+    },
+    "options": [
+      "Sun",
+      "Day",
+      "Heat",
+      "Ray"
+    ],
+    "ground_truth": {
+      "canonical": "sun",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_031",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MTO",
+      "target": "RIVER",
+      "study_text": "MTO \u2192 RIVER",
+      "test_question": "What is the English translation for 'MTO'?"
+    },
+    "options": [
+      "River",
+      "Lake",
+      "Stream",
+      "Valley"
+    ],
+    "ground_truth": {
+      "canonical": "river",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_032",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "ZIWA",
+      "target": "LAKE",
+      "study_text": "ZIWA \u2192 LAKE",
+      "test_question": "What is the English translation for 'ZIWA'?"
+    },
+    "options": [
+      "Lake",
+      "Ocean",
+      "Pond",
+      "Marsh"
+    ],
+    "ground_truth": {
+      "canonical": "lake",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_033",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MLIMA",
+      "target": "MOUNTAIN",
+      "study_text": "MLIMA \u2192 MOUNTAIN",
+      "test_question": "What is the English translation for 'MLIMA'?"
+    },
+    "options": [
+      "Mountain",
+      "Hill",
+      "Cliff",
+      "Plateau"
+    ],
+    "ground_truth": {
+      "canonical": "mountain",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_034",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MWITU",
+      "target": "FOREST",
+      "study_text": "MWITU \u2192 FOREST",
+      "test_question": "What is the English translation for 'MWITU'?"
+    },
+    "options": [
+      "Forest",
+      "Jungle",
+      "Woods",
+      "Plains"
+    ],
+    "ground_truth": {
+      "canonical": "forest",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_035",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "SHULE",
+      "target": "SCHOOL",
+      "study_text": "SHULE \u2192 SCHOOL",
+      "test_question": "What is the English translation for 'SHULE'?"
+    },
+    "options": [
+      "School",
+      "Library",
+      "College",
+      "Classroom"
+    ],
+    "ground_truth": {
+      "canonical": "school",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_036",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "DAKTARI",
+      "target": "DOCTOR",
+      "study_text": "DAKTARI \u2192 DOCTOR",
+      "test_question": "What is the English translation for 'DAKTARI'?"
+    },
+    "options": [
+      "Doctor",
+      "Nurse",
+      "Chemist",
+      "Surgeon"
+    ],
+    "ground_truth": {
+      "canonical": "doctor",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_037",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MWALIMU",
+      "target": "TEACHER",
+      "study_text": "MWALIMU \u2192 TEACHER",
+      "test_question": "What is the English translation for 'MWALIMU'?"
+    },
+    "options": [
+      "Teacher",
+      "Professor",
+      "Instructor",
+      "Scholar"
+    ],
+    "ground_truth": {
+      "canonical": "teacher",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_038",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MWANAFUNZI",
+      "target": "STUDENT",
+      "study_text": "MWANAFUNZI \u2192 STUDENT",
+      "test_question": "What is the English translation for 'MWANAFUNZI'?"
+    },
+    "options": [
+      "Student",
+      "Pupil",
+      "Apprentice",
+      "Learner"
+    ],
+    "ground_truth": {
+      "canonical": "student",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_039",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "ASKARI",
+      "target": "SOLDIER",
+      "study_text": "ASKARI \u2192 SOLDIER",
+      "test_question": "What is the English translation for 'ASKARI'?"
+    },
+    "options": [
+      "Soldier",
+      "Guard",
+      "Officer",
+      "Warrior"
+    ],
+    "ground_truth": {
+      "canonical": "soldier",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_040",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MFALME",
+      "target": "KING",
+      "study_text": "MFALME \u2192 KING",
+      "test_question": "What is the English translation for 'MFALME'?"
+    },
+    "options": [
+      "King",
+      "Prince",
+      "Emperor",
+      "Chieftain"
+    ],
+    "ground_truth": {
+      "canonical": "king",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_041",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MALKIA",
+      "target": "QUEEN",
+      "study_text": "MALKIA \u2192 QUEEN",
+      "test_question": "What is the English translation for 'MALKIA'?"
+    },
+    "options": [
+      "Queen",
+      "Princess",
+      "Empress",
+      "Duchess"
+    ],
+    "ground_truth": {
+      "canonical": "queen",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_042",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MTOTO",
+      "target": "CHILD",
+      "study_text": "MTOTO \u2192 CHILD",
+      "test_question": "What is the English translation for 'MTOTO'?"
+    },
+    "options": [
+      "Child",
+      "Infant",
+      "Youth",
+      "Baby"
+    ],
+    "ground_truth": {
+      "canonical": "child",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_043",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MWANAUME",
+      "target": "MAN",
+      "study_text": "MWANAUME \u2192 MAN",
+      "test_question": "What is the English translation for 'MWANAUME'?"
+    },
+    "options": [
+      "Man",
+      "Father",
+      "Husband",
+      "Uncle"
+    ],
+    "ground_truth": {
+      "canonical": "man",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_044",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MWANAMKE",
+      "target": "WOMAN",
+      "study_text": "MWANAMKE \u2192 WOMAN",
+      "test_question": "What is the English translation for 'MWANAMKE'?"
+    },
+    "options": [
+      "Woman",
+      "Mother",
+      "Wife",
+      "Aunt"
+    ],
+    "ground_truth": {
+      "canonical": "woman",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_045",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KIJANA",
+      "target": "YOUTH",
+      "study_text": "KIJANA \u2192 YOUTH",
+      "test_question": "What is the English translation for 'KIJANA'?"
+    },
+    "options": [
+      "Youth",
+      "Teenager",
+      "Boy",
+      "Elder"
+    ],
+    "ground_truth": {
+      "canonical": "youth",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_046",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MZEE",
+      "target": "ELDER",
+      "study_text": "MZEE \u2192 ELDER",
+      "test_question": "What is the English translation for 'MZEE'?"
+    },
+    "options": [
+      "Elder",
+      "Grandfather",
+      "Senior",
+      "Veteran"
+    ],
+    "ground_truth": {
+      "canonical": "elder",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_047",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "DADA",
+      "target": "SISTER",
+      "study_text": "DADA \u2192 SISTER",
+      "test_question": "What is the English translation for 'DADA'?"
+    },
+    "options": [
+      "Sister",
+      "Cousin",
+      "Daughter",
+      "Niece"
+    ],
+    "ground_truth": {
+      "canonical": "sister",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_048",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KAKA",
+      "target": "BROTHER",
+      "study_text": "KAKA \u2192 BROTHER",
+      "test_question": "What is the English translation for 'KAKA'?"
+    },
+    "options": [
+      "Brother",
+      "Cousin",
+      "Son",
+      "Nephew"
+    ],
+    "ground_truth": {
+      "canonical": "brother",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_049",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "BABA",
+      "target": "FATHER",
+      "study_text": "BABA \u2192 FATHER",
+      "test_question": "What is the English translation for 'BABA'?"
+    },
+    "options": [
+      "Father",
+      "Uncle",
+      "Brother",
+      "Parent"
+    ],
+    "ground_truth": {
+      "canonical": "father",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_050",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MAMA",
+      "target": "MOTHER",
+      "study_text": "MAMA \u2192 MOTHER",
+      "test_question": "What is the English translation for 'MAMA'?"
+    },
+    "options": [
+      "Mother",
+      "Aunt",
+      "Sister",
+      "Grandmother"
+    ],
+    "ground_truth": {
+      "canonical": "mother",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_051",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MKATE",
+      "target": "BREAD",
+      "study_text": "MKATE \u2192 BREAD",
+      "test_question": "What is the English translation for 'MKATE'?"
+    },
+    "options": [
+      "Bread",
+      "Cake",
+      "Grain",
+      "Flour"
+    ],
+    "ground_truth": {
+      "canonical": "bread",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_052",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NYAMA",
+      "target": "MEAT",
+      "study_text": "NYAMA \u2192 MEAT",
+      "test_question": "What is the English translation for 'NYAMA'?"
+    },
+    "options": [
+      "Meat",
+      "Beef",
+      "Pork",
+      "Poultry"
+    ],
+    "ground_truth": {
+      "canonical": "meat",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_053",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "YAI",
+      "target": "EGG",
+      "study_text": "YAI \u2192 EGG",
+      "test_question": "What is the English translation for 'YAI'?"
+    },
+    "options": [
+      "Egg",
+      "Shell",
+      "Yolk",
+      "Nest"
+    ],
+    "ground_truth": {
+      "canonical": "egg",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_054",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MAZIWA",
+      "target": "MILK",
+      "study_text": "MAZIWA \u2192 MILK",
+      "test_question": "What is the English translation for 'MAZIWA'?"
+    },
+    "options": [
+      "Milk",
+      "Butter",
+      "Cheese",
+      "Cream"
+    ],
+    "ground_truth": {
+      "canonical": "milk",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_055",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "SUKARI",
+      "target": "SUGAR",
+      "study_text": "SUKARI \u2192 SUGAR",
+      "test_question": "What is the English translation for 'SUKARI'?"
+    },
+    "options": [
+      "Sugar",
+      "Honey",
+      "Syrup",
+      "Sweet"
+    ],
+    "ground_truth": {
+      "canonical": "sugar",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_056",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KAHAWA",
+      "target": "COFFEE",
+      "study_text": "KAHAWA \u2192 COFFEE",
+      "test_question": "What is the English translation for 'KAHAWA'?"
+    },
+    "options": [
+      "Coffee",
+      "Tea",
+      "Cocoa",
+      "Bean"
+    ],
+    "ground_truth": {
+      "canonical": "coffee",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_057",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "CHAI",
+      "target": "TEA",
+      "study_text": "CHAI \u2192 TEA",
+      "test_question": "What is the English translation for 'CHAI'?"
+    },
+    "options": [
+      "Tea",
+      "Coffee",
+      "Juice",
+      "Herbal"
+    ],
+    "ground_truth": {
+      "canonical": "tea",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_058",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MATUNDA",
+      "target": "FRUIT",
+      "study_text": "MATUNDA \u2192 FRUIT",
+      "test_question": "What is the English translation for 'MATUNDA'?"
+    },
+    "options": [
+      "Fruit",
+      "Berry",
+      "Apple",
+      "Harvest"
+    ],
+    "ground_truth": {
+      "canonical": "fruit",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_059",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MBOGA",
+      "target": "VEGETABLES",
+      "study_text": "MBOGA \u2192 VEGETABLES",
+      "test_question": "What is the English translation for 'MBOGA'?"
+    },
+    "options": [
+      "Vegetables",
+      "Greens",
+      "Salad",
+      "Roots"
+    ],
+    "ground_truth": {
+      "canonical": "vegetables",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_060",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MCHELE",
+      "target": "RICE",
+      "study_text": "MCHELE \u2192 RICE",
+      "test_question": "What is the English translation for 'MCHELE'?"
+    },
+    "options": [
+      "Rice",
+      "Wheat",
+      "Oats",
+      "Barley"
+    ],
+    "ground_truth": {
+      "canonical": "rice",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_061",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NG'OMBE",
+      "target": "COW",
+      "study_text": "NG'OMBE \u2192 COW",
+      "test_question": "What is the English translation for 'NG'OMBE'?"
+    },
+    "options": [
+      "Cow",
+      "Bull",
+      "Calf",
+      "Ox"
+    ],
+    "ground_truth": {
+      "canonical": "cow",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_062",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MBUZI",
+      "target": "GOAT",
+      "study_text": "MBUZI \u2192 GOAT",
+      "test_question": "What is the English translation for 'MBUZI'?"
+    },
+    "options": [
+      "Goat",
+      "Sheep",
+      "Lamb",
+      "Ram"
+    ],
+    "ground_truth": {
+      "canonical": "goat",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_063",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KONDOO",
+      "target": "SHEEP",
+      "study_text": "KONDOO \u2192 SHEEP",
+      "test_question": "What is the English translation for 'KONDOO'?"
+    },
+    "options": [
+      "Sheep",
+      "Goat",
+      "Wool",
+      "Lamb"
+    ],
+    "ground_truth": {
+      "canonical": "sheep",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_064",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KUKU",
+      "target": "CHICKEN",
+      "study_text": "KUKU \u2192 CHICKEN",
+      "test_question": "What is the English translation for 'KUKU'?"
+    },
+    "options": [
+      "Chicken",
+      "Hen",
+      "Rooster",
+      "Duck"
+    ],
+    "ground_truth": {
+      "canonical": "chicken",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_065",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "BATA",
+      "target": "DUCK",
+      "study_text": "BATA \u2192 DUCK",
+      "test_question": "What is the English translation for 'BATA'?"
+    },
+    "options": [
+      "Duck",
+      "Goose",
+      "Swan",
+      "Drake"
+    ],
+    "ground_truth": {
+      "canonical": "duck",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_066",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "FARASI",
+      "target": "HORSE",
+      "study_text": "FARASI \u2192 HORSE",
+      "test_question": "What is the English translation for 'FARASI'?"
+    },
+    "options": [
+      "Horse",
+      "Donkey",
+      "Mule",
+      "Pony"
+    ],
+    "ground_truth": {
+      "canonical": "horse",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_067",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "PUNDA",
+      "target": "DONKEY",
+      "study_text": "PUNDA \u2192 DONKEY",
+      "test_question": "What is the English translation for 'PUNDA'?"
+    },
+    "options": [
+      "Donkey",
+      "Horse",
+      "Mule",
+      "Zebra"
+    ],
+    "ground_truth": {
+      "canonical": "donkey",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_068",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "PAKA",
+      "target": "CAT",
+      "study_text": "PAKA \u2192 CAT",
+      "test_question": "What is the English translation for 'PAKA'?"
+    },
+    "options": [
+      "Cat",
+      "Kitten",
+      "Feline",
+      "Panther"
+    ],
+    "ground_truth": {
+      "canonical": "cat",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_069",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MBWA",
+      "target": "DOG",
+      "study_text": "MBWA \u2192 DOG",
+      "test_question": "What is the English translation for 'MBWA'?"
+    },
+    "options": [
+      "Dog",
+      "Puppy",
+      "Hound",
+      "Wolf"
+    ],
+    "ground_truth": {
+      "canonical": "dog",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_070",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NGURUWE",
+      "target": "PIG",
+      "study_text": "NGURUWE \u2192 PIG",
+      "test_question": "What is the English translation for 'NGURUWE'?"
+    },
+    "options": [
+      "Pig",
+      "Boar",
+      "Swine",
+      "Hog"
+    ],
+    "ground_truth": {
+      "canonical": "pig",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_071",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NYOKA",
+      "target": "SNAKE",
+      "study_text": "NYOKA \u2192 SNAKE",
+      "test_question": "What is the English translation for 'NYOKA'?"
+    },
+    "options": [
+      "Snake",
+      "Viper",
+      "Cobra",
+      "Python"
+    ],
+    "ground_truth": {
+      "canonical": "snake",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_072",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MAMBA",
+      "target": "CROCODILE",
+      "study_text": "MAMBA \u2192 CROCODILE",
+      "test_question": "What is the English translation for 'MAMBA'?"
+    },
+    "options": [
+      "Crocodile",
+      "Alligator",
+      "Lizard",
+      "Reptile"
+    ],
+    "ground_truth": {
+      "canonical": "crocodile",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_073",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KOBE",
+      "target": "TORTOISE",
+      "study_text": "KOBE \u2192 TORTOISE",
+      "test_question": "What is the English translation for 'KOBE'?"
+    },
+    "options": [
+      "Tortoise",
+      "Turtle",
+      "Shell",
+      "Crab"
+    ],
+    "ground_truth": {
+      "canonical": "tortoise",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_074",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "CHURA",
+      "target": "FROG",
+      "study_text": "CHURA \u2192 FROG",
+      "test_question": "What is the English translation for 'CHURA'?"
+    },
+    "options": [
+      "Frog",
+      "Toad",
+      "Tadpole",
+      "Amphibian"
+    ],
+    "ground_truth": {
+      "canonical": "frog",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_075",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "DUBU",
+      "target": "BEAR",
+      "study_text": "DUBU \u2192 BEAR",
+      "test_question": "What is the English translation for 'DUBU'?"
+    },
+    "options": [
+      "Bear",
+      "Wolf",
+      "Hyena",
+      "Fox"
+    ],
+    "ground_truth": {
+      "canonical": "bear",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_076",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "CHUI",
+      "target": "LEOPARD",
+      "study_text": "CHUI \u2192 LEOPARD",
+      "test_question": "What is the English translation for 'CHUI'?"
+    },
+    "options": [
+      "Leopard",
+      "Cheetah",
+      "Jaguar",
+      "Panther"
+    ],
+    "ground_truth": {
+      "canonical": "leopard",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_077",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KIFARU",
+      "target": "RHINO",
+      "study_text": "KIFARU \u2192 RHINO",
+      "test_question": "What is the English translation for 'KIFARU'?"
+    },
+    "options": [
+      "Rhino",
+      "Hippo",
+      "Elephant",
+      "Buffalo"
+    ],
+    "ground_truth": {
+      "canonical": "rhino",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_078",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KIBOKO",
+      "target": "HIPPO",
+      "study_text": "KIBOKO \u2192 HIPPO",
+      "test_question": "What is the English translation for 'KIBOKO'?"
+    },
+    "options": [
+      "Hippo",
+      "Rhino",
+      "Alligator",
+      "Manatee"
+    ],
+    "ground_truth": {
+      "canonical": "hippo",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_079",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "TWIGA",
+      "target": "GIRAFFE",
+      "study_text": "TWIGA \u2192 GIRAFFE",
+      "test_question": "What is the English translation for 'TWIGA'?"
+    },
+    "options": [
+      "Giraffe",
+      "Zebra",
+      "Antelope",
+      "Gazelle"
+    ],
+    "ground_truth": {
+      "canonical": "giraffe",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_080",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "PUNDAMILIA",
+      "target": "ZEBRA",
+      "study_text": "PUNDAMILIA \u2192 ZEBRA",
+      "test_question": "What is the English translation for 'PUNDAMILIA'?"
+    },
+    "options": [
+      "Zebra",
+      "Horse",
+      "Donkey",
+      "Stallion"
+    ],
+    "ground_truth": {
+      "canonical": "zebra",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_081",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NGIRI",
+      "target": "WARTHOG",
+      "study_text": "NGIRI \u2192 WARTHOG",
+      "test_question": "What is the English translation for 'NGIRI'?"
+    },
+    "options": [
+      "Warthog",
+      "Boar",
+      "Hedgehog",
+      "Badger"
+    ],
+    "ground_truth": {
+      "canonical": "warthog",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_082",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "SWALA",
+      "target": "GAZELLE",
+      "study_text": "SWALA \u2192 GAZELLE",
+      "test_question": "What is the English translation for 'SWALA'?"
+    },
+    "options": [
+      "Gazelle",
+      "Antelope",
+      "Deer",
+      "Impala"
+    ],
+    "ground_truth": {
+      "canonical": "gazelle",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_083",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KONGONI",
+      "target": "HARTEBEEST",
+      "study_text": "KONGONI \u2192 HARTEBEEST",
+      "test_question": "What is the English translation for 'KONGONI'?"
+    },
+    "options": [
+      "Hartebeest",
+      "Wildebeest",
+      "Elan",
+      "Kudu"
+    ],
+    "ground_truth": {
+      "canonical": "hartebeest",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_084",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MBUNI",
+      "target": "OSTRICH",
+      "study_text": "MBUNI \u2192 OSTRICH",
+      "test_question": "What is the English translation for 'MBUNI'?"
+    },
+    "options": [
+      "Ostrich",
+      "Emu",
+      "Peacock",
+      "Flamingo"
+    ],
+    "ground_truth": {
+      "canonical": "ostrich",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_085",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "TAI",
+      "target": "EAGLE",
+      "study_text": "TAI \u2192 EAGLE",
+      "test_question": "What is the English translation for 'TAI'?"
+    },
+    "options": [
+      "Eagle",
+      "Hawk",
+      "Falcon",
+      "Vulture"
+    ],
+    "ground_truth": {
+      "canonical": "eagle",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_086",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "BUNDI",
+      "target": "OWL",
+      "study_text": "BUNDI \u2192 OWL",
+      "test_question": "What is the English translation for 'BUNDI'?"
+    },
+    "options": [
+      "Owl",
+      "Bat",
+      "Raven",
+      "Crow"
+    ],
+    "ground_truth": {
+      "canonical": "owl",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_087",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KUNGURU",
+      "target": "CROW",
+      "study_text": "KUNGURU \u2192 CROW",
+      "test_question": "What is the English translation for 'KUNGURU'?"
+    },
+    "options": [
+      "Crow",
+      "Raven",
+      "Magpie",
+      "Blackbird"
+    ],
+    "ground_truth": {
+      "canonical": "crow",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_088",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NJIWA",
+      "target": "PIGEON",
+      "study_text": "NJIWA \u2192 PIGEON",
+      "test_question": "What is the English translation for 'NJIWA'?"
+    },
+    "options": [
+      "Pigeon",
+      "Dove",
+      "Seagull",
+      "Sparrow"
+    ],
+    "ground_truth": {
+      "canonical": "pigeon",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_089",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KASUKU",
+      "target": "PARROT",
+      "study_text": "KASUKU \u2192 PARROT",
+      "test_question": "What is the English translation for 'KASUKU'?"
+    },
+    "options": [
+      "Parrot",
+      "Macaw",
+      "Toucan",
+      "Canary"
+    ],
+    "ground_truth": {
+      "canonical": "parrot",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_090",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KWARE",
+      "target": "QUAIL",
+      "study_text": "KWARE \u2192 QUAIL",
+      "test_question": "What is the English translation for 'KWARE'?"
+    },
+    "options": [
+      "Quail",
+      "Pheasant",
+      "Partridge",
+      "Grouse"
+    ],
+    "ground_truth": {
+      "canonical": "quail",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_091",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "MBU",
+      "target": "MOSQUITO",
+      "study_text": "MBU \u2192 MOSQUITO",
+      "test_question": "What is the English translation for 'MBU'?"
+    },
+    "options": [
+      "Mosquito",
+      "Fly",
+      "Gnat",
+      "Wasp"
+    ],
+    "ground_truth": {
+      "canonical": "mosquito",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_092",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NZI",
+      "target": "FLY",
+      "study_text": "NZI \u2192 FLY",
+      "test_question": "What is the English translation for 'NZI'?"
+    },
+    "options": [
+      "Fly",
+      "Bee",
+      "Hornet",
+      "Moth"
+    ],
+    "ground_truth": {
+      "canonical": "fly",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_093",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NYUKI",
+      "target": "BEE",
+      "study_text": "NYUKI \u2192 BEE",
+      "test_question": "What is the English translation for 'NYUKI'?"
+    },
+    "options": [
+      "Bee",
+      "Wasp",
+      "Ant",
+      "Termite"
+    ],
+    "ground_truth": {
+      "canonical": "bee",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_094",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "SIAFU",
+      "target": "SAFARI ANT",
+      "study_text": "SIAFU \u2192 SAFARI ANT",
+      "test_question": "What is the English translation for 'SIAFU'?"
+    },
+    "options": [
+      "Safari ant",
+      "Beetle",
+      "Spider",
+      "Scorpion"
+    ],
+    "ground_truth": {
+      "canonical": "safari ant",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_095",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "BUIBUI",
+      "target": "SPIDER",
+      "study_text": "BUIBUI \u2192 SPIDER",
+      "test_question": "What is the English translation for 'BUIBUI'?"
+    },
+    "options": [
+      "Spider",
+      "Tarantula",
+      "Tick",
+      "Mite"
+    ],
+    "ground_truth": {
+      "canonical": "spider",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_096",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "NGE",
+      "target": "SCORPION",
+      "study_text": "NGE \u2192 SCORPION",
+      "test_question": "What is the English translation for 'NGE'?"
+    },
+    "options": [
+      "Scorpion",
+      "Centipede",
+      "Lobster",
+      "Crab"
+    ],
+    "ground_truth": {
+      "canonical": "scorpion",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "hard"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_097",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "KIPEPEO",
+      "target": "BUTTERFLY",
+      "study_text": "KIPEPEO \u2192 BUTTERFLY",
+      "test_question": "What is the English translation for 'KIPEPEO'?"
+    },
+    "options": [
+      "Butterfly",
+      "Moth",
+      "Caterpillar",
+      "Dragonfly"
+    ],
+    "ground_truth": {
+      "canonical": "butterfly",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_098",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "PANZI",
+      "target": "GRASSHOPPER",
+      "study_text": "PANZI \u2192 GRASSHOPPER",
+      "test_question": "What is the English translation for 'PANZI'?"
+    },
+    "options": [
+      "Grasshopper",
+      "Locust",
+      "Cricket",
+      "Mantis"
+    ],
+    "ground_truth": {
+      "canonical": "grasshopper",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "medium"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_099",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "JICHO",
+      "target": "EYE",
+      "study_text": "JICHO \u2192 EYE",
+      "test_question": "What is the English translation for 'JICHO'?"
+    },
+    "options": [
+      "Eye",
+      "Ear",
+      "Nose",
+      "Mouth"
+    ],
+    "ground_truth": {
+      "canonical": "eye",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "mem_swahili_100",
+    "version": "1.0.0",
+    "domain": "future_memory",
+    "family": "cued_recall_jol",
+    "prompt": {
+      "cue": "SIKIO",
+      "target": "EAR",
+      "study_text": "SIKIO \u2192 EAR",
+      "test_question": "What is the English translation for 'SIKIO'?"
+    },
+    "options": [
+      "Ear",
+      "Eye",
+      "Tongue",
+      "Cheek"
+    ],
+    "ground_truth": {
+      "canonical": "ear",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "nelson_dunlosky_1991_swahili_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.1111/j.1467-9280.1991.tb00147.x"
+    },
+    "difficulty": {
+      "normative_tier": "easy"
+    },
+    "verification": {
+      "method": "vocabulary_norm_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  }
+]

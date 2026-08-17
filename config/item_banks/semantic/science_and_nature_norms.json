@@ -1,0 +1,3702 @@
+[
+  {
+    "item_id": "sci_nat_001",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physics",
+    "prompt": {
+      "question": "What subatomic particle carries a negative electrical charge?"
+    },
+    "options": [
+      "Proton",
+      "Neutron",
+      "Electron",
+      "Positron"
+    ],
+    "ground_truth": {
+      "canonical": "Electron",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "physics",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_002",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physics",
+    "prompt": {
+      "question": "What subatomic particle carries a positive electrical charge?"
+    },
+    "options": [
+      "Proton",
+      "Neutron",
+      "Electron",
+      "Neutrino"
+    ],
+    "ground_truth": {
+      "canonical": "Proton",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "physics",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_003",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physics",
+    "prompt": {
+      "question": "What subatomic particle has no net electric charge?"
+    },
+    "options": [
+      "Proton",
+      "Neutron",
+      "Electron",
+      "Quark"
+    ],
+    "ground_truth": {
+      "canonical": "Neutron",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "physics",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_004",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "earth_science",
+    "prompt": {
+      "question": "What is the most abundant gas in Earth's atmosphere?"
+    },
+    "options": [
+      "Oxygen",
+      "Nitrogen",
+      "Argon",
+      "Carbon dioxide"
+    ],
+    "ground_truth": {
+      "canonical": "Nitrogen",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "earth_science",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_005",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "earth_science",
+    "prompt": {
+      "question": "What layer of Earth's atmosphere contains the ozone layer?"
+    },
+    "options": [
+      "Troposphere",
+      "Stratosphere",
+      "Mesosphere",
+      "Thermosphere"
+    ],
+    "ground_truth": {
+      "canonical": "Stratosphere",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "earth_science",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_006",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physics",
+    "prompt": {
+      "question": "What is the SI unit of electric current?"
+    },
+    "options": [
+      "Volt",
+      "Ampere",
+      "Ohm",
+      "Coulomb"
+    ],
+    "ground_truth": {
+      "canonical": "Ampere",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "physics",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_007",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physics",
+    "prompt": {
+      "question": "What is the SI unit of frequency?"
+    },
+    "options": [
+      "Becquerel",
+      "Hertz",
+      "Pascal",
+      "Tesla"
+    ],
+    "ground_truth": {
+      "canonical": "Hertz",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "physics",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_008",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physics",
+    "prompt": {
+      "question": "What is the SI unit of energy or work?"
+    },
+    "options": [
+      "Watt",
+      "Newton",
+      "Joule",
+      "Pascal"
+    ],
+    "ground_truth": {
+      "canonical": "Joule",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "physics",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_009",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physics",
+    "prompt": {
+      "question": "What is the SI unit of power?"
+    },
+    "options": [
+      "Joule",
+      "Volt",
+      "Watt",
+      "Ampere"
+    ],
+    "ground_truth": {
+      "canonical": "Watt",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "physics",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_010",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Copper?"
+    },
+    "options": [
+      "Co",
+      "Cu",
+      "Cp",
+      "Cr"
+    ],
+    "ground_truth": {
+      "canonical": "Cu",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_011",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Tin?"
+    },
+    "options": [
+      "Ti",
+      "Tn",
+      "Sn",
+      "Sb"
+    ],
+    "ground_truth": {
+      "canonical": "Sn",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_012",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Tungsten?"
+    },
+    "options": [
+      "Tu",
+      "Tg",
+      "W",
+      "Ts"
+    ],
+    "ground_truth": {
+      "canonical": "W",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_013",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What organ in the human body filters metabolic waste from blood?"
+    },
+    "options": [
+      "Liver",
+      "Kidney",
+      "Spleen",
+      "Pancreas"
+    ],
+    "ground_truth": {
+      "canonical": "Kidney",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_014",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What type of macromolecule are enzymes predominantly made of?"
+    },
+    "options": [
+      "Carbohydrates",
+      "Lipids",
+      "Proteins",
+      "Nucleic acids"
+    ],
+    "ground_truth": {
+      "canonical": "Proteins",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_015",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What is the primary hereditary genetic material in most organisms?"
+    },
+    "options": [
+      "RNA",
+      "DNA",
+      "ATP",
+      "Protein"
+    ],
+    "ground_truth": {
+      "canonical": "DNA",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_016",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What cellular process generates four non-identical haploid gametes?"
+    },
+    "options": [
+      "Mitosis",
+      "Meiosis",
+      "Binary fission",
+      "Cytokinesis"
+    ],
+    "ground_truth": {
+      "canonical": "Meiosis",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_017",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What is the process of cell division resulting in two genetically identical diploid cells?"
+    },
+    "options": [
+      "Mitosis",
+      "Meiosis",
+      "Apoptosis",
+      "Budding"
+    ],
+    "ground_truth": {
+      "canonical": "Mitosis",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_018",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What green pigment absorbs light energy in chloroplasts?"
+    },
+    "options": [
+      "Carotenoid",
+      "Chlorophyll",
+      "Anthocyanin",
+      "Hemoglobin"
+    ],
+    "ground_truth": {
+      "canonical": "Chlorophyll",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_019",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the boiling point of pure water at standard atmospheric pressure in Celsius?"
+    },
+    "options": [
+      "90 degrees C",
+      "100 degrees C",
+      "110 degrees C",
+      "212 degrees C"
+    ],
+    "ground_truth": {
+      "canonical": "100 degrees C",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_020",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the freezing point of water in Fahrenheit at standard pressure?"
+    },
+    "options": [
+      "0 degrees F",
+      "32 degrees F",
+      "100 degrees F",
+      "212 degrees F"
+    ],
+    "ground_truth": {
+      "canonical": "32 degrees F",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_021",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "Which planet in our solar system is known for its prominent ring system?"
+    },
+    "options": [
+      "Jupiter",
+      "Saturn",
+      "Uranus",
+      "Neptune"
+    ],
+    "ground_truth": {
+      "canonical": "Saturn",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_022",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "Which planet is the largest by mass in the Solar System?"
+    },
+    "options": [
+      "Saturn",
+      "Jupiter",
+      "Neptune",
+      "Earth"
+    ],
+    "ground_truth": {
+      "canonical": "Jupiter",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_023",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What is the term for a celestial body orbiting a star that is large enough to be rounded by its own gravity?"
+    },
+    "options": [
+      "Asteroid",
+      "Planet",
+      "Comet",
+      "Meteor"
+    ],
+    "ground_truth": {
+      "canonical": "Planet",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_024",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "earth_science",
+    "prompt": {
+      "question": "What type of rock is formed by the cooling and solidification of magma or lava?"
+    },
+    "options": [
+      "Sedimentary",
+      "Metamorphic",
+      "Igneous",
+      "Fossiliferous"
+    ],
+    "ground_truth": {
+      "canonical": "Igneous",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "earth_science",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_025",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "earth_science",
+    "prompt": {
+      "question": "What type of rock is formed from compacted and cemented mineral particles?"
+    },
+    "options": [
+      "Igneous",
+      "Sedimentary",
+      "Metamorphic",
+      "Volcanic"
+    ],
+    "ground_truth": {
+      "canonical": "Sedimentary",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "earth_science",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_026",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "earth_science",
+    "prompt": {
+      "question": "What type of rock is formed when existing rock is altered by heat and pressure?"
+    },
+    "options": [
+      "Igneous",
+      "Sedimentary",
+      "Metamorphic",
+      "Basalt"
+    ],
+    "ground_truth": {
+      "canonical": "Metamorphic",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "earth_science",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_027",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "earth_science",
+    "prompt": {
+      "question": "What scale measures the magnitude of earthquakes based on seismic energy?"
+    },
+    "options": [
+      "Mohs scale",
+      "Moment magnitude scale",
+      "Beaufort scale",
+      "Fujita scale"
+    ],
+    "ground_truth": {
+      "canonical": "Moment magnitude scale",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "earth_science",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_028",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "earth_science",
+    "prompt": {
+      "question": "What scale measures the hardness of minerals from talc to diamond?"
+    },
+    "options": [
+      "Mohs scale",
+      "Richter scale",
+      "Kelvin scale",
+      "Paulings scale"
+    ],
+    "ground_truth": {
+      "canonical": "Mohs scale",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "earth_science",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_029",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "earth_science",
+    "prompt": {
+      "question": "What is the boundary where two tectonic plates move toward each other?"
+    },
+    "options": [
+      "Divergent boundary",
+      "Convergent boundary",
+      "Transform boundary",
+      "Rift zone"
+    ],
+    "ground_truth": {
+      "canonical": "Convergent boundary",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "earth_science",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_030",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "earth_science",
+    "prompt": {
+      "question": "What is the boundary where two tectonic plates slide horizontally past each other?"
+    },
+    "options": [
+      "Divergent boundary",
+      "Convergent boundary",
+      "Transform boundary",
+      "Subduction zone"
+    ],
+    "ground_truth": {
+      "canonical": "Transform boundary",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "earth_science",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_031",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physics",
+    "prompt": {
+      "question": "What is the SI unit of pressure?"
+    },
+    "options": [
+      "Newton",
+      "Pascal",
+      "Torr",
+      "Atmosphere"
+    ],
+    "ground_truth": {
+      "canonical": "Pascal",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "physics",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_032",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physics",
+    "prompt": {
+      "question": "What is the SI unit of magnetic flux density?"
+    },
+    "options": [
+      "Weber",
+      "Tesla",
+      "Gauss",
+      "Henry"
+    ],
+    "ground_truth": {
+      "canonical": "Tesla",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "physics",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_033",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physics",
+    "prompt": {
+      "question": "What is the SI unit of electric capacitance?"
+    },
+    "options": [
+      "Henry",
+      "Farad",
+      "Coulomb",
+      "Ohm"
+    ],
+    "ground_truth": {
+      "canonical": "Farad",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "physics",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_034",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physics",
+    "prompt": {
+      "question": "What is the SI unit of inductance?"
+    },
+    "options": [
+      "Henry",
+      "Farad",
+      "Tesla",
+      "Weber"
+    ],
+    "ground_truth": {
+      "canonical": "Henry",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "physics",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_035",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Platinum?"
+    },
+    "options": [
+      "Pl",
+      "Pt",
+      "Pm",
+      "Pu"
+    ],
+    "ground_truth": {
+      "canonical": "Pt",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_036",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Uranium?"
+    },
+    "options": [
+      "Ur",
+      "U",
+      "Un",
+      "Um"
+    ],
+    "ground_truth": {
+      "canonical": "U",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_037",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Calcium?"
+    },
+    "options": [
+      "C",
+      "Ca",
+      "Cl",
+      "Cm"
+    ],
+    "ground_truth": {
+      "canonical": "Ca",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_038",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Chlorine?"
+    },
+    "options": [
+      "C",
+      "Ch",
+      "Cl",
+      "Cr"
+    ],
+    "ground_truth": {
+      "canonical": "Cl",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_039",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Silicon?"
+    },
+    "options": [
+      "S",
+      "Si",
+      "Sc",
+      "Se"
+    ],
+    "ground_truth": {
+      "canonical": "Si",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_040",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Phosphorus?"
+    },
+    "options": [
+      "P",
+      "Ph",
+      "Po",
+      "Pt"
+    ],
+    "ground_truth": {
+      "canonical": "P",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_041",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Magnesium?"
+    },
+    "options": [
+      "M",
+      "Ma",
+      "Mg",
+      "Mn"
+    ],
+    "ground_truth": {
+      "canonical": "Mg",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_042",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Manganese?"
+    },
+    "options": [
+      "Mg",
+      "Mn",
+      "Mo",
+      "Ms"
+    ],
+    "ground_truth": {
+      "canonical": "Mn",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_043",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Zinc?"
+    },
+    "options": [
+      "Z",
+      "Zi",
+      "Zn",
+      "Zr"
+    ],
+    "ground_truth": {
+      "canonical": "Zn",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_044",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Nickel?"
+    },
+    "options": [
+      "N",
+      "Na",
+      "Ni",
+      "Ne"
+    ],
+    "ground_truth": {
+      "canonical": "Ni",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_045",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Cobalt?"
+    },
+    "options": [
+      "C",
+      "Ca",
+      "Co",
+      "Cr"
+    ],
+    "ground_truth": {
+      "canonical": "Co",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_046",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Bromine?"
+    },
+    "options": [
+      "B",
+      "Ba",
+      "Be",
+      "Br"
+    ],
+    "ground_truth": {
+      "canonical": "Br",
+      "option_index": 3
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_047",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Iodine?"
+    },
+    "options": [
+      "I",
+      "Id",
+      "In",
+      "Ir"
+    ],
+    "ground_truth": {
+      "canonical": "I",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_048",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Fluorine?"
+    },
+    "options": [
+      "F",
+      "Fl",
+      "Fe",
+      "Fr"
+    ],
+    "ground_truth": {
+      "canonical": "F",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_049",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Argon?"
+    },
+    "options": [
+      "A",
+      "Ag",
+      "Ar",
+      "Au"
+    ],
+    "ground_truth": {
+      "canonical": "Ar",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_050",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Neon?"
+    },
+    "options": [
+      "N",
+      "Na",
+      "Ne",
+      "Ni"
+    ],
+    "ground_truth": {
+      "canonical": "Ne",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_051",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Krypton?"
+    },
+    "options": [
+      "K",
+      "Kr",
+      "Ky",
+      "Ka"
+    ],
+    "ground_truth": {
+      "canonical": "Kr",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_052",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Xenon?"
+    },
+    "options": [
+      "X",
+      "Xe",
+      "Xn",
+      "Xi"
+    ],
+    "ground_truth": {
+      "canonical": "Xe",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_053",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Radon?"
+    },
+    "options": [
+      "R",
+      "Ra",
+      "Rd",
+      "Rn"
+    ],
+    "ground_truth": {
+      "canonical": "Rn",
+      "option_index": 3
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_054",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Radium?"
+    },
+    "options": [
+      "R",
+      "Ra",
+      "Rd",
+      "Rn"
+    ],
+    "ground_truth": {
+      "canonical": "Ra",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_055",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Barium?"
+    },
+    "options": [
+      "B",
+      "Ba",
+      "Be",
+      "Bi"
+    ],
+    "ground_truth": {
+      "canonical": "Ba",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_056",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Beryllium?"
+    },
+    "options": [
+      "B",
+      "Ba",
+      "Be",
+      "Bi"
+    ],
+    "ground_truth": {
+      "canonical": "Be",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_057",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Boron?"
+    },
+    "options": [
+      "B",
+      "Ba",
+      "Be",
+      "Br"
+    ],
+    "ground_truth": {
+      "canonical": "B",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_058",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Carbon?"
+    },
+    "options": [
+      "C",
+      "Ca",
+      "Co",
+      "Cr"
+    ],
+    "ground_truth": {
+      "canonical": "C",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_059",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Nitrogen?"
+    },
+    "options": [
+      "N",
+      "Na",
+      "Ne",
+      "Ni"
+    ],
+    "ground_truth": {
+      "canonical": "N",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_060",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "chemistry",
+    "prompt": {
+      "question": "What is the chemical symbol for Sulfur?"
+    },
+    "options": [
+      "S",
+      "Se",
+      "Si",
+      "Sn"
+    ],
+    "ground_truth": {
+      "canonical": "S",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "chemistry",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_061",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What organelle is known as the site of cellular protein synthesis?"
+    },
+    "options": [
+      "Ribosome",
+      "Lysosome",
+      "Vacuole",
+      "Centrosome"
+    ],
+    "ground_truth": {
+      "canonical": "Ribosome",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_062",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What organelle contains digestive enzymes to break down cellular waste?"
+    },
+    "options": [
+      "Ribosome",
+      "Lysosome",
+      "Peroxisome",
+      "Endosome"
+    ],
+    "ground_truth": {
+      "canonical": "Lysosome",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_063",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What organelle modifies, sorts, and packages proteins for secretion?"
+    },
+    "options": [
+      "Endoplasmic reticulum",
+      "Golgi apparatus",
+      "Mitochondria",
+      "Nucleolus"
+    ],
+    "ground_truth": {
+      "canonical": "Golgi apparatus",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_064",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What structure controls the passage of substances into and out of a cell?"
+    },
+    "options": [
+      "Cell wall",
+      "Cell membrane",
+      "Cytoplasm",
+      "Nuclear envelope"
+    ],
+    "ground_truth": {
+      "canonical": "Cell membrane",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_065",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What tough structural layer surrounds plant cells outside the membrane?"
+    },
+    "options": [
+      "Cell wall",
+      "Pellicle",
+      "Capsule",
+      "Cytoskeleton"
+    ],
+    "ground_truth": {
+      "canonical": "Cell wall",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_066",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What polysaccharide provides primary structural support in plant cell walls?"
+    },
+    "options": [
+      "Glycogen",
+      "Starch",
+      "Cellulose",
+      "Chitin"
+    ],
+    "ground_truth": {
+      "canonical": "Cellulose",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_067",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What fibrous substance forms the exoskeleton of arthropods and fungi cell walls?"
+    },
+    "options": [
+      "Keratin",
+      "Cellulose",
+      "Chitin",
+      "Collagen"
+    ],
+    "ground_truth": {
+      "canonical": "Chitin",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_068",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What primary structural protein makes up human hair and nails?"
+    },
+    "options": [
+      "Collagen",
+      "Elastin",
+      "Keratin",
+      "Myosin"
+    ],
+    "ground_truth": {
+      "canonical": "Keratin",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_069",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What is the most abundant structural protein in human connective tissue?"
+    },
+    "options": [
+      "Keratin",
+      "Collagen",
+      "Actin",
+      "Tubulin"
+    ],
+    "ground_truth": {
+      "canonical": "Collagen",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_070",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What blood cells are primarily responsible for carrying oxygen throughout the body?"
+    },
+    "options": [
+      "Erythrocytes (Red blood cells)",
+      "Leukocytes",
+      "Thrombocytes",
+      "Lymphocytes"
+    ],
+    "ground_truth": {
+      "canonical": "Erythrocytes (Red blood cells)",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_071",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What blood cells are responsible for immune defense against pathogens?"
+    },
+    "options": [
+      "Erythrocytes",
+      "Leukocytes (White blood cells)",
+      "Platelets",
+      "Plasma"
+    ],
+    "ground_truth": {
+      "canonical": "Leukocytes (White blood cells)",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_072",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What cellular fragments are crucial for blood clotting?"
+    },
+    "options": [
+      "Erythrocytes",
+      "Platelets (Thrombocytes)",
+      "Neutrophils",
+      "Monocytes"
+    ],
+    "ground_truth": {
+      "canonical": "Platelets (Thrombocytes)",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_073",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What hormone lowers blood glucose levels by promoting glucose uptake?"
+    },
+    "options": [
+      "Glucagon",
+      "Insulin",
+      "Cortisol",
+      "Adrenaline"
+    ],
+    "ground_truth": {
+      "canonical": "Insulin",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_074",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What hormone raises blood glucose concentration by promoting glycogenolysis?"
+    },
+    "options": [
+      "Insulin",
+      "Glucagon",
+      "Thyroxine",
+      "Melatonin"
+    ],
+    "ground_truth": {
+      "canonical": "Glucagon",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_075",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What master endocrine gland at the base of the brain regulates multiple glands?"
+    },
+    "options": [
+      "Thyroid gland",
+      "Adrenal gland",
+      "Pituitary gland",
+      "Pineal gland"
+    ],
+    "ground_truth": {
+      "canonical": "Pituitary gland",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_076",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What butterfly-shaped gland in the neck regulates metabolic rate?"
+    },
+    "options": [
+      "Thyroid gland",
+      "Thymus",
+      "Parathyroid",
+      "Adrenal"
+    ],
+    "ground_truth": {
+      "canonical": "Thyroid gland",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_077",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What glands located above the kidneys produce cortisol and adrenaline?"
+    },
+    "options": [
+      "Adrenal glands",
+      "Thyroid glands",
+      "Pineal glands",
+      "Salivary glands"
+    ],
+    "ground_truth": {
+      "canonical": "Adrenal glands",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_078",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What small gland in the brain secretes melatonin to regulate sleep cycles?"
+    },
+    "options": [
+      "Pituitary gland",
+      "Pineal gland",
+      "Hypothalamus",
+      "Thalamus"
+    ],
+    "ground_truth": {
+      "canonical": "Pineal gland",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_079",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What part of the brain coordinates voluntary motor movement, balance, and posture?"
+    },
+    "options": [
+      "Cerebrum",
+      "Cerebellum",
+      "Brainstem",
+      "Medulla oblongata"
+    ],
+    "ground_truth": {
+      "canonical": "Cerebellum",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_080",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What part of the brain controls autonomic functions like breathing and heart rate?"
+    },
+    "options": [
+      "Cerebellum",
+      "Medulla oblongata",
+      "Hippocampus",
+      "Amygdala"
+    ],
+    "ground_truth": {
+      "canonical": "Medulla oblongata",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_081",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What region of the brain plays a central role in memory consolidation?"
+    },
+    "options": [
+      "Hippocampus",
+      "Amygdala",
+      "Hypothalamus",
+      "Corpus callosum"
+    ],
+    "ground_truth": {
+      "canonical": "Hippocampus",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_082",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biology",
+    "prompt": {
+      "question": "What almond-shaped brain structure processes emotional responses like fear?"
+    },
+    "options": [
+      "Hippocampus",
+      "Amygdala",
+      "Thalamus",
+      "Basal ganglia"
+    ],
+    "ground_truth": {
+      "canonical": "Amygdala",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "biology",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_083",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What astronomical unit represents the average distance from Earth to the Sun?"
+    },
+    "options": [
+      "Light year",
+      "Astronomical Unit (AU)",
+      "Parsec",
+      "Solar radius"
+    ],
+    "ground_truth": {
+      "canonical": "Astronomical Unit (AU)",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_084",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What unit of astronomical distance is approximately equal to 3.26 light years?"
+    },
+    "options": [
+      "Astronomical Unit",
+      "Light year",
+      "Parsec",
+      "Gigameter"
+    ],
+    "ground_truth": {
+      "canonical": "Parsec",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_085",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What is the boundary around a black hole beyond which nothing can escape?"
+    },
+    "options": [
+      "Singularity",
+      "Event horizon",
+      "Accretion disk",
+      "Photon sphere"
+    ],
+    "ground_truth": {
+      "canonical": "Event horizon",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_086",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What type of star is in the final evolutionary state of massive stars before a supernova?"
+    },
+    "options": [
+      "White dwarf",
+      "Red supergiant",
+      "Brown dwarf",
+      "Neutron star"
+    ],
+    "ground_truth": {
+      "canonical": "Red supergiant",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_087",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What dense stellar remnant is composed almost entirely of closely packed neutrons?"
+    },
+    "options": [
+      "White dwarf",
+      "Neutron star",
+      "Black dwarf",
+      "Pulsar"
+    ],
+    "ground_truth": {
+      "canonical": "Neutron star",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_088",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What rapidly rotating magnetized neutron star emits beams of electromagnetic radiation?"
+    },
+    "options": [
+      "Quasar",
+      "Pulsar",
+      "Magnetar",
+      "Supernova"
+    ],
+    "ground_truth": {
+      "canonical": "Pulsar",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_089",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What extremely luminous active galactic nucleus is powered by a supermassive black hole?"
+    },
+    "options": [
+      "Quasar",
+      "Pulsar",
+      "Nebula",
+      "Globular cluster"
+    ],
+    "ground_truth": {
+      "canonical": "Quasar",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_090",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What cloud of gas and dust in space is the stellar nursery where stars are born?"
+    },
+    "options": [
+      "Galaxy",
+      "Nebula",
+      "Asteroid belt",
+      "Oort cloud"
+    ],
+    "ground_truth": {
+      "canonical": "Nebula",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_091",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What spherical shell of icy objects surrounds the solar system at its outermost boundary?"
+    },
+    "options": [
+      "Kuiper belt",
+      "Asteroid belt",
+      "Oort cloud",
+      "Van Allen belt"
+    ],
+    "ground_truth": {
+      "canonical": "Oort cloud",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_092",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What ring of icy bodies orbits the Sun beyond the orbit of Neptune?"
+    },
+    "options": [
+      "Asteroid belt",
+      "Kuiper belt",
+      "Oort cloud",
+      "Trojan cloud"
+    ],
+    "ground_truth": {
+      "canonical": "Kuiper belt",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_093",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What region between Mars and Jupiter contains most of the Solar System's asteroids?"
+    },
+    "options": [
+      "Asteroid belt",
+      "Kuiper belt",
+      "Oort cloud",
+      "Hills cloud"
+    ],
+    "ground_truth": {
+      "canonical": "Asteroid belt",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_094",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What is the brightest star in Earth's night sky?"
+    },
+    "options": [
+      "Betelgeuse",
+      "Sirius",
+      "Polaris",
+      "Vega"
+    ],
+    "ground_truth": {
+      "canonical": "Sirius",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_095",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What star is located almost directly above Earth's north celestial pole?"
+    },
+    "options": [
+      "Sirius",
+      "Polaris (North Star)",
+      "Vega",
+      "Rigel"
+    ],
+    "ground_truth": {
+      "canonical": "Polaris (North Star)",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_096",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What is the outermost layer of the Sun's atmosphere, visible during a total solar eclipse?"
+    },
+    "options": [
+      "Photosphere",
+      "Chromosphere",
+      "Corona",
+      "Core"
+    ],
+    "ground_truth": {
+      "canonical": "Corona",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_097",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What visible surface layer of the Sun emits most of the light we see?"
+    },
+    "options": [
+      "Photosphere",
+      "Chromosphere",
+      "Corona",
+      "Convective zone"
+    ],
+    "ground_truth": {
+      "canonical": "Photosphere",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_098",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What is the term for a sudden flash of increased brightness on the Sun?"
+    },
+    "options": [
+      "Solar wind",
+      "Solar flare",
+      "Coronal mass ejection",
+      "Sunspot"
+    ],
+    "ground_truth": {
+      "canonical": "Solar flare",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_099",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What stream of charged particles is continuously released from the upper atmosphere of the Sun?"
+    },
+    "options": [
+      "Solar wind",
+      "Cosmic ray",
+      "Solar flare",
+      "Geomagnetic storm"
+    ],
+    "ground_truth": {
+      "canonical": "Solar wind",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "sci_nat_100",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "astronomy",
+    "prompt": {
+      "question": "What atmospheric optical phenomenon in polar regions is caused by solar wind particles?"
+    },
+    "options": [
+      "Rainbow",
+      "Aurora (Northern/Southern Lights)",
+      "Halo",
+      "Mirage"
+    ],
+    "ground_truth": {
+      "canonical": "Aurora (Northern/Southern Lights)",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "science_and_nature_norms_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "field": "astronomy",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "scientific_handbook_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  }
+]

@@ -75,19 +75,104 @@ def doctor() -> None:
     console.print(table)
 
 
-@main.command(name="seed-items")
-def cli_seed_items() -> None:
-    """Seed the 100-item E00 qualification item bank and register all protocols."""
-    from mammal.items.qualification import seed_e00_qualification_items
-    from mammal.protocols.loader import load_and_register_all_protocols
+@main.group()
+def items() -> None:
+    """Item bank validation, ingestion, and audit commands."""
+    pass
+
+
+@items.command(name="validate")
+@click.argument("target_path", required=False, type=click.Path(exists=True))
+def items_validate(target_path: str | None) -> None:
+    """Validate JSON/YAML item bank files against schema, distractor homogeneity, and partition isolation."""
+    from mammal.items.loaders import get_default_item_banks_dir, load_item_banks_from_directory
+    from mammal.items.validator import ItemValidator
+
+    path = Path(target_path) if target_path else get_default_item_banks_dir()
+    console.print(Panel(f"[bold cyan]MAMMAL Item Bank Validator[/bold cyan]\nTarget: [yellow]{path}[/yellow]"))
+
+    raw_items = load_item_banks_from_directory(path)
+    validator = ItemValidator()
+    report = validator.validate_items(raw_items)
+
+    table = Table(title="Item Bank Audit Summary", show_header=True, header_style="bold blue")
+    table.add_column("Metric", style="cyan")
+    table.add_column("Value", style="bold green" if report.is_valid else "bold red")
+
+    table.add_row("Total Items Audited", str(report.total_items))
+    table.add_row("Schema & Rule Valid", str(report.valid_items))
+    table.add_row("Invalid Items", str(report.invalid_items))
+    table.add_row("Validation Errors", str(len(report.errors)))
+    table.add_row("Heuristic Warnings", str(len(report.warnings)))
+    table.add_row("Audit Status", "[green]PASS (100% VALID)[/green]" if report.is_valid else "[red]FAIL[/red]")
+    console.print(table)
+
+    d_table = Table(title="Inventory by Domain & Partition", show_header=True, header_style="bold magenta")
+    d_table.add_column("Category", style="cyan")
+    d_table.add_column("Count", style="green")
+    for d, c in report.domain_counts.items():
+        d_table.add_row(f"Domain: {d}", str(c))
+    for p, c in report.partition_counts.items():
+        d_table.add_row(f"Partition: {p}", str(c))
+    console.print(d_table)
+
+    if report.errors:
+        console.print("[bold red]Errors:[/bold red]")
+        for err in report.errors[:10]:
+            console.print(f"  [red]• [{err.item_id}] {err.message}[/red]")
+        if len(report.errors) > 10:
+            console.print(f"  ... and {len(report.errors) - 10} more errors.")
+
+
+@items.command(name="import")
+@click.argument("target_path", required=False, type=click.Path(exists=True))
+def items_import(target_path: str | None) -> None:
+    """Import and register validated item banks into SQLite with SHA-256 hashes."""
+    from mammal.items.bank import import_item_bank_from_disk
 
     settings.ensure_directories()
     init_db()
     with get_session(settings) as session:
-        n_protos = load_and_register_all_protocols(session)
-        seeded = seed_e00_qualification_items(session)
-        console.print(f"[bold green]✓ Registered {len(n_protos)} protocols[/bold green]")
-        console.print(f"[bold green]✓ Seeded {len(seeded)} qualification items in database ({settings.db_path})[/bold green]")
+        registered, errors = import_item_bank_from_disk(session, target_path)
+        if errors:
+            console.print("[bold red]Import failed with validation errors:[/bold red]")
+            for err in errors[:10]:
+                console.print(f"  [red]• {err}[/red]")
+            return
+
+        console.print(Panel(f"[bold green]✓ Successfully imported {len(registered)} items into SQLite[/bold green]\nDatabase: [cyan]{settings.db_path}[/cyan]"))
+
+
+@items.command(name="stats")
+def items_stats() -> None:
+    """Display comprehensive statistics for registered items in the database."""
+    from mammal.models.entities import Item
+    from sqlalchemy import func
+
+    settings.ensure_directories()
+    init_db()
+    with get_session(settings) as session:
+        total = session.query(func.count(Item.item_id)).scalar() or 0
+        if total == 0:
+            console.print("[yellow]Item bank in SQLite is currently empty. Run 'mammal items import' or 'mammal seed' to populate.[/yellow]")
+            return
+
+        table = Table(title=f"MAMMAL Item Bank Inventory (Total: {total} items)", show_header=True, header_style="bold blue")
+        table.add_column("Domain", style="cyan")
+        table.add_column("Family", style="magenta")
+        table.add_column("Partition", style="yellow")
+        table.add_column("Count", style="bold green")
+
+        rows = (
+            session.query(Item.domain, Item.family, Item.partition, func.count(Item.item_id))
+            .group_by(Item.domain, Item.family, Item.partition)
+            .order_by(Item.domain, Item.family, Item.partition)
+            .all()
+        )
+        for d, f, p, c in rows:
+            table.add_row(d, f, p, str(c))
+
+        console.print(table)
 
 
 @main.group()

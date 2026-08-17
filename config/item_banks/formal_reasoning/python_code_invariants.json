@@ -1,0 +1,1852 @@
+[
+  {
+    "item_id": "code_py_001",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "list_comprehensions",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #1?",
+      "code_snippet": "x = [i * 2 for i in range(4)]\nprint(x)"
+    },
+    "options": [
+      "[0, 1, 2, 3]",
+      "[0, 2, 4, 6]",
+      "[2, 4, 6, 8]",
+      "[0, 2, 4]"
+    ],
+    "ground_truth": {
+      "canonical": "[0, 2, 4, 6]",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_002",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "string_slicing",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #2?",
+      "code_snippet": "s = 'MAMMAL'\nprint(s[1:4])"
+    },
+    "options": [
+      "MAM",
+      "AMM",
+      "AMMA",
+      "MMA"
+    ],
+    "ground_truth": {
+      "canonical": "AMM",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_003",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "dict_lookup",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #3?",
+      "code_snippet": "d = {'a': 1, 'b': 2}\nprint(d.get('c', 3))"
+    },
+    "options": [
+      "None",
+      "KeyError",
+      "3",
+      "0"
+    ],
+    "ground_truth": {
+      "canonical": "3",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_004",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "reference_mutation",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #4?",
+      "code_snippet": "a = [1, 2, 3]\nb = a\nb.append(4)\nprint(len(a))"
+    },
+    "options": [
+      "3",
+      "4",
+      "5",
+      "Error"
+    ],
+    "ground_truth": {
+      "canonical": "4",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_005",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "recursion",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #5?",
+      "code_snippet": "def f(n):\n    return 1 if n <= 1 else n * f(n - 1)\nprint(f(4))"
+    },
+    "options": [
+      "12",
+      "16",
+      "24",
+      "48"
+    ],
+    "ground_truth": {
+      "canonical": "24",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_006",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "generator_expressions",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #6?",
+      "code_snippet": "res = sum(x for x in [1, 2, 3, 4, 5] if x % 2 == 1)\nprint(res)"
+    },
+    "options": [
+      "6",
+      "9",
+      "12",
+      "15"
+    ],
+    "ground_truth": {
+      "canonical": "9",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_007",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "tuple_structure",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #7?",
+      "code_snippet": "t = (1, 2, [3, 4])\nprint(len(t))"
+    },
+    "options": [
+      "2",
+      "3",
+      "4",
+      "TypeError"
+    ],
+    "ground_truth": {
+      "canonical": "3",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_008",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "sorting_indexing",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #8?",
+      "code_snippet": "nums = [3, 1, 4, 1, 5]\nprint(sorted(nums)[-1])"
+    },
+    "options": [
+      "1",
+      "3",
+      "4",
+      "5"
+    ],
+    "ground_truth": {
+      "canonical": "5",
+      "option_index": 3
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_009",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "ternary_operator",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #9?",
+      "code_snippet": "x = 5\ny = x if x > 10 else 10\nprint(y)"
+    },
+    "options": [
+      "5",
+      "10",
+      "15",
+      "None"
+    ],
+    "ground_truth": {
+      "canonical": "10",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_010",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "dict_conversion",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #10?",
+      "code_snippet": "pairs = [(1, 'a'), (2, 'b')]\nprint(dict(pairs)[1])"
+    },
+    "options": [
+      "a",
+      "b",
+      "1",
+      "KeyError"
+    ],
+    "ground_truth": {
+      "canonical": "a",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_011",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "string_methods",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #11?",
+      "code_snippet": "s = 'hello world'\nprint(s.split()[0])"
+    },
+    "options": [
+      "hello",
+      "world",
+      "h",
+      "hello world"
+    ],
+    "ground_truth": {
+      "canonical": "hello",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_012",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "list_pop",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #12?",
+      "code_snippet": "nums = [10, 20, 30]\nprint(nums.pop(1))\nprint(len(nums))"
+    },
+    "options": [
+      "10",
+      "20",
+      "30",
+      "IndexError"
+    ],
+    "ground_truth": {
+      "canonical": "20",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_013",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "set_operations",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #13?",
+      "code_snippet": "a = {1, 2, 3}\nb = {2, 3, 4}\nprint(sorted(list(a & b)))"
+    },
+    "options": [
+      "[1, 2, 3, 4]",
+      "[2, 3]",
+      "[1, 4]",
+      "[2]"
+    ],
+    "ground_truth": {
+      "canonical": "[2, 3]",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_014",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "floor_division",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #14?",
+      "code_snippet": "x = 7 // 2\nprint(x)"
+    },
+    "options": [
+      "3",
+      "3.5",
+      "4",
+      "1"
+    ],
+    "ground_truth": {
+      "canonical": "3",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_015",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "modulo_operator",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #15?",
+      "code_snippet": "x = 7 % 3\nprint(x)"
+    },
+    "options": [
+      "0",
+      "1",
+      "2",
+      "2.33"
+    ],
+    "ground_truth": {
+      "canonical": "1",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_016",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "nested_lists",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #16?",
+      "code_snippet": "matrix = [[1, 2], [3, 4]]\nprint(matrix[1][0])"
+    },
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "ground_truth": {
+      "canonical": "3",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_017",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "default_arguments",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #17?",
+      "code_snippet": "def add(x, y=5):\n    return x + y\nprint(add(10))"
+    },
+    "options": [
+      "5",
+      "10",
+      "15",
+      "TypeError"
+    ],
+    "ground_truth": {
+      "canonical": "15",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_018",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "string_reversal",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #18?",
+      "code_snippet": "s = 'abcde'\nprint(s[::-1])"
+    },
+    "options": [
+      "abcde",
+      "edcba",
+      "bcde",
+      "e"
+    ],
+    "ground_truth": {
+      "canonical": "edcba",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_019",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "lambda_map",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #19?",
+      "code_snippet": "nums = [1, 2, 3, 4]\nprint(list(map(lambda x: x**2, nums))[2])"
+    },
+    "options": [
+      "1",
+      "4",
+      "9",
+      "16"
+    ],
+    "ground_truth": {
+      "canonical": "9",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_020",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "truthiness",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #20?",
+      "code_snippet": "val = bool([])\nprint(val)"
+    },
+    "options": [
+      "True",
+      "False",
+      "None",
+      "TypeError"
+    ],
+    "ground_truth": {
+      "canonical": "False",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_021",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "truthiness",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #21?",
+      "code_snippet": "val = bool([0])\nprint(val)"
+    },
+    "options": [
+      "True",
+      "False",
+      "None",
+      "0"
+    ],
+    "ground_truth": {
+      "canonical": "True",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_022",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "list_multiplication",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #22?",
+      "code_snippet": "nums = [1, 2, 3]\nprint(nums * 2)"
+    },
+    "options": [
+      "[2, 4, 6]",
+      "[1, 2, 3, 1, 2, 3]",
+      "[1, 2, 3, 2]",
+      "TypeError"
+    ],
+    "ground_truth": {
+      "canonical": "[1, 2, 3, 1, 2, 3]",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_023",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "tuple_unpacking",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #23?",
+      "code_snippet": "a = 10\nb = 20\na, b = b, a\nprint(a)"
+    },
+    "options": [
+      "10",
+      "20",
+      "(20, 10)",
+      "None"
+    ],
+    "ground_truth": {
+      "canonical": "20",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_024",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "dict_mutation",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #24?",
+      "code_snippet": "d = {'x': 10}\nd['y'] = 20\nprint(len(d))"
+    },
+    "options": [
+      "1",
+      "2",
+      "3",
+      "KeyError"
+    ],
+    "ground_truth": {
+      "canonical": "2",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_025",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "comprehension_counting",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #25?",
+      "code_snippet": "res = [x for x in range(10) if x % 3 == 0]\nprint(len(res))"
+    },
+    "options": [
+      "3",
+      "4",
+      "5",
+      "10"
+    ],
+    "ground_truth": {
+      "canonical": "4",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_026",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "function_call",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #26?",
+      "code_snippet": "def square(n):\n    return n * n\nprint(square(6))"
+    },
+    "options": [
+      "12",
+      "30",
+      "36",
+      "64"
+    ],
+    "ground_truth": {
+      "canonical": "36",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_027",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "string_boolean",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #27?",
+      "code_snippet": "s = 'Python'\nprint(s.lower().startswith('p'))"
+    },
+    "options": [
+      "True",
+      "False",
+      "p",
+      "None"
+    ],
+    "ground_truth": {
+      "canonical": "True",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_028",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "builtin_min",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #28?",
+      "code_snippet": "val = min([14, 28, 7, 42])\nprint(val)"
+    },
+    "options": [
+      "7",
+      "14",
+      "28",
+      "42"
+    ],
+    "ground_truth": {
+      "canonical": "7",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_029",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "builtin_max",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #29?",
+      "code_snippet": "val = max([14, 28, 7, 42])\nprint(val)"
+    },
+    "options": [
+      "7",
+      "14",
+      "28",
+      "42"
+    ],
+    "ground_truth": {
+      "canonical": "42",
+      "option_index": 3
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_030",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "list_sort",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #30?",
+      "code_snippet": "nums = [5, 4, 3, 2, 1]\nnums.sort()\nprint(nums[0])"
+    },
+    "options": [
+      "1",
+      "2",
+      "3",
+      "5"
+    ],
+    "ground_truth": {
+      "canonical": "1",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_031",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "string_split_len",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #31?",
+      "code_snippet": "x = 'apple,banana,orange'\nprint(len(x.split(',')))"
+    },
+    "options": [
+      "1",
+      "2",
+      "3",
+      "19"
+    ],
+    "ground_truth": {
+      "canonical": "3",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_032",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "dict_nested_index",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #32?",
+      "code_snippet": "d = {'k1': [1, 2], 'k2': [3, 4]}\nprint(d['k1'][1])"
+    },
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "ground_truth": {
+      "canonical": "2",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_033",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "builtin_all",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #33?",
+      "code_snippet": "val = all([True, True, False])\nprint(val)"
+    },
+    "options": [
+      "True",
+      "False",
+      "None",
+      "TypeError"
+    ],
+    "ground_truth": {
+      "canonical": "False",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_034",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "builtin_any",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #34?",
+      "code_snippet": "val = any([False, False, True])\nprint(val)"
+    },
+    "options": [
+      "True",
+      "False",
+      "None",
+      "TypeError"
+    ],
+    "ground_truth": {
+      "canonical": "True",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_035",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "string_count",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #35?",
+      "code_snippet": "s = 'banana'\nprint(s.count('a'))"
+    },
+    "options": [
+      "1",
+      "2",
+      "3",
+      "6"
+    ],
+    "ground_truth": {
+      "canonical": "3",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_036",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "list_extend",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #36?",
+      "code_snippet": "nums = [1, 2, 3]\nnums.extend([4, 5])\nprint(len(nums))"
+    },
+    "options": [
+      "3",
+      "4",
+      "5",
+      "TypeError"
+    ],
+    "ground_truth": {
+      "canonical": "5",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_037",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "list_insert",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #37?",
+      "code_snippet": "nums = [1, 2, 3]\nnums.insert(0, 99)\nprint(nums[0])"
+    },
+    "options": [
+      "1",
+      "2",
+      "3",
+      "99"
+    ],
+    "ground_truth": {
+      "canonical": "99",
+      "option_index": 3
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_038",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "builtin_abs",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #38?",
+      "code_snippet": "x = abs(-42)\nprint(x)"
+    },
+    "options": [
+      "-42",
+      "42",
+      "0",
+      "TypeError"
+    ],
+    "ground_truth": {
+      "canonical": "42",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_039",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "builtin_round",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #39?",
+      "code_snippet": "val = round(3.75)\nprint(val)"
+    },
+    "options": [
+      "3",
+      "3.7",
+      "3.8",
+      "4"
+    ],
+    "ground_truth": {
+      "canonical": "4",
+      "option_index": 3
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_040",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "string_strip",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #40?",
+      "code_snippet": "s = '   mammal   '\nprint(len(s.strip()))"
+    },
+    "options": [
+      "6",
+      "8",
+      "12",
+      "14"
+    ],
+    "ground_truth": {
+      "canonical": "6",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_041",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "exponentiation",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #41?",
+      "code_snippet": "x = 2 ** 4\nprint(x)"
+    },
+    "options": [
+      "8",
+      "12",
+      "16",
+      "32"
+    ],
+    "ground_truth": {
+      "canonical": "16",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_042",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "range_step",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #42?",
+      "code_snippet": "nums = list(range(2, 10, 2))\nprint(nums)"
+    },
+    "options": [
+      "[2, 3, 4, 5, 6, 7, 8, 9]",
+      "[2, 4, 6, 8]",
+      "[2, 4, 6, 8, 10]",
+      "[4, 6, 8]"
+    ],
+    "ground_truth": {
+      "canonical": "[2, 4, 6, 8]",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_043",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "dict_kwargs",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #43?",
+      "code_snippet": "d = dict(x=100, y=200)\nprint(d['y'])"
+    },
+    "options": [
+      "100",
+      "200",
+      "y",
+      "KeyError"
+    ],
+    "ground_truth": {
+      "canonical": "200",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_044",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "list_slice",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #44?",
+      "code_snippet": "nums = [1, 2, 3, 4, 5]\nprint(nums[1:4])"
+    },
+    "options": [
+      "[1, 2, 3]",
+      "[2, 3, 4]",
+      "[2, 3, 4, 5]",
+      "[1, 2]"
+    ],
+    "ground_truth": {
+      "canonical": "[2, 3, 4]",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_045",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "string_join",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #45?",
+      "code_snippet": "s = '-'.join(['a', 'b', 'c'])\nprint(s)"
+    },
+    "options": [
+      "abc",
+      "a-b-c",
+      "-a-b-c-",
+      "a,b,c"
+    ],
+    "ground_truth": {
+      "canonical": "a-b-c",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_046",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "dict_comprehension",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #46?",
+      "code_snippet": "x = {i: i**2 for i in range(3)}\nprint(x[2])"
+    },
+    "options": [
+      "0",
+      "1",
+      "4",
+      "9"
+    ],
+    "ground_truth": {
+      "canonical": "4",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_047",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "f_strings",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #47?",
+      "code_snippet": "def greet(name):\n    return f'Hi {name}'\nprint(greet('Eve'))"
+    },
+    "options": [
+      "Hi Eve",
+      "Hi name",
+      "f'Hi Eve'",
+      "None"
+    ],
+    "ground_truth": {
+      "canonical": "Hi Eve",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_048",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "sum_start_arg",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #48?",
+      "code_snippet": "nums = [1, 2, 3]\nprint(sum(nums, 10))"
+    },
+    "options": [
+      "6",
+      "10",
+      "16",
+      "TypeError"
+    ],
+    "ground_truth": {
+      "canonical": "16",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_049",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "tuple_index",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #49?",
+      "code_snippet": "t = (1, 2, 3)\nprint(t.index(2))"
+    },
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "ground_truth": {
+      "canonical": "1",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "code_py_050",
+    "version": "1.0.0",
+    "domain": "formal_code_reasoning",
+    "family": "isinstance_check",
+    "prompt": {
+      "question": "What is the stdout output of Python snippet #50?",
+      "code_snippet": "val = isinstance(42.0, int)\nprint(val)"
+    },
+    "options": [
+      "True",
+      "False",
+      "None",
+      "TypeError"
+    ],
+    "ground_truth": {
+      "canonical": "False",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "python_3_semantics_benchmark_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "language_version": "Python 3.13",
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "interpreter_execution_verified",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  }
+]

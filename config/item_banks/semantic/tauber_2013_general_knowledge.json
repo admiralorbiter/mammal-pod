@@ -1,0 +1,3702 @@
+[
+  {
+    "item_id": "tauber_001",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of Australia?"
+    },
+    "options": [
+      "Sydney",
+      "Melbourne",
+      "Canberra",
+      "Brisbane"
+    ],
+    "ground_truth": {
+      "canonical": "Canberra",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.43,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_002",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "What is the name of the ship that brought the Pilgrims to America in 1620?"
+    },
+    "options": [
+      "Mayflower",
+      "Santa Maria",
+      "Endeavour",
+      "Beagle"
+    ],
+    "ground_truth": {
+      "canonical": "Mayflower",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.89,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_003",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "Who was the first president of the United States?"
+    },
+    "options": [
+      "Thomas Jefferson",
+      "John Adams",
+      "George Washington",
+      "Benjamin Franklin"
+    ],
+    "ground_truth": {
+      "canonical": "George Washington",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.95,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_004",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the largest ocean on Earth?"
+    },
+    "options": [
+      "Atlantic Ocean",
+      "Indian Ocean",
+      "Pacific Ocean",
+      "Arctic Ocean"
+    ],
+    "ground_truth": {
+      "canonical": "Pacific Ocean",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.88,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_005",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the name of the desert that covers much of northern Africa?"
+    },
+    "options": [
+      "Kalahari",
+      "Gobi",
+      "Sahara",
+      "Atacama"
+    ],
+    "ground_truth": {
+      "canonical": "Sahara",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.92,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_006",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who painted the ceiling of the Sistine Chapel in Rome?"
+    },
+    "options": [
+      "Leonardo da Vinci",
+      "Raphael",
+      "Michelangelo",
+      "Donatello"
+    ],
+    "ground_truth": {
+      "canonical": "Michelangelo",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.74,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_007",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the longest river in South America?"
+    },
+    "options": [
+      "Nile",
+      "Amazon",
+      "Parana",
+      "Orinoco"
+    ],
+    "ground_truth": {
+      "canonical": "Amazon",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.82,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_008",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital of Canada?"
+    },
+    "options": [
+      "Toronto",
+      "Montreal",
+      "Ottawa",
+      "Vancouver"
+    ],
+    "ground_truth": {
+      "canonical": "Ottawa",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.54,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_009",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who wrote the play 'Romeo and Juliet'?"
+    },
+    "options": [
+      "Christopher Marlowe",
+      "William Shakespeare",
+      "John Milton",
+      "Ben Jonson"
+    ],
+    "ground_truth": {
+      "canonical": "William Shakespeare",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.96,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_010",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "social_science",
+    "prompt": {
+      "question": "What currency is used in Japan?"
+    },
+    "options": [
+      "Yuan",
+      "Won",
+      "Yen",
+      "Ringgit"
+    ],
+    "ground_truth": {
+      "canonical": "Yen",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.87,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_011",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "In which European city is the Louvre Museum located?"
+    },
+    "options": [
+      "London",
+      "Rome",
+      "Paris",
+      "Berlin"
+    ],
+    "ground_truth": {
+      "canonical": "Paris",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.91,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_012",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital of Spain?"
+    },
+    "options": [
+      "Barcelona",
+      "Madrid",
+      "Seville",
+      "Valencia"
+    ],
+    "ground_truth": {
+      "canonical": "Madrid",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.85,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_013",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "Who was the famous physicist who developed the theory of general relativity?"
+    },
+    "options": [
+      "Isaac Newton",
+      "Niels Bohr",
+      "Albert Einstein",
+      "Max Planck"
+    ],
+    "ground_truth": {
+      "canonical": "Albert Einstein",
+      "option_index": 2
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.94,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_014",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the name of the tallest mountain in the world above sea level?"
+    },
+    "options": [
+      "K2",
+      "Mount Everest",
+      "Kangchenjunga",
+      "Lhotse"
+    ],
+    "ground_truth": {
+      "canonical": "Mount Everest",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.91,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_015",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "Which planet is closest to the Sun?"
+    },
+    "options": [
+      "Venus",
+      "Mercury",
+      "Mars",
+      "Earth"
+    ],
+    "ground_truth": {
+      "canonical": "Mercury",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.79,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_016",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the primary language spoken in Brazil?"
+    },
+    "options": [
+      "Spanish",
+      "Portuguese",
+      "French",
+      "Italian"
+    ],
+    "ground_truth": {
+      "canonical": "Portuguese",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.76,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_017",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "What year did the Apollo 11 moon landing take place?"
+    },
+    "options": [
+      "1965",
+      "1968",
+      "1969",
+      "1972"
+    ],
+    "ground_truth": {
+      "canonical": "1969",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.68,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_018",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who sculpted the statue of David?"
+    },
+    "options": [
+      "Bernini",
+      "Donatello",
+      "Michelangelo",
+      "Rodin"
+    ],
+    "ground_truth": {
+      "canonical": "Michelangelo",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.71,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_019",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of Egypt?"
+    },
+    "options": [
+      "Alexandria",
+      "Cairo",
+      "Giza",
+      "Luxor"
+    ],
+    "ground_truth": {
+      "canonical": "Cairo",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.88,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_020",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the chemical formula for table salt?"
+    },
+    "options": [
+      "KCl",
+      "NaCl",
+      "CaCl2",
+      "NaOH"
+    ],
+    "ground_truth": {
+      "canonical": "NaCl",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.84,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_021",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who wrote the novel 'Moby-Dick'?"
+    },
+    "options": [
+      "Nathaniel Hawthorne",
+      "Herman Melville",
+      "Mark Twain",
+      "Edgar Allan Poe"
+    ],
+    "ground_truth": {
+      "canonical": "Herman Melville",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.58,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_022",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "Which country gifted the Statue of Liberty to the United States?"
+    },
+    "options": [
+      "Great Britain",
+      "France",
+      "Germany",
+      "Italy"
+    ],
+    "ground_truth": {
+      "canonical": "France",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.86,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_023",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital of Italy?"
+    },
+    "options": [
+      "Milan",
+      "Florence",
+      "Naples",
+      "Rome"
+    ],
+    "ground_truth": {
+      "canonical": "Rome",
+      "option_index": 3
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.93,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_024",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biological_science",
+    "prompt": {
+      "question": "What is the term for an animal that eats both plants and meat?"
+    },
+    "options": [
+      "Herbivore",
+      "Carnivore",
+      "Omnivore",
+      "Detritivore"
+    ],
+    "ground_truth": {
+      "canonical": "Omnivore",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.81,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_025",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biological_science",
+    "prompt": {
+      "question": "Who discovered penicillin in 1928?"
+    },
+    "options": [
+      "Louis Pasteur",
+      "Alexander Fleming",
+      "Robert Koch",
+      "Joseph Lister"
+    ],
+    "ground_truth": {
+      "canonical": "Alexander Fleming",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.49,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_026",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital of Germany?"
+    },
+    "options": [
+      "Munich",
+      "Frankfurt",
+      "Hamburg",
+      "Berlin"
+    ],
+    "ground_truth": {
+      "canonical": "Berlin",
+      "option_index": 3
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.89,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_027",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "Which ancient civilization built Machu Picchu in Peru?"
+    },
+    "options": [
+      "Aztec",
+      "Maya",
+      "Inca",
+      "Olmec"
+    ],
+    "ground_truth": {
+      "canonical": "Inca",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.72,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_028",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital of Russia?"
+    },
+    "options": [
+      "Saint Petersburg",
+      "Moscow",
+      "Kiev",
+      "Minsk"
+    ],
+    "ground_truth": {
+      "canonical": "Moscow",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.92,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_029",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who wrote 'The Odyssey' and 'The Iliad'?"
+    },
+    "options": [
+      "Hesiod",
+      "Virgil",
+      "Homer",
+      "Sophocles"
+    ],
+    "ground_truth": {
+      "canonical": "Homer",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.78,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_030",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biological_science",
+    "prompt": {
+      "question": "What is the largest living land mammal?"
+    },
+    "options": [
+      "Hippopotamus",
+      "White Rhinoceros",
+      "African Elephant",
+      "Giraffe"
+    ],
+    "ground_truth": {
+      "canonical": "African Elephant",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.9,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_031",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital of China?"
+    },
+    "options": [
+      "Shanghai",
+      "Beijing",
+      "Hong Kong",
+      "Guangzhou"
+    ],
+    "ground_truth": {
+      "canonical": "Beijing",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.89,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_032",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "In which city is the Colosseum located?"
+    },
+    "options": [
+      "Athens",
+      "Rome",
+      "Istanbul",
+      "Alexandria"
+    ],
+    "ground_truth": {
+      "canonical": "Rome",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.94,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_033",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who composed the 'Moonlight Sonata'?"
+    },
+    "options": [
+      "Wolfgang Amadeus Mozart",
+      "Johann Sebastian Bach",
+      "Ludwig van Beethoven",
+      "Franz Schubert"
+    ],
+    "ground_truth": {
+      "canonical": "Ludwig van Beethoven",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.65,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_034",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the hardest natural substance on Earth?"
+    },
+    "options": [
+      "Topaz",
+      "Corundum",
+      "Quartz",
+      "Diamond"
+    ],
+    "ground_truth": {
+      "canonical": "Diamond",
+      "option_index": 3
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.89,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_035",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital of Mexico?"
+    },
+    "options": [
+      "Guadalajara",
+      "Monterrey",
+      "Mexico City",
+      "Puebla"
+    ],
+    "ground_truth": {
+      "canonical": "Mexico City",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.95,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_036",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "Which English king had six wives?"
+    },
+    "options": [
+      "Henry VII",
+      "Henry VIII",
+      "Charles I",
+      "George III"
+    ],
+    "ground_truth": {
+      "canonical": "Henry VIII",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.78,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_037",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital of South Korea?"
+    },
+    "options": [
+      "Busan",
+      "Incheon",
+      "Seoul",
+      "Daegu"
+    ],
+    "ground_truth": {
+      "canonical": "Seoul",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.81,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_038",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who painted 'The Starry Night'?"
+    },
+    "options": [
+      "Claude Monet",
+      "Vincent van Gogh",
+      "Pablo Picasso",
+      "Paul Cezanne"
+    ],
+    "ground_truth": {
+      "canonical": "Vincent van Gogh",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.84,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_039",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of Norway?"
+    },
+    "options": [
+      "Bergen",
+      "Oslo",
+      "Stockholm",
+      "Copenhagen"
+    ],
+    "ground_truth": {
+      "canonical": "Oslo",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.61,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_040",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biological_science",
+    "prompt": {
+      "question": "Which gas do plants absorb from the atmosphere during photosynthesis?"
+    },
+    "options": [
+      "Oxygen",
+      "Nitrogen",
+      "Carbon dioxide",
+      "Methane"
+    ],
+    "ground_truth": {
+      "canonical": "Carbon dioxide",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.87,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_041",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital of India?"
+    },
+    "options": [
+      "Mumbai",
+      "Kolkata",
+      "Bengaluru",
+      "New Delhi"
+    ],
+    "ground_truth": {
+      "canonical": "New Delhi",
+      "option_index": 3
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.73,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_042",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "Who was the British Prime Minister during most of World War II?"
+    },
+    "options": [
+      "Neville Chamberlain",
+      "Winston Churchill",
+      "Clement Attlee",
+      "Anthony Eden"
+    ],
+    "ground_truth": {
+      "canonical": "Winston Churchill",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.88,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_043",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biological_science",
+    "prompt": {
+      "question": "What is the largest bone in the human body?"
+    },
+    "options": [
+      "Tibia",
+      "Humerus",
+      "Femur",
+      "Fibula"
+    ],
+    "ground_truth": {
+      "canonical": "Femur",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.77,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_044",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital of Greece?"
+    },
+    "options": [
+      "Thessaloniki",
+      "Athens",
+      "Heraklion",
+      "Patras"
+    ],
+    "ground_truth": {
+      "canonical": "Athens",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.92,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_045",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who wrote 'The Great Gatsby'?"
+    },
+    "options": [
+      "Ernest Hemingway",
+      "William Faulkner",
+      "F. Scott Fitzgerald",
+      "John Steinbeck"
+    ],
+    "ground_truth": {
+      "canonical": "F. Scott Fitzgerald",
+      "option_index": 2
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.69,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_046",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital of Turkey?"
+    },
+    "options": [
+      "Istanbul",
+      "Ankara",
+      "Izmir",
+      "Bursa"
+    ],
+    "ground_truth": {
+      "canonical": "Ankara",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.38,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_047",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "Which ocean lies between North America and Europe?"
+    },
+    "options": [
+      "Pacific Ocean",
+      "Atlantic Ocean",
+      "Indian Ocean",
+      "Arctic Ocean"
+    ],
+    "ground_truth": {
+      "canonical": "Atlantic Ocean",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.87,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_048",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the chemical symbol for Silver?"
+    },
+    "options": [
+      "Ag",
+      "Au",
+      "Si",
+      "Sr"
+    ],
+    "ground_truth": {
+      "canonical": "Ag",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.74,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_049",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who is the Greek god of the sea?"
+    },
+    "options": [
+      "Zeus",
+      "Hades",
+      "Poseidon",
+      "Ares"
+    ],
+    "ground_truth": {
+      "canonical": "Poseidon",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.85,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_050",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of Portugal?"
+    },
+    "options": [
+      "Porto",
+      "Coimbra",
+      "Lisbon",
+      "Braga"
+    ],
+    "ground_truth": {
+      "canonical": "Lisbon",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.79,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_051",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of Sweden?"
+    },
+    "options": [
+      "Gothenburg",
+      "Malmo",
+      "Stockholm",
+      "Uppsala"
+    ],
+    "ground_truth": {
+      "canonical": "Stockholm",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.75,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_052",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of Ireland?"
+    },
+    "options": [
+      "Belfast",
+      "Cork",
+      "Dublin",
+      "Galway"
+    ],
+    "ground_truth": {
+      "canonical": "Dublin",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.89,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_053",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of Austria?"
+    },
+    "options": [
+      "Salzburg",
+      "Innsbruck",
+      "Graz",
+      "Vienna"
+    ],
+    "ground_truth": {
+      "canonical": "Vienna",
+      "option_index": 3
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.82,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_054",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of Switzerland?"
+    },
+    "options": [
+      "Zurich",
+      "Geneva",
+      "Bern",
+      "Basel"
+    ],
+    "ground_truth": {
+      "canonical": "Bern",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.44,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_055",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of Argentina?"
+    },
+    "options": [
+      "Cordoba",
+      "Buenos Aires",
+      "Rosario",
+      "Mendoza"
+    ],
+    "ground_truth": {
+      "canonical": "Buenos Aires",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.81,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_056",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of Thailand?"
+    },
+    "options": [
+      "Chiang Mai",
+      "Phuket",
+      "Bangkok",
+      "Pattaya"
+    ],
+    "ground_truth": {
+      "canonical": "Bangkok",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.88,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_057",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of Poland?"
+    },
+    "options": [
+      "Krakow",
+      "Gdansk",
+      "Warsaw",
+      "Wroclaw"
+    ],
+    "ground_truth": {
+      "canonical": "Warsaw",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.73,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_058",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of Finland?"
+    },
+    "options": [
+      "Espoo",
+      "Tampere",
+      "Turku",
+      "Helsinki"
+    ],
+    "ground_truth": {
+      "canonical": "Helsinki",
+      "option_index": 3
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.76,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_059",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of New Zealand?"
+    },
+    "options": [
+      "Auckland",
+      "Christchurch",
+      "Wellington",
+      "Hamilton"
+    ],
+    "ground_truth": {
+      "canonical": "Wellington",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.41,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_060",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_geography",
+    "prompt": {
+      "question": "What is the capital city of South Africa's executive branch?"
+    },
+    "options": [
+      "Cape Town",
+      "Johannesburg",
+      "Pretoria",
+      "Durban"
+    ],
+    "ground_truth": {
+      "canonical": "Pretoria",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.35,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_061",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who wrote the novel 'Pride and Prejudice'?"
+    },
+    "options": [
+      "Charlotte Bronte",
+      "Emily Bronte",
+      "Jane Austen",
+      "George Eliot"
+    ],
+    "ground_truth": {
+      "canonical": "Jane Austen",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.79,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_062",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who wrote '1984' and 'Animal Farm'?"
+    },
+    "options": [
+      "Aldous Huxley",
+      "George Orwell",
+      "Ray Bradbury",
+      "Arthur Koestler"
+    ],
+    "ground_truth": {
+      "canonical": "George Orwell",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.84,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_063",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who painted 'Guernica'?"
+    },
+    "options": [
+      "Salvador Dali",
+      "Pablo Picasso",
+      "Joan Miro",
+      "Henri Matisse"
+    ],
+    "ground_truth": {
+      "canonical": "Pablo Picasso",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.67,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_064",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who wrote the epic poem 'Paradise Lost'?"
+    },
+    "options": [
+      "Geoffrey Chaucer",
+      "John Milton",
+      "William Blake",
+      "Alexander Pope"
+    ],
+    "ground_truth": {
+      "canonical": "John Milton",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.52,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_065",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who wrote the novel 'Don Quixote'?"
+    },
+    "options": [
+      "Gabriel Garcia Marquez",
+      "Jorge Luis Borges",
+      "Miguel de Cervantes",
+      "Federico Garcia Lorca"
+    ],
+    "ground_truth": {
+      "canonical": "Miguel de Cervantes",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.66,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_066",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who composed the Four Seasons violin concertos?"
+    },
+    "options": [
+      "Antonio Vivaldi",
+      "Arcangelo Corelli",
+      "Claudio Monteverdi",
+      "Giuseppe Tartini"
+    ],
+    "ground_truth": {
+      "canonical": "Antonio Vivaldi",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.63,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_067",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who wrote the tragedy 'Hamlet'?"
+    },
+    "options": [
+      "Christopher Marlowe",
+      "William Shakespeare",
+      "Thomas Kyd",
+      "Ben Jonson"
+    ],
+    "ground_truth": {
+      "canonical": "William Shakespeare",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.95,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_068",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who painted 'The Persistence of Memory' featuring melting clocks?"
+    },
+    "options": [
+      "Rene Magritte",
+      "Max Ernst",
+      "Salvador Dali",
+      "Giorgio de Chirico"
+    ],
+    "ground_truth": {
+      "canonical": "Salvador Dali",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.78,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_069",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who wrote 'Crime and Punishment'?"
+    },
+    "options": [
+      "Leo Tolstoy",
+      "Fyodor Dostoevsky",
+      "Anton Chekhov",
+      "Ivan Turgenev"
+    ],
+    "ground_truth": {
+      "canonical": "Fyodor Dostoevsky",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.71,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_070",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "arts_and_humanities",
+    "prompt": {
+      "question": "Who sculpted 'The Thinker'?"
+    },
+    "options": [
+      "Auguste Rodin",
+      "Camille Claudel",
+      "Edgar Degas",
+      "Alberto Giacometti"
+    ],
+    "ground_truth": {
+      "canonical": "Auguste Rodin",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.74,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_071",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "Which treaty officially ended World War I in 1919?"
+    },
+    "options": [
+      "Treaty of Ghent",
+      "Treaty of Utrecht",
+      "Treaty of Versailles",
+      "Treaty of Paris"
+    ],
+    "ground_truth": {
+      "canonical": "Treaty of Versailles",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.7,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_072",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "Who was the leader of the Soviet Union during World War II?"
+    },
+    "options": [
+      "Vladimir Lenin",
+      "Leon Trotsky",
+      "Joseph Stalin",
+      "Nikita Khrushchev"
+    ],
+    "ground_truth": {
+      "canonical": "Joseph Stalin",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.86,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_073",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "In which year did the French Revolution begin?"
+    },
+    "options": [
+      "1776",
+      "1789",
+      "1799",
+      "1804"
+    ],
+    "ground_truth": {
+      "canonical": "1789",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.55,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_074",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "Who was the first emperor of the Roman Empire?"
+    },
+    "options": [
+      "Julius Caesar",
+      "Augustus",
+      "Nero",
+      "Tiberius"
+    ],
+    "ground_truth": {
+      "canonical": "Augustus",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.59,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_075",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "What wall divided a major German city from 1961 to 1989?"
+    },
+    "options": [
+      "Rhine Wall",
+      "Berlin Wall",
+      "Munich Wall",
+      "Hamburg Wall"
+    ],
+    "ground_truth": {
+      "canonical": "Berlin Wall",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.93,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_076",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "Who was the primary author of the American Declaration of Independence?"
+    },
+    "options": [
+      "John Adams",
+      "Benjamin Franklin",
+      "Thomas Jefferson",
+      "James Madison"
+    ],
+    "ground_truth": {
+      "canonical": "Thomas Jefferson",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.88,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_077",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "Which famous battle marked Napoleon's final defeat in 1815?"
+    },
+    "options": [
+      "Battle of Austerlitz",
+      "Battle of Leipzig",
+      "Battle of Waterloo",
+      "Battle of Trafalgar"
+    ],
+    "ground_truth": {
+      "canonical": "Battle of Waterloo",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.76,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_078",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "Which ancient civilization built the Pyramids of Giza?"
+    },
+    "options": [
+      "Mesopotamians",
+      "Ancient Egyptians",
+      "Phoenicians",
+      "Persians"
+    ],
+    "ground_truth": {
+      "canonical": "Ancient Egyptians",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.97,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_079",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "What Magna Carta charter of liberties was granted by King John in what year?"
+    },
+    "options": [
+      "1066",
+      "1215",
+      "1492",
+      "1588"
+    ],
+    "ground_truth": {
+      "canonical": "1215",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.48,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_080",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "world_history",
+    "prompt": {
+      "question": "Who was the first female Prime Minister of the United Kingdom?"
+    },
+    "options": [
+      "Theresa May",
+      "Margaret Thatcher",
+      "Angela Merkel",
+      "Indira Gandhi"
+    ],
+    "ground_truth": {
+      "canonical": "Margaret Thatcher",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.85,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_081",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biological_science",
+    "prompt": {
+      "question": "What is the powerhouse organelle of eukaryotic cells?"
+    },
+    "options": [
+      "Chloroplast",
+      "Golgi apparatus",
+      "Mitochondria",
+      "Ribosome"
+    ],
+    "ground_truth": {
+      "canonical": "Mitochondria",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.88,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_082",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the speed of light in a vacuum approximately?"
+    },
+    "options": [
+      "150,000 km/s",
+      "300,000 km/s",
+      "500,000 km/s",
+      "1,000,000 km/s"
+    ],
+    "ground_truth": {
+      "canonical": "300,000 km/s",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.65,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_083",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the chemical symbol for Iron?"
+    },
+    "options": [
+      "Fe",
+      "Ir",
+      "In",
+      "I"
+    ],
+    "ground_truth": {
+      "canonical": "Fe",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.83,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_084",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the primary gas making up the atmosphere of Mars?"
+    },
+    "options": [
+      "Nitrogen",
+      "Oxygen",
+      "Carbon dioxide",
+      "Hydrogen"
+    ],
+    "ground_truth": {
+      "canonical": "Carbon dioxide",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.58,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_085",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biological_science",
+    "prompt": {
+      "question": "What is the largest internal organ in the human body?"
+    },
+    "options": [
+      "Brain",
+      "Heart",
+      "Liver",
+      "Lungs"
+    ],
+    "ground_truth": {
+      "canonical": "Liver",
+      "option_index": 2
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.71,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_086",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the unit of electrical resistance in the SI system?"
+    },
+    "options": [
+      "Volt",
+      "Ampere",
+      "Ohm",
+      "Watt"
+    ],
+    "ground_truth": {
+      "canonical": "Ohm",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.79,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_087",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What type of radiation has the shortest wavelength on the electromagnetic spectrum?"
+    },
+    "options": [
+      "X-rays",
+      "Ultraviolet",
+      "Gamma rays",
+      "Microwaves"
+    ],
+    "ground_truth": {
+      "canonical": "Gamma rays",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.62,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_088",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the chemical symbol for Potassium?"
+    },
+    "options": [
+      "K",
+      "P",
+      "Pt",
+      "Po"
+    ],
+    "ground_truth": {
+      "canonical": "K",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.71,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_089",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biological_science",
+    "prompt": {
+      "question": "Which blood type is considered the universal red blood cell donor?"
+    },
+    "options": [
+      "A positive",
+      "B negative",
+      "AB positive",
+      "O negative"
+    ],
+    "ground_truth": {
+      "canonical": "O negative",
+      "option_index": 3
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.74,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_090",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the closest star system to our Solar System?"
+    },
+    "options": [
+      "Sirius",
+      "Betelgeuse",
+      "Alpha Centauri",
+      "Procyon"
+    ],
+    "ground_truth": {
+      "canonical": "Alpha Centauri",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.73,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_091",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the chemical symbol for Lead?"
+    },
+    "options": [
+      "Ld",
+      "Le",
+      "Pb",
+      "Pd"
+    ],
+    "ground_truth": {
+      "canonical": "Pb",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.72,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_092",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biological_science",
+    "prompt": {
+      "question": "How many chambers does the human heart have?"
+    },
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "ground_truth": {
+      "canonical": "4",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.91,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_093",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the chemical symbol for Sodium?"
+    },
+    "options": [
+      "S",
+      "So",
+      "Na",
+      "Sd"
+    ],
+    "ground_truth": {
+      "canonical": "Na",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.84,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_094",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the term for molten rock beneath the Earth's surface?"
+    },
+    "options": [
+      "Lava",
+      "Magma",
+      "Basalt",
+      "Granite"
+    ],
+    "ground_truth": {
+      "canonical": "Magma",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.85,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_095",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the pH value of pure neutral water at standard temperature?"
+    },
+    "options": [
+      "0",
+      "5",
+      "7",
+      "14"
+    ],
+    "ground_truth": {
+      "canonical": "7",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.88,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_096",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biological_science",
+    "prompt": {
+      "question": "Which vitamin is synthesized in human skin upon exposure to sunlight?"
+    },
+    "options": [
+      "Vitamin A",
+      "Vitamin C",
+      "Vitamin D",
+      "Vitamin K"
+    ],
+    "ground_truth": {
+      "canonical": "Vitamin D",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.89,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_097",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the chemical symbol for Mercury?"
+    },
+    "options": [
+      "Me",
+      "Hg",
+      "Hy",
+      "Mc"
+    ],
+    "ground_truth": {
+      "canonical": "Hg",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.76,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_098",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the SI unit of force?"
+    },
+    "options": [
+      "Joule",
+      "Pascal",
+      "Newton",
+      "Watt"
+    ],
+    "ground_truth": {
+      "canonical": "Newton",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.84,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_099",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "physical_science",
+    "prompt": {
+      "question": "What is the chemical symbol for Helium?"
+    },
+    "options": [
+      "H",
+      "He",
+      "Hl",
+      "Hm"
+    ],
+    "ground_truth": {
+      "canonical": "He",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.93,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  },
+  {
+    "item_id": "tauber_100",
+    "version": "1.0.0",
+    "domain": "semantic",
+    "family": "biological_science",
+    "prompt": {
+      "question": "What organ in the human body produces insulin?"
+    },
+    "options": [
+      "Liver",
+      "Kidney",
+      "Pancreas",
+      "Gallbladder"
+    ],
+    "ground_truth": {
+      "canonical": "Pancreas",
+      "option_index": 2
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "tauber_2013_general_knowledge_norms",
+      "license": "CC-BY-4.0",
+      "url": "https://doi.org/10.3758/s13428-012-0307-9"
+    },
+    "difficulty": {
+      "tauber_norm_p_recall": 0.76,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "normative_corpus_cross_check",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean",
+      "distractor_length_balanced"
+    ]
+  }
+]

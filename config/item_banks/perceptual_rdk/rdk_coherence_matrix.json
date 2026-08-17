@@ -1,0 +1,1852 @@
+[
+  {
+    "item_id": "rdk_coh_001",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #001)",
+      "coherence": 0.05,
+      "direction": "left",
+      "stimulus_index": 1
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.05,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_002",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #002)",
+      "coherence": 0.1,
+      "direction": "right",
+      "stimulus_index": 2
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.1,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_003",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #003)",
+      "coherence": 0.15,
+      "direction": "left",
+      "stimulus_index": 3
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.15,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_004",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #004)",
+      "coherence": 0.2,
+      "direction": "right",
+      "stimulus_index": 4
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.2,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_005",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #005)",
+      "coherence": 0.25,
+      "direction": "left",
+      "stimulus_index": 5
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.25,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_006",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #006)",
+      "coherence": 0.3,
+      "direction": "right",
+      "stimulus_index": 6
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.3,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_007",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #007)",
+      "coherence": 0.35,
+      "direction": "left",
+      "stimulus_index": 7
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.35,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_008",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #008)",
+      "coherence": 0.4,
+      "direction": "right",
+      "stimulus_index": 8
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "calibration",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.4,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_009",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #009)",
+      "coherence": 0.45,
+      "direction": "left",
+      "stimulus_index": 9
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.45,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_010",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #010)",
+      "coherence": 0.5,
+      "direction": "right",
+      "stimulus_index": 10
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.5,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_011",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #011)",
+      "coherence": 0.05,
+      "direction": "left",
+      "stimulus_index": 11
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.05,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_012",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #012)",
+      "coherence": 0.1,
+      "direction": "right",
+      "stimulus_index": 12
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.1,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_013",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #013)",
+      "coherence": 0.15,
+      "direction": "left",
+      "stimulus_index": 13
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.15,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_014",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #014)",
+      "coherence": 0.2,
+      "direction": "right",
+      "stimulus_index": 14
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.2,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_015",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #015)",
+      "coherence": 0.25,
+      "direction": "left",
+      "stimulus_index": 15
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.25,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_016",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #016)",
+      "coherence": 0.3,
+      "direction": "right",
+      "stimulus_index": 16
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.3,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_017",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #017)",
+      "coherence": 0.35,
+      "direction": "left",
+      "stimulus_index": 17
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.35,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_018",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #018)",
+      "coherence": 0.4,
+      "direction": "right",
+      "stimulus_index": 18
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.4,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_019",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #019)",
+      "coherence": 0.45,
+      "direction": "left",
+      "stimulus_index": 19
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.45,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_020",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #020)",
+      "coherence": 0.5,
+      "direction": "right",
+      "stimulus_index": 20
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.5,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_021",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #021)",
+      "coherence": 0.05,
+      "direction": "left",
+      "stimulus_index": 21
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.05,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_022",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #022)",
+      "coherence": 0.1,
+      "direction": "right",
+      "stimulus_index": 22
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.1,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_023",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #023)",
+      "coherence": 0.15,
+      "direction": "left",
+      "stimulus_index": 23
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "exploratory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.15,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_024",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #024)",
+      "coherence": 0.2,
+      "direction": "right",
+      "stimulus_index": 24
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.2,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_025",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #025)",
+      "coherence": 0.25,
+      "direction": "left",
+      "stimulus_index": 25
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.25,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_026",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #026)",
+      "coherence": 0.3,
+      "direction": "right",
+      "stimulus_index": 26
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.3,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_027",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #027)",
+      "coherence": 0.35,
+      "direction": "left",
+      "stimulus_index": 27
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.35,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_028",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #028)",
+      "coherence": 0.4,
+      "direction": "right",
+      "stimulus_index": 28
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.4,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_029",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #029)",
+      "coherence": 0.45,
+      "direction": "left",
+      "stimulus_index": 29
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.45,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_030",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #030)",
+      "coherence": 0.5,
+      "direction": "right",
+      "stimulus_index": 30
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.5,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_031",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #031)",
+      "coherence": 0.05,
+      "direction": "left",
+      "stimulus_index": 31
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.05,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_032",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #032)",
+      "coherence": 0.1,
+      "direction": "right",
+      "stimulus_index": 32
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.1,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_033",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #033)",
+      "coherence": 0.15,
+      "direction": "left",
+      "stimulus_index": 33
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.15,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_034",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #034)",
+      "coherence": 0.2,
+      "direction": "right",
+      "stimulus_index": 34
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.2,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_035",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #035)",
+      "coherence": 0.25,
+      "direction": "left",
+      "stimulus_index": 35
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.25,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_036",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #036)",
+      "coherence": 0.3,
+      "direction": "right",
+      "stimulus_index": 36
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.3,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_037",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #037)",
+      "coherence": 0.35,
+      "direction": "left",
+      "stimulus_index": 37
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.35,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_038",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #038)",
+      "coherence": 0.4,
+      "direction": "right",
+      "stimulus_index": 38
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.4,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_039",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #039)",
+      "coherence": 0.45,
+      "direction": "left",
+      "stimulus_index": 39
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.45,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_040",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #040)",
+      "coherence": 0.5,
+      "direction": "right",
+      "stimulus_index": 40
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.5,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_041",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #041)",
+      "coherence": 0.05,
+      "direction": "left",
+      "stimulus_index": 41
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.05,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_042",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #042)",
+      "coherence": 0.1,
+      "direction": "right",
+      "stimulus_index": 42
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.1,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_043",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #043)",
+      "coherence": 0.15,
+      "direction": "left",
+      "stimulus_index": 43
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "confirmatory",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.15,
+      "tier": "hard"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_044",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #044)",
+      "coherence": 0.2,
+      "direction": "right",
+      "stimulus_index": 44
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.2,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_045",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #045)",
+      "coherence": 0.25,
+      "direction": "left",
+      "stimulus_index": 45
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.25,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_046",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #046)",
+      "coherence": 0.3,
+      "direction": "right",
+      "stimulus_index": 46
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.3,
+      "tier": "medium"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_047",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #047)",
+      "coherence": 0.35,
+      "direction": "left",
+      "stimulus_index": 47
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.35,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_048",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #048)",
+      "coherence": 0.4,
+      "direction": "right",
+      "stimulus_index": 48
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.4,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_049",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #049)",
+      "coherence": 0.45,
+      "direction": "left",
+      "stimulus_index": 49
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "left",
+      "option_index": 0
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.45,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  },
+  {
+    "item_id": "rdk_coh_050",
+    "version": "1.0.0",
+    "domain": "perception_rdk",
+    "family": "motion_discrimination",
+    "prompt": {
+      "question": "Discriminate perceived direction of coherent motion (Stimulus #050)",
+      "coherence": 0.5,
+      "direction": "right",
+      "stimulus_index": 50
+    },
+    "options": [
+      "left",
+      "right"
+    ],
+    "ground_truth": {
+      "canonical": "right",
+      "option_index": 1
+    },
+    "partition": "reserve",
+    "source": {
+      "provenance": "parametric_rdk_matrix_v1",
+      "license": "CC0",
+      "url": null
+    },
+    "difficulty": {
+      "coherence": 0.5,
+      "tier": "easy"
+    },
+    "verification": {
+      "method": "deterministic_signal_parameters",
+      "verified": true
+    },
+    "leakage_checks": [
+      "exact_match_clean"
+    ]
+  }
+]

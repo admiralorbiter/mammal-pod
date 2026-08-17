@@ -12,7 +12,7 @@ from mammal.artifacts.store import ArtifactStore
 from mammal.config import Settings
 from mammal.db import get_session
 from mammal.events.engine import verify_event_chain
-from mammal.models.entities import Answer, Artifact, Confidence, Episode, Outcome, Trial, TrialEvent
+from mammal.models.entities import Answer, Artifact, Confidence, Episode, Item, Outcome, Trial, TrialEvent
 
 
 @pytest.fixture
@@ -74,10 +74,16 @@ def test_full_spoken_voice_web_session(client: FlaskClient, temp_settings: Setti
     transcript_art_id = upload_json["transcript_artifact_id"]
     transcribed_text = upload_json["text"]
 
-    # 4. Record participant transcription correction
+    # 4. Determine trial ground truth and record participant transcription correction
+    with get_session(temp_settings) as db_sess:
+        t_obj = db_sess.get(Trial, trial_id)
+        item_obj = db_sess.query(Item).filter(Item.item_id == t_obj.item_id, Item.version == t_obj.item_version).first()
+        gt_obj = item_obj.ground_truth_json if item_obj else {}
+        expected_ans = gt_obj.get("canonical", "Paris") if isinstance(gt_obj, dict) else str(gt_obj)
+
     res_correct = client.post(
         f"/api/trials/{trial_id}/transcription/correct",
-        json={"corrected_text": "Paris", "reason": "participant_confirmed"},
+        json={"corrected_text": expected_ans, "reason": "participant_confirmed"},
     )
     assert res_correct.status_code == 200
     assert res_correct.get_json()["status"] == "corrected"
@@ -86,7 +92,7 @@ def test_full_spoken_voice_web_session(client: FlaskClient, temp_settings: Setti
     res_ans = client.post(
         f"/api/trials/{trial_id}/answer",
         json={
-            "value": "Paris",
+            "value": expected_ans,
             "modality": "speech",
             "latency_ms": 2100,
             "raw_artifact_id": raw_art_id,
@@ -122,7 +128,7 @@ def test_full_spoken_voice_web_session(client: FlaskClient, temp_settings: Setti
         trial = db_sess.get(Trial, trial_id)
         assert trial.status == "completed"
         assert trial.answer.modality == "speech"
-        assert trial.answer.locked_value_json == "Paris"
+        assert trial.answer.locked_value_json == expected_ans
         assert trial.answer.raw_artifact_id == raw_art_id
         assert trial.outcome.is_correct is True
         assert trial.confidence.value == 92.0
