@@ -15,7 +15,14 @@ from mammal.artifacts.store import ArtifactStore
 from mammal.config import settings
 from mammal.db import check_db, get_engine, get_session, init_db
 
-console = Console()
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+console = Console(legacy_windows=False)
 
 
 @click.group()
@@ -66,6 +73,21 @@ def doctor() -> None:
         table.add_row("Artifact Store", f"[red]ERROR: {exc}[/red]")
 
     console.print(table)
+
+
+@main.command(name="seed-items")
+def cli_seed_items() -> None:
+    """Seed the 100-item E00 qualification item bank and register all protocols."""
+    from mammal.items.qualification import seed_e00_qualification_items
+    from mammal.protocols.loader import load_and_register_all_protocols
+
+    settings.ensure_directories()
+    init_db()
+    with get_session(settings) as session:
+        n_protos = load_and_register_all_protocols(session)
+        seeded = seed_e00_qualification_items(session)
+        console.print(f"[bold green]✓ Registered {len(n_protos)} protocols[/bold green]")
+        console.print(f"[bold green]✓ Seeded {len(seeded)} qualification items in database ({settings.db_path})[/bold green]")
 
 
 @main.group()

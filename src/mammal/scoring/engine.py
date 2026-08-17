@@ -16,9 +16,14 @@ class ScoringResult:
     scorer: str = "deterministic_v1"
 
 
+import re
+
+
 def normalize_text(text: str) -> str:
-    """Normalize text by stripping whitespace and lowercasing."""
-    return text.strip().lower()
+    """Normalize text by stripping whitespace, lowercasing, and removing punctuation."""
+    t = str(text).strip().lower()
+    t = re.sub(r"[^\w\s]", "", t)
+    return re.sub(r"\s+", " ", t).strip()
 
 
 def score_trial_answer(locked_answer_value: Any, ground_truth: Any) -> ScoringResult:

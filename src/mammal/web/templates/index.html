@@ -19,7 +19,7 @@
       <label class="section-label" for="protocol_id">Select Protocol</label>
       <select name="protocol_id" id="protocol_id" style="width: 100%; padding: 0.75rem; background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; font-size: 1rem;">
         {% for proto in protocols %}
-          <option value="{{ proto.protocol_id }}" {% if loop.first %}selected{% endif %}>
+          <option value="{{ proto.protocol_id }}" {% if proto.protocol_id == 'e00_instrument_qualification' %}selected{% endif %}>
             {{ proto.protocol_id }} (v{{ proto.version }}) &mdash; {{ proto.domain }} / {{ proto.mode }}
           </option>
         {% endfor %}
