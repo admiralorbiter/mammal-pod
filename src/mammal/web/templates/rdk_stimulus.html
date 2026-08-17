@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+
+{% block title %}CODEC // Perceptual Psychophysics (RDK){% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto space-y-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b border-cyan-500/30 pb-3">
+        <div>
+            <div class="text-xs text-cyan-400 font-mono">PROJECT MAMMAL // PSYCHOPHYSICS</div>
+            <div class="text-lg font-bold text-white tracking-wider">RDK MOTION DISCRIMINATION</div>
+        </div>
+        <div class="text-right">
+            <div class="text-xs text-slate-400 font-mono">TRIAL <span id="trial-index" class="text-cyan-400 font-bold">{{ trial.trial_index }}</span></div>
+            <div class="text-xs text-slate-500 font-mono" id="coherence-display">COHERENCE: --</div>
+        </div>
+    </div>
+
+    <!-- Stimulus Canvas Card -->
+    <div class="border border-slate-700 bg-slate-950 p-6 rounded relative flex flex-col items-center justify-center min-h-[360px]">
+        <canvas id="rdkCanvas" width="300" height="300" class="border border-slate-800 rounded-full bg-slate-900 shadow-inner"></canvas>
+        <div id="stimulusMessage" class="absolute bottom-4 text-xs font-mono text-slate-400">Click START STIMULUS or press SPACE</div>
+    </div>
+
+    <!-- Response Area -->
+    <div id="responseSection" class="border border-slate-700 bg-slate-900/60 p-6 rounded space-y-4">
+        <div class="flex gap-4">
+            <button id="btnStartStimulus" class="flex-1 py-3 px-4 bg-cyan-600 hover:bg-cyan-500 text-black font-bold tracking-wider rounded text-sm transition">
+                START STIMULUS (SPACE)
+            </button>
+        </div>
+
+        <div id="directionButtons" class="hidden grid grid-cols-2 gap-4">
+            <button id="btnLeft" data-dir="left" class="py-4 border border-cyan-500/40 hover:bg-cyan-950/60 text-cyan-300 font-bold rounded flex items-center justify-center gap-2 transition">
+                <span class="text-lg">&larr;</span> LEFT (ArrowLeft)
+            </button>
+            <button id="btnRight" data-dir="right" class="py-4 border border-cyan-500/40 hover:bg-cyan-950/60 text-cyan-300 font-bold rounded flex items-center justify-center gap-2 transition">
+                RIGHT (ArrowRight) <span class="text-lg">&rarr;</span>
+            </button>
+        </div>
+
+        <!-- Confidence Rating Area (if protocol enables confidence) -->
+        <div id="confidenceSection" class="hidden border-t border-slate-800 pt-4 space-y-3">
+            <div class="flex justify-between items-center text-xs font-mono">
+                <span class="text-slate-300">Confidence (0–100%):</span>
+                <span id="confDisplay" class="text-cyan-400 font-bold">Select</span>
+            </div>
+            <input type="range" id="confSlider" min="0" max="100" value="50" class="w-full accent-cyan-500" data-set="false">
+            <div class="grid grid-cols-4 gap-2 text-xs font-mono">
+                <button type="button" class="conf-bin py-1 border border-slate-700 hover:border-cyan-500 rounded text-slate-300" data-val="25">25% (Guess)</button>
+                <button type="button" class="conf-bin py-1 border border-slate-700 hover:border-cyan-500 rounded text-slate-300" data-val="50">50% (Uncertain)</button>
+                <button type="button" class="conf-bin py-1 border border-slate-700 hover:border-cyan-500 rounded text-slate-300" data-val="75">75% (Confident)</button>
+                <button type="button" class="conf-bin py-1 border border-slate-700 hover:border-cyan-500 rounded text-slate-300" data-val="100">100% (Certain)</button>
+            </div>
+            <button id="btnSubmitConfidence" disabled class="w-full py-2 bg-cyan-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-cyan-500 text-black font-bold tracking-wider rounded text-xs transition">
+                CONFIRM CONFIDENCE &amp; NEXT
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const trialId = "{{ trial.id }}";
+    const episodeId = "{{ trial.episode_id }}";
+    const confidenceEnabled = {{ 'true' if (protocol.schema_json.confidence and protocol.schema_json.confidence.enabled) else 'false' }};
+
+    const canvas = document.getElementById('rdkCanvas');
+    const ctx = canvas.getContext('2d');
+    const btnStart = document.getElementById('btnStartStimulus');
+    const dirButtons = document.getElementById('directionButtons');
+    const btnLeft = document.getElementById('btnLeft');
+    const btnRight = document.getElementById('btnRight');
+    const stimMessage = document.getElementById('stimulusMessage');
+    const confSection = document.getElementById('confidenceSection');
+    const confSlider = document.getElementById('confSlider');
+    const confDisplay = document.getElementById('confDisplay');
+    const btnSubmitConf = document.getElementById('btnSubmitConfidence');
+    const confBins = document.querySelectorAll('.conf-bin');
+
+    let stimulusActive = false;
+    let stimulusCoherence = 0.50;
+    let motionDirection = Math.random() < 0.5 ? "left" : "right";
+    let dots = [];
+    const numDots = 200;
+    const dotRadius = 2.0;
+    const dotSpeed = 2.5; // pixels per frame
+    const apertureRadius = 140;
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    let animId = null;
+    let startTime = 0;
+    let stimulusEndedTime = 0;
+    let frameTimestamps = [];
+    let lastFrameTime = null;
+    let lockedAnswer = null;
+
+    // Initialize random dots
+    for (let i = 0; i < numDots; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const r = Math.sqrt(Math.random()) * apertureRadius;
+        dots.push({
+            x: centerX + r * Math.cos(angle),
+            y: centerY + r * Math.sin(angle),
+            lifetime: Math.floor(Math.random() * 15)
+        });
+    }
+
+    function drawFixationCross() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeStyle = '#06b6d4';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(centerX - 8, centerY);
+        ctx.lineTo(centerX + 8, centerY);
+        ctx.moveTo(centerX, centerY - 8);
+        ctx.lineTo(centerX, centerY + 8);
+        ctx.stroke();
+    }
+
+    drawFixationCross();
+
+    btnStart.addEventListener('click', startRDKStimulus);
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Space' && !stimulusActive && !dirButtons.classList.contains('hidden')) {
+            e.preventDefault();
+        } else if (e.code === 'Space' && !stimulusActive && dirButtons.classList.contains('hidden') && !btnStart.disabled) {
+            e.preventDefault();
+            startRDKStimulus();
+        } else if (stimulusEndedTime > 0 && !dirButtons.classList.contains('hidden')) {
+            if (e.code === 'ArrowLeft') {
+                e.preventDefault();
+                lockMotionDirection('left');
+            } else if (e.code === 'ArrowRight') {
+                e.preventDefault();
+                lockMotionDirection('right');
+            }
+        }
+    });
+
+    function startRDKStimulus() {
+        stimulusActive = true;
+        btnStart.disabled = true;
+        btnStart.classList.add('hidden');
+        stimMessage.textContent = "Observing stimulus...";
+        frameTimestamps = [];
+        lastFrameTime = null;
+        startTime = performance.now();
+
+        // Inform backend stimulus started
+        fetch(`/api/trials/${trialId}/stimulus/start`, { method: 'POST' }).catch(() => {});
+
+        requestAnimationFrame(renderRDK);
+    }
+
+    function renderRDK(timestamp) {
+        if (!stimulusActive) return;
+
+        if (lastFrameTime !== null) {
+            frameTimestamps.push(timestamp - lastFrameTime);
+        }
+        lastFrameTime = timestamp;
+
+        ctx.fillStyle = '#020617';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Clip circular aperture
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, apertureRadius, 0, Math.PI * 2);
+        ctx.clip();
+
+        ctx.fillStyle = '#f8fafc';
+        for (let i = 0; i < dots.length; i++) {
+            const d = dots[i];
+            const isCoherent = (i / dots.length) < stimulusCoherence;
+
+            if (isCoherent) {
+                const dx = motionDirection === "left" ? -dotSpeed : dotSpeed;
+                d.x += dx;
+            } else {
+                const randomAngle = Math.random() * Math.PI * 2;
+                d.x += dotSpeed * Math.cos(randomAngle);
+                d.y += dotSpeed * Math.sin(randomAngle);
+            }
+
+            d.lifetime--;
+            const dist = Math.hypot(d.x - centerX, d.y - centerY);
+            if (d.lifetime <= 0 || dist > apertureRadius) {
+                const angle = Math.random() * Math.PI * 2;
+                const r = Math.sqrt(Math.random()) * apertureRadius;
+                d.x = centerX + r * Math.cos(angle);
+                d.y = centerY + r * Math.sin(angle);
+                d.lifetime = 15;
+            }
+
+            ctx.beginPath();
+            ctx.arc(d.x, d.y, dotRadius, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        ctx.restore();
+
+        // Draw central fixation cross
+        ctx.strokeStyle = '#06b6d4';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(centerX - 6, centerY);
+        ctx.lineTo(centerX + 6, centerY);
+        ctx.moveTo(centerX, centerY - 6);
+        ctx.lineTo(centerX, centerY + 6);
+        ctx.stroke();
+
+        if (performance.now() - startTime < 1000) {
+            animId = requestAnimationFrame(renderRDK);
+        } else {
+            endRDKStimulus();
+        }
+    }
+
+    function endRDKStimulus() {
+        stimulusActive = false;
+        stimulusEndedTime = performance.now();
+        drawFixationCross();
+        stimMessage.textContent = "Discriminate perceived direction: LEFT or RIGHT";
+        dirButtons.classList.remove('hidden');
+    }
+
+    btnLeft.addEventListener('click', () => lockMotionDirection('left'));
+    btnRight.addEventListener('click', () => lockMotionDirection('right'));
+
+    async function lockMotionDirection(selectedDir) {
+        lockedAnswer = selectedDir;
+        const latencyMs = performance.now() - stimulusEndedTime;
+
+        // Disable direction buttons
+        btnLeft.disabled = true;
+        btnRight.disabled = true;
+        dirButtons.classList.add('opacity-50');
+
+        const payload = {
+            value: selectedDir,
+            modality: 'button',
+            latency_ms: Math.round(latencyMs),
+            frame_intervals_ms: frameTimestamps
+        };
+
+        const res = await fetch(`/api/trials/${trialId}/answer`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        if (data.trial_status === 'completed') {
+            window.location.reload();
+        } else {
+            confSection.classList.remove('hidden');
+            stimMessage.textContent = "Rate confidence...";
+        }
+    }
+
+    // Confidence controls
+    confSlider.addEventListener('input', () => {
+        confSlider.setAttribute('data-set', 'true');
+        confDisplay.textContent = `${confSlider.value}%`;
+        btnSubmitConf.disabled = false;
+    });
+
+    confBins.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const v = btn.getAttribute('data-val');
+            confSlider.value = v;
+            confSlider.setAttribute('data-set', 'true');
+            confDisplay.textContent = `${v}%`;
+            btnSubmitConf.disabled = false;
+        });
+    });
+
+    btnSubmitConf.addEventListener('click', async () => {
+        btnSubmitConf.disabled = true;
+        const val = parseFloat(confSlider.value);
+        await fetch(`/api/trials/${trialId}/confidence`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ value: val, modality: 'numeric' })
+        });
+        window.location.reload();
+    });
+</script>
+{% endblock %}

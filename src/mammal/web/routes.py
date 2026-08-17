@@ -102,15 +102,71 @@ def trial_view(episode_id: str, trial_id: str):
         # Mark prompt shown event
         controller.mark_prompt_shown(trial_id)
 
+        template_name = "rdk_stimulus.html" if protocol and protocol.domain in ("perception_rdk", "perceptual_psychophysics") else "trial.html"
+
         return render_template(
-            "trial.html",
+            template_name,
             trial=trial,
             episode=episode,
             item=item,
+            protocol=protocol,
             total_trials=total_trials,
             confidence_enabled=conf_enabled,
             confidence_config=conf_cfg,
         )
+
+
+@routes.route("/qualification/display")
+def display_qualification():
+    """Render P00 display timing and refresh rate qualification page."""
+    return render_template("display_qualification.html")
+
+
+@routes.route("/api/qualification/display", methods=["POST"])
+def api_qualify_display():
+    """API endpoint to audit client display refresh rate, jitter, and dropped frames."""
+    from dataclasses import asdict
+    from mammal.psychophysics.display import qualify_display
+
+    data = request.get_json(silent=True) or {}
+    intervals = data.get("frame_intervals_ms", [])
+    width = int(data.get("viewport_width", 1920))
+    height = int(data.get("viewport_height", 1080))
+    dpr = float(data.get("device_pixel_ratio", 1.0))
+    fullscreen = bool(data.get("fullscreen", False))
+
+    res = qualify_display(
+        frame_intervals_ms=intervals,
+        viewport_width=width,
+        viewport_height=height,
+        device_pixel_ratio=dpr,
+        fullscreen=fullscreen,
+    )
+    return jsonify(asdict(res))
+
+
+@routes.route("/api/trials/<trial_id>/stimulus/start", methods=["POST"])
+def api_stimulus_start(trial_id: str):
+    """Log stimulus.started event for high-precision perceptual onset timing."""
+    from mammal.events.engine import EventEngine
+
+    try:
+        app_set = _current_settings()
+        with get_session(app_set) as session:
+            trial = session.get(Trial, trial_id)
+            if trial:
+                engine = EventEngine(session)
+                engine.record_event(
+                    trial_id=trial.id,
+                    episode_id=trial.episode_id,
+                    event_type="stimulus.started",
+                    actor="client",
+                    payload={"client_time_ms": (request.get_json(silent=True) or {}).get("client_time_ms")},
+                )
+                session.commit()
+            return jsonify({"status": "started", "trial_id": trial_id})
+    except Exception as exc:
+        return jsonify({"error": str(exc)}), 500
 
 
 @routes.route("/api/trials/<trial_id>/answer", methods=["POST"])
@@ -121,6 +177,7 @@ def api_lock_answer(trial_id: str):
     modality = data.get("modality", "button")
     latency_ms = data.get("latency_ms")
     raw_artifact_id = data.get("raw_artifact_id")
+    frame_intervals = data.get("frame_intervals_ms")
 
     if value is None:
         return jsonify({"error": "Missing answer value"}), 400
@@ -128,6 +185,26 @@ def api_lock_answer(trial_id: str):
     try:
         app_set = _current_settings()
         with get_session(app_set) as session:
+            # If client provided frame timing telemetry, log stimulus.frame_timing event
+            if frame_intervals:
+                from mammal.events.engine import EventEngine
+                import numpy as np
+                trial = session.get(Trial, trial_id)
+                if trial:
+                    engine = EventEngine(session)
+                    median_frame = float(np.median(frame_intervals)) if frame_intervals else 16.67
+                    engine.record_event(
+                        trial_id=trial.id,
+                        episode_id=trial.episode_id,
+                        event_type="stimulus.ended",
+                        actor="client",
+                        payload={
+                            "frame_count": len(frame_intervals),
+                            "median_frame_interval_ms": round(median_frame, 2),
+                            "estimated_fps": round(1000.0 / median_frame, 1) if median_frame > 0 else 60.0,
+                        },
+                    )
+
             controller = SessionController(session)
             answer = controller.lock_answer(
                 trial_id=trial_id,

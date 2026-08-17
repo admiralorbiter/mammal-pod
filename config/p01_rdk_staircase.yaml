@@ -1,0 +1,44 @@
+protocol_id: p01_rdk_staircase
+version: "1.0.0"
+status: engineering
+domain: perception_rdk
+mode: observation
+prompt_modality: visual
+answer:
+  modality: button
+  think_aloud: false
+  lock_required: true
+confidence:
+  enabled: false
+  modality: none
+  shown_after_answer_lock: true
+feedback:
+  trial_level: false
+  block_level: true
+  show_model_predictions: false
+item_bank:
+  bank_id: rdk_motion_bank
+  version: "1.0.0"
+  partition: engineering
+stimulus:
+  aperture_radius_px: 150
+  dot_count: 200
+  dot_size_px: 3
+  dot_speed_px_per_sec: 180
+  dot_lifetime_frames: 10
+  stimulus_duration_ms: 1000
+  coherent_directions:
+    - left
+    - right
+staircase:
+  initial_coherence: 0.50
+  n_down: 2
+  n_up: 1
+  initial_step_size: 0.08
+  min_step_size: 0.01
+  max_reversals: 8
+  max_trials: 50
+analysis:
+  primary_estimands:
+    - perceptual_threshold_coherence
+    - staircase_convergence_stability

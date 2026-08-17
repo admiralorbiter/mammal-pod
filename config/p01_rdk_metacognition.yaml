@@ -1,0 +1,40 @@
+protocol_id: p01_rdk_metacognition
+version: "1.0.0"
+status: engineering
+domain: perception_rdk
+mode: observation
+prompt_modality: visual
+answer:
+  modality: button
+  think_aloud: false
+  lock_required: true
+confidence:
+  enabled: true
+  modality: numeric
+  minimum: 0
+  maximum: 100
+  shown_after_answer_lock: true
+  default_value: null
+feedback:
+  trial_level: false
+  block_level: true
+  show_model_predictions: false
+item_bank:
+  bank_id: rdk_motion_bank
+  version: "1.0.0"
+  partition: engineering
+stimulus:
+  aperture_radius_px: 150
+  dot_count: 200
+  dot_size_px: 3
+  dot_speed_px_per_sec: 180
+  dot_lifetime_frames: 10
+  stimulus_duration_ms: 1000
+  coherent_directions:
+    - left
+    - right
+analysis:
+  primary_estimands:
+    - auroc2
+    - meta_d_prime
+    - m_ratio

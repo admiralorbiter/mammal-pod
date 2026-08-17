@@ -1,0 +1,27 @@
+protocol_id: p00_display_qualification
+version: "1.0.0"
+status: engineering
+domain: perception_rdk
+mode: engineering
+prompt_modality: visual
+answer:
+  modality: button
+  think_aloud: false
+  lock_required: true
+confidence:
+  enabled: false
+  modality: none
+  shown_after_answer_lock: true
+feedback:
+  trial_level: true
+  block_level: true
+  show_model_predictions: false
+item_bank:
+  bank_id: p00_display
+  version: "1.0.0"
+  partition: engineering
+analysis:
+  primary_estimands:
+    - refresh_rate_stability
+    - frame_jitter_std
+    - dropped_frame_rate

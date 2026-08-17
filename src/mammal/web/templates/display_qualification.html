@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block title %}CODEC // Display Qualification (P00){% endblock %}
+
+{% block content %}
+<div class="space-y-6 max-w-2xl mx-auto">
+    <div class="border border-cyan-500/30 bg-slate-900/60 rounded p-6 backdrop-blur">
+        <div class="flex items-center justify-between border-b border-cyan-500/20 pb-4 mb-4">
+            <div>
+                <h1 class="text-xl font-bold tracking-wider text-cyan-400">P00 // DISPLAY QUALIFICATION</h1>
+                <p class="text-xs text-slate-400 font-mono">Hardware refresh rate, timing jitter, and dropped frame audit</p>
+            </div>
+            <span class="px-2 py-1 bg-cyan-950/60 border border-cyan-500/40 text-cyan-400 text-xs font-mono rounded">P00 GATE</span>
+        </div>
+
+        <div class="space-y-4 text-sm text-slate-300 font-mono">
+            <p>
+                Per <span class="text-cyan-400">AGENTS.md Rule 10</span>, visual psychophysics experiments require verified display timing. This diagnostic runs a 120-frame animation loop to evaluate refresh stability and frame drop thresholds.
+            </p>
+
+            <div class="bg-slate-950 border border-slate-800 p-4 rounded text-xs space-y-2">
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Viewport:</span>
+                    <span id="viewport-dim" class="text-cyan-400">—</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Device Pixel Ratio:</span>
+                    <span id="dpr-val" class="text-cyan-400">—</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Fullscreen Status:</span>
+                    <span id="fs-status" class="text-amber-400">NOT FULLSCREEN</span>
+                </div>
+            </div>
+
+            <!-- Test Canvas Area -->
+            <div class="relative flex flex-col items-center justify-center p-6 bg-slate-950/80 border border-slate-800 rounded min-h-[160px]">
+                <canvas id="testCanvas" width="200" height="60" class="border border-slate-700 rounded mb-4"></canvas>
+                <div id="testProgress" class="text-xs text-slate-400 font-mono">Ready to begin qualification.</div>
+            </div>
+
+            <!-- Real-time metrics results -->
+            <div id="resultsCard" class="hidden border border-slate-700 bg-slate-950 p-4 rounded space-y-2 text-xs">
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Estimated Refresh Rate:</span>
+                    <span id="resHz" class="font-bold text-white">—</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Frame Jitter (Std Dev):</span>
+                    <span id="resJitter" class="font-bold text-white">—</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Dropped Frames:</span>
+                    <span id="resDropped" class="font-bold text-white">—</span>
+                </div>
+                <div class="border-t border-slate-800 pt-2 flex justify-between items-center">
+                    <span class="text-slate-400">Qualification Verdict:</span>
+                    <span id="resVerdict" class="font-bold px-2 py-0.5 rounded text-xs">—</span>
+                </div>
+                <div id="disqualifyReasons" class="text-red-400 text-xs mt-2 hidden"></div>
+            </div>
+
+            <div class="flex gap-4 pt-4">
+                <button id="btnRunTest" class="flex-1 py-2 px-4 bg-cyan-600 hover:bg-cyan-500 text-black font-bold tracking-wider rounded text-xs transition">
+                    START DISPLAY AUDIT
+                </button>
+                <a href="/" class="py-2 px-4 border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-white rounded text-xs transition text-center">
+                    BACK TO PROTOCOLS
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const viewportDim = document.getElementById('viewport-dim');
+    const dprVal = document.getElementById('dpr-val');
+    const fsStatus = document.getElementById('fs-status');
+    const canvas = document.getElementById('testCanvas');
+    const ctx = canvas.getContext('2d');
+    const btnRunTest = document.getElementById('btnRunTest');
+    const testProgress = document.getElementById('testProgress');
+    const resultsCard = document.getElementById('resultsCard');
+
+    function updateEnvTelemetry() {
+        viewportDim.textContent = `${window.innerWidth} x ${window.innerHeight} px`;
+        dprVal.textContent = window.devicePixelRatio || 1.0;
+        const isFS = !!(document.fullscreenElement || document.webkitFullscreenElement);
+        fsStatus.textContent = isFS ? "FULLSCREEN ACTIVE (PASS)" : "WINDOWED (Recommended: Fullscreen)";
+        fsStatus.className = isFS ? "text-green-400 font-bold" : "text-amber-400";
+    }
+
+    window.addEventListener('resize', updateEnvTelemetry);
+    document.addEventListener('fullscreenchange', updateEnvTelemetry);
+    updateEnvTelemetry();
+
+    btnRunTest.addEventListener('click', async () => {
+        // Request fullscreen if not already
+        if (!document.fullscreenElement) {
+            try {
+                await document.documentElement.requestFullscreen();
+            } catch (e) {
+                console.log("Fullscreen request bypassed:", e);
+            }
+        }
+        updateEnvTelemetry();
+
+        btnRunTest.disabled = true;
+        testProgress.textContent = "Auditing frame intervals (150 frames)...";
+        resultsCard.classList.add('hidden');
+
+        const frameTimestamps = [];
+        let lastTime = null;
+        let xPos = 0;
+
+        function renderFrame(timestamp) {
+            if (lastTime !== null) {
+                const delta = timestamp - lastTime;
+                frameTimestamps.push(delta);
+            }
+            lastTime = timestamp;
+
+            // Render simple smooth movement
+            ctx.fillStyle = '#020617';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#06b6d4';
+            xPos = (xPos + 3) % canvas.width;
+            ctx.fillRect(xPos, 20, 20, 20);
+
+            if (frameTimestamps.length < 150) {
+                requestAnimationFrame(renderFrame);
+            } else {
+                finishAudit(frameTimestamps);
+            }
+        }
+
+        requestAnimationFrame(renderFrame);
+    });
+
+    async function finishAudit(intervals) {
+        testProgress.textContent = "Frame audit complete. Evaluating telemetry...";
+        btnRunTest.disabled = false;
+
+        const isFS = !!(document.fullscreenElement || document.webkitFullscreenElement);
+        const payload = {
+            frame_intervals_ms: intervals,
+            viewport_width: window.innerWidth,
+            viewport_height: window.innerHeight,
+            device_pixel_ratio: window.devicePixelRatio || 1.0,
+            fullscreen: isFS
+        };
+
+        try {
+            const res = await fetch('/api/qualification/display', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+
+            resultsCard.classList.remove('hidden');
+            document.getElementById('resHz').textContent = `${data.estimated_refresh_rate_hz} Hz`;
+            document.getElementById('resJitter').textContent = `${data.frame_jitter_std_ms} ms`;
+            document.getElementById('resDropped').textContent = `${data.dropped_frames_count} frames (${data.dropped_frames_pct}%)`;
+
+            const verdictEl = document.getElementById('resVerdict');
+            const reasonsEl = document.getElementById('disqualifyReasons');
+
+            if (data.is_qualified) {
+                verdictEl.textContent = "QUALIFIED (PASS)";
+                verdictEl.className = "bg-green-950/80 border border-green-500/50 text-green-400 font-bold px-2 py-0.5 rounded text-xs";
+                reasonsEl.classList.add('hidden');
+            } else {
+                verdictEl.textContent = "DISQUALIFIED (FAIL)";
+                verdictEl.className = "bg-red-950/80 border border-red-500/50 text-red-400 font-bold px-2 py-0.5 rounded text-xs";
+                reasonsEl.innerHTML = data.disqualifying_reasons.map(r => `&bull; ${r}`).join('<br>');
+                reasonsEl.classList.remove('hidden');
+            }
+            testProgress.textContent = "Display evaluation complete.";
+        } catch (err) {
+            testProgress.textContent = `Audit evaluation error: ${err.message}`;
+        }
+    }
+</script>
+{% endblock %}
