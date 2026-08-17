@@ -645,6 +645,106 @@ def cli_memory_analyze(episode_id: str) -> None:
             console.print(f"[bold red]Memory analysis failed: {exc}[/bold red]")
 
 
+@main.command(name="audit-interventions")
+@click.argument("episode_id")
+def cli_audit_interventions(episode_id: str) -> None:
+    """Audit all intervention delivery events and verify S3/Venom rule compliance."""
+    from mammal.config import Settings
+    from mammal.interventions.governance import InterventionGovernanceGuard
+    from mammal.models.entities import Episode, TrialEvent
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        try:
+            episode = session.get(Episode, episode_id)
+            if not episode:
+                console.print(f"[bold red]Episode {episode_id} not found.[/bold red]")
+                return
+
+            events = (
+                session.query(TrialEvent)
+                .filter(TrialEvent.episode_id == episode_id, TrialEvent.event_type.like("intervention.%"))
+                .order_by(TrialEvent.occurred_at.asc())
+                .all()
+            )
+
+            console.print(Panel(f"[bold cyan]MAMMAL Intervention Governance Audit // Episode {episode_id}[/bold cyan]\nSession Mode: [yellow]{episode.mode.upper()}[/yellow]"))
+
+            if not events:
+                console.print("[dim]No intervention events recorded for this session.[/dim]")
+                return
+
+            table = Table(title="Intervention Event Log & Provenance", show_header=True, header_style="bold blue")
+            table.add_column("Event ID", style="cyan")
+            table.add_column("Trial", style="dim")
+            table.add_column("Type", style="bold yellow")
+            table.add_column("Model / Actor", style="green")
+            table.add_column("Governance Status", style="magenta")
+
+            for e in events:
+                payload = e.payload_json or {}
+                content = payload.get("content_text", "")
+                gov = InterventionGovernanceGuard.validate_intervention(
+                    message=content,
+                    session_mode=episode.mode,
+                    protocol_allows_feedback=(episode.mode == "intervention"),
+                )
+                status = "[green]COMPLIANT[/green]" if gov.is_approved else "[bold red]NON-COMPLIANT[/bold red]"
+                table.add_row(e.event_id[:12], e.trial_id[:12] if e.trial_id else "—", e.event_type, e.actor, status)
+
+            console.print(table)
+        except Exception as exc:
+            console.print(f"[bold red]Intervention audit failed: {exc}[/bold red]")
+
+
+@main.command(name="intervention-effects")
+@click.argument("episode_id")
+def cli_intervention_effects(episode_id: str) -> None:
+    """Analyze behavioral and metacognitive shifts induced by model interventions."""
+    from mammal.analysis.intervention_effects import compute_intervention_effects
+    from mammal.config import Settings
+
+    app_settings = Settings.load()
+    with get_session(app_settings) as session:
+        try:
+            report = compute_intervention_effects(session, episode_id)
+
+            console.print(Panel(f"[bold cyan]MAMMAL Intervention Effects // Episode {episode_id}[/bold cyan]"))
+            table = Table(title="Observation Baseline vs. Intervention Comparison", show_header=True, header_style="bold blue")
+            table.add_column("Phase", style="cyan")
+            table.add_column("Trials", style="dim")
+            table.add_column("Accuracy", style="bold green")
+            table.add_column("ECE (Calibration Error)", style="bold yellow")
+            table.add_column("Brier Loss", style="magenta")
+
+            table.add_row(
+                "Baseline (Unassisted)",
+                str(report.baseline_trials_count),
+                f"{report.baseline_accuracy * 100:.1f}%",
+                f"{report.baseline_ece:.4f}",
+                f"{report.baseline_brier:.4f}",
+            )
+            table.add_row(
+                "Intervention (Assisted)",
+                str(report.intervention_trials_count),
+                f"{report.intervention_accuracy * 100:.1f}%",
+                f"{report.intervention_ece:.4f}",
+                f"{report.intervention_brier:.4f}",
+            )
+            table.add_row(
+                "Intervention Shift (\u0394)",
+                "—",
+                f"\u0394 Acc = {(report.intervention_accuracy - report.baseline_accuracy) * 100:+.1f}%",
+                f"\u0394 ECE = {report.delta_ece_improvement:+.4f}",
+                f"\u0394 Brier = {report.delta_brier_improvement:+.4f}",
+            )
+
+            console.print(table)
+            console.print(f"[bold yellow]{report.rule6_epistemic_warning}[/bold yellow]")
+        except Exception as exc:
+            console.print(f"[bold red]Intervention effects analysis failed: {exc}[/bold red]")
+
+
 @main.command()
 @click.option("--host", default="127.0.0.1", help="Host interface to bind.")
 @click.option("--port", default=5000, type=int, help="Port to listen on.")
@@ -660,6 +760,7 @@ def serve(host: str, port: int, debug: bool) -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
