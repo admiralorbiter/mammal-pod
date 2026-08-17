@@ -20,9 +20,44 @@
     {% endif %}
   </div>
 
-  <!-- Step 1: Forced Choice Options -->
+  <!-- Spoken Voice Recording Section -->
+  {% if not trial.answer %}
+  <div id="voice-capture-section" style="background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1.25rem; margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+      <span class="section-label" style="margin-bottom: 0;">🎙️ Spoken Answer (Voice-First)</span>
+      <span id="rec-status" style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">STANDBY</span>
+    </div>
+
+    <!-- Voice Level indicator -->
+    <div style="background-color: var(--bg-primary); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 1rem; border: 1px solid var(--border-color);">
+      <div id="rec-vu-bar" style="background-color: var(--accent-codec); height: 100%; width: 0%; transition: width 0.05s ease;"></div>
+    </div>
+
+    <div style="display: flex; gap: 0.75rem;">
+      <button type="button" id="start-rec-btn" class="btn-primary" style="flex: 1; text-align: center;">
+        ● RECORD SPOKEN ANSWER
+      </button>
+      <button type="button" id="stop-rec-btn" class="btn-primary" style="flex: 1; text-align: center; background-color: #ef4444; color: #fff; display: none;">
+        ■ STOP &amp; TRANSCRIBE
+      </button>
+    </div>
+
+    <!-- Live Transcript / Confirmation Box -->
+    <div id="transcript-box" style="display: none; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+      <div class="section-label">ASR Transcript (Review or Edit)</div>
+      <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+        <input type="text" id="transcript-input" style="flex: 1; padding: 0.75rem; background: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; font-size: 1.05rem;">
+        <button type="button" id="confirm-voice-btn" class="btn-primary">
+          CONFIRM &amp; LOCK &rarr;
+        </button>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Step 1: Forced Choice Options (Manual Fallback / Direct Selection) -->
   <form id="answer-form">
-    <div class="section-label">1. Select Answer</div>
+    <div class="section-label">Manual Option Selection</div>
     <div class="options-grid">
       {% if item.options_json %}
         {% for opt in item.options_json %}
@@ -36,7 +71,7 @@
 
     {% if not trial.answer %}
       <button type="button" id="lock-answer-btn" class="btn-primary" style="margin-bottom: 1.5rem;" disabled>
-        LOCK ANSWER
+        LOCK SELECTED OPTION
       </button>
     {% endif %}
   </form>
@@ -67,6 +102,7 @@
     let selectedOption = null;
     let answerLocked = {{ 'true' if trial.answer else 'false' }};
     let answerLockTimeMs = null;
+    let rawAudioArtifactId = null;
 
     const optionBtns = document.querySelectorAll('.option-btn');
     const lockAnswerBtn = document.getElementById('lock-answer-btn');
@@ -76,7 +112,25 @@
     const confValDisplay = document.getElementById('conf-val');
     const lockConfBtn = document.getElementById('lock-confidence-btn');
 
-    // Update slider live display
+    // Voice Elements
+    const voiceSection = document.getElementById('voice-capture-section');
+    const startRecBtn = document.getElementById('start-rec-btn');
+    const stopRecBtn = document.getElementById('stop-rec-btn');
+    const recStatus = document.getElementById('rec-status');
+    const recVuBar = document.getElementById('rec-vu-bar');
+    const transcriptBox = document.getElementById('transcript-box');
+    const transcriptInput = document.getElementById('transcript-input');
+    const confirmVoiceBtn = document.getElementById('confirm-voice-btn');
+
+    let mediaRecorder = null;
+    let audioStream = null;
+    let audioChunks = [];
+    let audioContext = null;
+    let analyser = null;
+    let vuAnimId = null;
+    let recStartTimeMs = null;
+
+    // Slider live update
     confSlider.addEventListener('input', function() {
       confValDisplay.textContent = this.value;
     });
@@ -106,7 +160,137 @@
       }
     });
 
-    // Lock Answer Handler
+    // --- Voice Recording Flow ---
+    if (startRecBtn) {
+      startRecBtn.addEventListener('click', async function() {
+        try {
+          audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          analyser = audioContext.createAnalyser();
+          const source = audioContext.createMediaStreamSource(audioStream);
+          source.connect(analyser);
+
+          const dataArray = new Uint8Array(analyser.frequencyBinCount);
+          function updateVU() {
+            analyser.getByteFrequencyData(dataArray);
+            let sum = 0;
+            for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
+            const avg = sum / dataArray.length;
+            const pct = Math.min(100, Math.round((avg / 128) * 100));
+            recVuBar.style.width = pct + '%';
+            vuAnimId = requestAnimationFrame(updateVU);
+          }
+          updateVU();
+
+          audioChunks = [];
+          mediaRecorder = new MediaRecorder(audioStream, { mimeType: 'audio/webm' });
+          mediaRecorder.ondataavailable = e => {
+            if (e.data.size > 0) audioChunks.push(e.data);
+          };
+
+          mediaRecorder.onstop = async () => {
+            cancelAnimationFrame(vuAnimId);
+            recVuBar.style.width = '0%';
+            audioStream.getTracks().forEach(t => t.stop());
+            if (audioContext) audioContext.close();
+
+            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+            const recDurationMs = Math.round(performance.now() - recStartTimeMs);
+            recStatus.textContent = "UPLOADING & TRANSCRIBING...";
+
+            const formData = new FormData();
+            formData.append('audio', audioBlob, 'response.webm');
+            formData.append('duration_ms', recDurationMs);
+
+            try {
+              const resp = await fetch(`/api/trials/${trialId}/audio/upload`, {
+                method: 'POST',
+                body: formData,
+              });
+
+              if (!resp.ok) {
+                const err = await resp.json();
+                alert(`ASR / Upload error: ${err.error || resp.statusText}`);
+                recStatus.textContent = "ERROR";
+                startRecBtn.style.display = 'inline-block';
+                stopRecBtn.style.display = 'none';
+                return;
+              }
+
+              const result = await resp.json();
+              rawAudioArtifactId = result.raw_artifact_id;
+              recStatus.textContent = "TRANSCRIBED (CONFIDENCE: " + Math.round((result.asr_confidence || 0.9) * 100) + "%)";
+              transcriptInput.value = result.text || "";
+              transcriptBox.style.display = 'block';
+            } catch (err) {
+              alert(`Network error: ${err.message}`);
+              recStatus.textContent = "NETWORK ERROR";
+              startRecBtn.style.display = 'inline-block';
+              stopRecBtn.style.display = 'none';
+            }
+          };
+
+          recStartTimeMs = performance.now();
+          mediaRecorder.start();
+          recStatus.textContent = "● RECORDING...";
+          startRecBtn.style.display = 'none';
+          stopRecBtn.style.display = 'inline-block';
+        } catch (err) {
+          alert(`Could not access microphone: ${err.message}`);
+        }
+      });
+
+      stopRecBtn.addEventListener('click', function() {
+        if (mediaRecorder && mediaRecorder.state === 'recording') {
+          mediaRecorder.stop();
+          stopRecBtn.disabled = true;
+        }
+      });
+
+      confirmVoiceBtn.addEventListener('click', async function() {
+        const finalAnswer = transcriptInput.value.trim();
+        if (!finalAnswer) {
+          alert("Please provide or confirm an answer text.");
+          return;
+        }
+        confirmVoiceBtn.disabled = true;
+        const latencyMs = Math.round(performance.now() - trialStartMs);
+
+        try {
+          const resp = await fetch(`/api/trials/${trialId}/answer`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              value: finalAnswer,
+              modality: 'speech',
+              latency_ms: latencyMs,
+              raw_artifact_id: rawAudioArtifactId
+            })
+          });
+
+          if (!resp.ok) {
+            const err = await resp.json();
+            alert(`Error locking answer: ${err.error || resp.statusText}`);
+            confirmVoiceBtn.disabled = false;
+            return;
+          }
+
+          answerLocked = true;
+          answerLockTimeMs = performance.now();
+          if (voiceSection) voiceSection.style.display = 'none';
+          optionBtns.forEach(b => b.disabled = true);
+          if (lockAnswerBtn) lockAnswerBtn.style.display = 'none';
+
+          lockedAnswerDisplay.textContent = finalAnswer;
+          confSection.style.display = 'block';
+        } catch (err) {
+          alert(`Network error: ${err.message}`);
+          confirmVoiceBtn.disabled = false;
+        }
+      });
+    }
+
+    // --- Manual Option Lock Handler ---
     if (lockAnswerBtn) {
       lockAnswerBtn.addEventListener('click', async function() {
         if (!selectedOption) return;
@@ -133,6 +317,7 @@
 
           answerLocked = true;
           answerLockTimeMs = performance.now();
+          if (voiceSection) voiceSection.style.display = 'none';
           optionBtns.forEach(b => b.disabled = true);
           lockAnswerBtn.style.display = 'none';
 
@@ -145,7 +330,7 @@
       });
     }
 
-    // Lock Confidence Handler
+    // --- Confidence Lock Handler ---
     lockConfBtn.addEventListener('click', async function() {
       lockConfBtn.disabled = true;
       const confLatencyMs = answerLockTimeMs ? Math.round(performance.now() - answerLockTimeMs) : 0;
@@ -169,7 +354,6 @@
           return;
         }
 
-        // Navigate to next trial or completion
         window.location.href = `/sessions/${episodeId}`;
       } catch (err) {
         alert(`Network error: ${err.message}`);

@@ -35,5 +35,12 @@
       INITIALIZE SESSION &rarr;
     </button>
   </form>
+
+  <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.85rem;">
+    <span class="text-muted">HARDWARE CALIBRATION:</span>
+    <a href="{{ url_for('routes.microphone_qualification') }}" style="color: var(--accent-codec); text-decoration: none;">
+      TEST MICROPHONE INPUT &rarr;
+    </a>
+  </div>
 </div>
 {% endblock %}

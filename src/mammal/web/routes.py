@@ -4,22 +4,37 @@ from __future__ import annotations
 
 from typing import Any
 
-from flask import Blueprint, jsonify, redirect, render_template, request, url_for
+from flask import Blueprint, current_app, jsonify, redirect, render_template, request, url_for
 from sqlalchemy import func, select
 
+from mammal.capture.voice_pipeline import (
+    process_voice_trial_response,
+    record_transcription_correction,
+)
+from mammal.config import Settings, settings
 from mammal.db import get_session
 from mammal.events.engine import InvariantViolationError
 from mammal.models.entities import Episode, Protocol, Trial
+from mammal.processors.asr import get_asr_adapter
 from mammal.protocols.loader import load_and_register_all_protocols
 from mammal.trials.controller import SessionController
 
 routes = Blueprint("routes", __name__)
 
 
+def _current_settings() -> Settings:
+    """Resolve active application settings from Flask config or global default."""
+    try:
+        return current_app.config.get("SETTINGS") or settings
+    except RuntimeError:
+        return settings
+
+
 @routes.route("/")
 def index():
     """Render dashboard and session launcher."""
-    with get_session() as session:
+    app_set = _current_settings()
+    with get_session(app_set) as session:
         protocols = load_and_register_all_protocols(session)
         if not protocols:
             protocols = list(session.scalars(select(Protocol)).all())
@@ -31,8 +46,9 @@ def start_session():
     """Start a new experiment session episode."""
     protocol_id = request.form.get("protocol_id", "e00_instrument_qualification")
     pseudonym = request.form.get("pseudonym", "Jonathan Lane")
+    app_set = _current_settings()
 
-    with get_session() as session:
+    with get_session(app_set) as session:
         controller = SessionController(session)
         participant = controller.get_or_create_participant(pseudonym=pseudonym)
         episode = controller.start_session(
@@ -47,7 +63,8 @@ def start_session():
 @routes.route("/sessions/<episode_id>")
 def session_view(episode_id: str):
     """Direct participant to current active trial or completion summary."""
-    with get_session() as session:
+    app_set = _current_settings()
+    with get_session(app_set) as session:
         controller = SessionController(session)
         trial = controller.get_active_trial(episode_id)
         if trial:
@@ -58,7 +75,8 @@ def session_view(episode_id: str):
 @routes.route("/sessions/<episode_id>/trials/<trial_id>")
 def trial_view(episode_id: str, trial_id: str):
     """Render individual trial screen and record prompt presentation."""
-    with get_session() as session:
+    app_set = _current_settings()
+    with get_session(app_set) as session:
         controller = SessionController(session)
         trial = session.get(Trial, trial_id)
         if not trial or trial.episode_id != episode_id:
@@ -87,18 +105,21 @@ def api_lock_answer(trial_id: str):
     value = data.get("value")
     modality = data.get("modality", "button")
     latency_ms = data.get("latency_ms")
+    raw_artifact_id = data.get("raw_artifact_id")
 
     if value is None:
         return jsonify({"error": "Missing answer value"}), 400
 
     try:
-        with get_session() as session:
+        app_set = _current_settings()
+        with get_session(app_set) as session:
             controller = SessionController(session)
             answer = controller.lock_answer(
                 trial_id=trial_id,
                 value=value,
                 modality=modality,
                 latency_ms=float(latency_ms) if latency_ms is not None else None,
+                raw_artifact_id=raw_artifact_id,
             )
             return jsonify({
                 "status": "locked",
@@ -128,7 +149,8 @@ def api_lock_confidence(trial_id: str):
         if not (0.0 <= val_float <= 100.0):
             return jsonify({"error": "Confidence must be between 0.0 and 100.0"}), 400
 
-        with get_session() as session:
+        app_set = _current_settings()
+        with get_session(app_set) as session:
             controller = SessionController(session)
             confidence, _ = controller.lock_confidence(
                 trial_id=trial_id,
@@ -147,13 +169,88 @@ def api_lock_confidence(trial_id: str):
         return jsonify({"error": f"Internal server error: {exc}"}), 500
 
 
+@routes.route("/qualification/microphone")
+def microphone_qualification():
+    """Render microphone hardware test and level qualification interface."""
+    return render_template("microphone_qualification.html")
+
+
+@routes.route("/api/trials/<trial_id>/audio/upload", methods=["POST"])
+def api_upload_audio(trial_id: str):
+    """API endpoint to upload spoken answer audio and trigger transcription."""
+    if "audio" not in request.files:
+        return jsonify({"error": "No audio file provided in multipart request."}), 400
+
+    audio_file = request.files["audio"]
+    audio_bytes = audio_file.read()
+    mime_type = audio_file.content_type or "audio/webm"
+    duration_ms = request.form.get("duration_ms")
+
+    if not audio_bytes:
+        return jsonify({"error": "Uploaded audio payload is empty."}), 400
+
+    try:
+        custom_adapter = current_app.config.get("ASR_ADAPTER")
+        if custom_adapter:
+            adapter = custom_adapter
+        elif current_app.config.get("TESTING"):
+            adapter = get_asr_adapter("mock")
+        else:
+            try:
+                adapter = get_asr_adapter("faster-whisper")
+            except Exception:
+                adapter = get_asr_adapter("mock")
+
+        app_set = _current_settings()
+        with get_session(app_set) as session:
+            result = process_voice_trial_response(
+                session=session,
+                trial_id=trial_id,
+                audio_bytes=audio_bytes,
+                mime_type=mime_type,
+                asr_adapter=adapter,
+                app_settings=app_set,
+                duration_ms=float(duration_ms) if duration_ms else None,
+            )
+            return jsonify(result), 200 if result.get("status") == "transcribed" else 500
+
+    except Exception as exc:
+        return jsonify({"error": f"Failed to process voice capture: {exc}"}), 500
+
+
+@routes.route("/api/trials/<trial_id>/transcription/correct", methods=["POST"])
+def api_correct_transcription(trial_id: str):
+    """API endpoint to record an append-only transcription correction event."""
+    data = request.get_json(silent=True) or {}
+    corrected_text = data.get("corrected_text")
+    reason = data.get("reason", "participant_correction")
+
+    if not corrected_text:
+        return jsonify({"error": "Missing corrected_text."}), 400
+
+    try:
+        app_set = _current_settings()
+        with get_session(app_set) as session:
+            record_transcription_correction(
+                session=session,
+                trial_id=trial_id,
+                corrected_text=corrected_text,
+                reason=reason,
+            )
+            return jsonify({"status": "corrected", "trial_id": trial_id})
+    except Exception as exc:
+        return jsonify({"error": f"Failed to record correction: {exc}"}), 500
+
+
 @routes.route("/sessions/<episode_id>/summary")
 def session_summary(episode_id: str):
     """Render neutral completion summary without revealing scores."""
-    with get_session() as session:
+    app_set = _current_settings()
+    with get_session(app_set) as session:
         episode = session.get(Episode, episode_id)
         if not episode:
             return redirect(url_for("routes.index"))
 
         total_trials = session.query(func.count(Trial.id)).filter(Trial.episode_id == episode_id).scalar() or 0
         return render_template("summary.html", episode=episode, total_trials=total_trials)
+

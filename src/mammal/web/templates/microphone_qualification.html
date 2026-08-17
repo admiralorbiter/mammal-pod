@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+  <div class="meta-bar">
+    <span>HARDWARE QUALIFICATION</span>
+    <span>AUDIO INPUT CHECK</span>
+  </div>
+
+  <h1 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-codec);">
+    Microphone &amp; Speech Input Qualification
+  </h1>
+  <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6;">
+    Project MAMMAL uses spoken final answers for semantic and reasoning protocols. This check verifies browser audio permissions, recording bitrate, and input volume levels.
+  </p>
+
+  <div style="background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1.5rem; margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <span class="section-label">Audio Level Monitor</span>
+      <span id="mic-status" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">STANDBY</span>
+    </div>
+
+    <!-- Visual VU meter -->
+    <div style="background-color: var(--bg-primary); height: 20px; border-radius: 4px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+      <div id="vu-bar" style="background-color: var(--accent-green); height: 100%; width: 0%; transition: width 0.05s ease;"></div>
+    </div>
+
+    <!-- Playback container -->
+    <div id="playback-container" style="display: none; margin-bottom: 1.5rem;">
+      <div class="section-label">Recorded Audio Playback</div>
+      <audio id="audio-playback" controls style="width: 100%; margin-top: 0.5rem;"></audio>
+    </div>
+
+    <!-- Controls -->
+    <button type="button" id="record-btn" class="btn-primary" style="width: 100%;">
+      START 3-SECOND MICROPHONE TEST
+    </button>
+  </div>
+
+  <div id="qual-result" style="display: none; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; font-family: var(--font-mono); font-size: 0.9rem;">
+    <!-- Populated by JS -->
+  </div>
+
+  <a href="{{ url_for('routes.index') }}" class="btn-primary" style="display: inline-block; text-align: center; width: 100%; background-color: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary);">
+    &larr; BACK TO DASHBOARD
+  </a>
+</div>
+
+<script>
+  (function() {
+    const recordBtn = document.getElementById('record-btn');
+    const vuBar = document.getElementById('vu-bar');
+    const micStatus = document.getElementById('mic-status');
+    const playbackContainer = document.getElementById('playback-container');
+    const audioPlayback = document.getElementById('audio-playback');
+    const qualResult = document.getElementById('qual-result');
+
+    let audioContext = null;
+    let analyser = null;
+    let microphone = null;
+    let animId = null;
+
+    recordBtn.addEventListener('click', async function() {
+      recordBtn.disabled = true;
+      micStatus.textContent = "INITIALIZING MIC...";
+      qualResult.style.display = 'none';
+
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        analyser = audioContext.createAnalyser();
+        analyser.fftSize = 256;
+        microphone = audioContext.createMediaStreamSource(stream);
+        microphone.connect(analyser);
+
+        const dataArray = new Uint8Array(analyser.frequencyBinCount);
+        let maxVolume = 0;
+
+        function updateVU() {
+          analyser.getByteFrequencyData(dataArray);
+          let sum = 0;
+          for (let i = 0; i < dataArray.length; i++) {
+            sum += dataArray[i];
+          }
+          const avg = sum / dataArray.length;
+          const pct = Math.min(100, Math.round((avg / 128) * 100));
+          vuBar.style.width = pct + '%';
+          if (pct > maxVolume) maxVolume = pct;
+          animId = requestAnimationFrame(updateVU);
+        }
+        updateVU();
+
+        // Record 3 seconds with MediaRecorder
+        const mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+        const chunks = [];
+
+        mediaRecorder.ondataavailable = e => {
+          if (e.data.size > 0) chunks.push(e.data);
+        };
+
+        mediaRecorder.onstop = () => {
+          cancelAnimationFrame(animId);
+          vuBar.style.width = '0%';
+          stream.getTracks().forEach(track => track.stop());
+          if (audioContext) audioContext.close();
+
+          const blob = new Blob(chunks, { type: 'audio/webm' });
+          const audioUrl = URL.createObjectURL(blob);
+          audioPlayback.src = audioUrl;
+          playbackContainer.style.display = 'block';
+
+          // Report qualification verdict
+          qualResult.style.display = 'block';
+          if (maxVolume > 8) {
+            qualResult.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
+            qualResult.style.border = '1px solid var(--accent-green)';
+            qualResult.style.color = 'var(--accent-green)';
+            qualResult.innerHTML = `&#10003; QUALIFICATION PASS &mdash; Audio signal detected (Peak Volume: ${maxVolume}%, Size: ${blob.size} bytes).`;
+          } else {
+            qualResult.style.backgroundColor = 'rgba(239, 68, 68, 0.15)';
+            qualResult.style.border = '1px solid #ef4444';
+            qualResult.style.color = '#ef4444';
+            qualResult.innerHTML = `&#9888; LOW AUDIO LEVEL &mdash; Peak Volume was only ${maxVolume}%. Please check microphone input level.`;
+          }
+
+          micStatus.textContent = "COMPLETE";
+          recordBtn.disabled = false;
+        };
+
+        micStatus.textContent = "RECORDING (PLEASE SPEAK)...";
+        mediaRecorder.start();
+        setTimeout(() => {
+          if (mediaRecorder.state === 'recording') {
+            mediaRecorder.stop();
+          }
+        }, 3000);
+
+      } catch (err) {
+        micStatus.textContent = "ERROR";
+        qualResult.style.display = 'block';
+        qualResult.style.backgroundColor = 'rgba(239, 68, 68, 0.15)';
+        qualResult.style.border = '1px solid #ef4444';
+        qualResult.style.color = '#ef4444';
+        qualResult.textContent = `Microphone access error: ${err.message}`;
+        recordBtn.disabled = false;
+      }
+    });
+  })();
+</script>
+{% endblock %}
